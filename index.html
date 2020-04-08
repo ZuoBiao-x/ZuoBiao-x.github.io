@@ -216,23 +216,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="一、如何建包"><a href="#一、如何建包" class="headerlink" title="一、如何建包"></a>一、如何建包</h4><p>在项目下建立一个用于测试的包，和src文件夹同目录</p>
-<h4 id="二、会用到哪些注解"><a href="#二、会用到哪些注解" class="headerlink" title="二、会用到哪些注解"></a>二、会用到哪些注解</h4><p>现有一个类中的方法需要被测试，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnitDemo</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		System.out.println(a+b);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add2</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a+b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJUnit</span> </span>&#123;</span><br><span class="line">	JUnitDemo jd = <span class="keyword">new</span> JUnitDemo();</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		jd.add1(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Ignore</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = jd.add2(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">		System.out.println(<span class="string">"sum = "</span> + sum);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Before</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testBefore</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"before..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@After</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAfter</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"after..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAssert</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = jd.add2(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">		Assert.assertEquals(<span class="number">2</span>, sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行程序的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">方式一：选中该方法后执行，表示只会执行该选中的方法</span><br><span class="line">方式二：不选中任何方法直接执行，表示所有的方法都需要执行</span><br></pre></td></tr></table></figure>
-
-<p>使用到的注解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Test：使用该注解，则表明该方法会被执行</span><br><span class="line">@Ignore：使用该注解，则表明该方法不需要被执行</span><br><span class="line">@Before：不管以哪种方式运行程序，都会在被执行的方法前面执行使用了该注解的方法</span><br><span class="line">@After：不管以哪种方式运行程序，都会在被执行的方法后面执行使用了该注解的方法</span><br></pre></td></tr></table></figure>
-
-<p>使用到的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Assert.assertEquals(参数1, 参数2)：如果两参数相等则表示测试通过</span><br><span class="line">	- 参数1：期望的运行结果</span><br><span class="line">	- 参数2：实际的运行结果</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>每个注解都需要导入相应的jar包</p>
-
+<h4 id="二、会用到哪些注解"><a href="#二、会用到哪些注解" class="headerlink" title="二、会用到哪些注解"></a>二、会用到哪些注解</h4>
+        
       
 
       
@@ -884,11 +869,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,11 +881,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
