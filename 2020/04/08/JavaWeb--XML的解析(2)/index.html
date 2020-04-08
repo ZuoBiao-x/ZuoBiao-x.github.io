@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>跑调大叔の博客</title>
+  <title>JavaWeb--XML的解析(2) | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="跑调大叔の博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一、DOM4J是什么 DOM4J是针对Java开发人员专门提供的XML文档解析规范，它不同与DOM，但与DOM相似。DOM4J针对Java开发人员而设计，所以对于Java开发人员来说，使用DOM4J要比使用DOM更加方便。  DOM4J同时对DOM和SAX提供了支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb--XML的解析(2)">
+<meta property="og:url" content="http://yoursite.com/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90(2)/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
+<meta property="og:description" content="一、DOM4J是什么 DOM4J是针对Java开发人员专门提供的XML文档解析规范，它不同与DOM，但与DOM相似。DOM4J针对Java开发人员而设计，所以对于Java开发人员来说，使用DOM4J要比使用DOM更加方便。  DOM4J同时对DOM和SAX提供了支持。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-08T10:38:00.000Z">
+<meta property="article:modified_time" content="2020-04-08T10:38:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
+<meta property="article:tag" content="XML">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -167,9 +172,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-JavaWeb--XML的解析(2)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JavaWeb--XML的解析(2)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -181,8 +184,8 @@
 </a>
         <center><p>
   
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90(2)/">JavaWeb--XML的解析(2)</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      JavaWeb--XML的解析(2)
     </h1>
   
 </p></center>
@@ -221,9 +224,92 @@
 <li><p>DOM4J同时对DOM和SAX提供了支持。</p>
 </li>
 </ol>
-        
+<a id="more"></a>
+
+<h4 id="二、DOM4J所依赖的jar包"><a href="#二、DOM4J所依赖的jar包" class="headerlink" title="二、DOM4J所依赖的jar包"></a>二、DOM4J所依赖的jar包</h4><p>​    因为DOM4J并非JavaSE中的API，因此使用Dom4j开发，需下载dom4j相应的jar文件。</p>
+<p>####三、DOM4J获得Document对象的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.读取XML文件,获得document对象            </span><br><span class="line">     SAXReader reader &#x3D; new SAXReader();             </span><br><span class="line">     Document document &#x3D; reader.read(new File(&quot;input.xml&quot;));</span><br><span class="line"></span><br><span class="line">2.解析XML形式的文本,得到document对象.</span><br><span class="line">      String text &#x3D; &quot;&lt;members&gt;&lt;&#x2F;members&gt;&quot;;  </span><br><span class="line">      Document document &#x3D; DocumentHelper.parseText(text);</span><br><span class="line"></span><br><span class="line">3.主动创建document对象.</span><br><span class="line">      Document document &#x3D; DocumentHelper.createDocument();</span><br></pre></td></tr></table></figure>
+
+<p>####四、DOM4J解析XML文件实例</p>
+<p>现有如下xml文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;person&gt; </span><br><span class="line">  &lt;p1 id&#x3D;&quot;aaa&quot;&gt; </span><br><span class="line">    &lt;name&gt;zhangsan&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;age&gt;300&lt;&#x2F;age&gt;  </span><br><span class="line">    &lt;gender&gt;m&lt;&#x2F;gender&gt; </span><br><span class="line">  &lt;&#x2F;p1&gt;  </span><br><span class="line">  &lt;p1&gt; </span><br><span class="line">    &lt;name&gt;lisi&lt;&#x2F;name&gt;  </span><br><span class="line">    &lt;age&gt;30&lt;&#x2F;age&gt;  </span><br><span class="line">    &lt;gender&gt;男&lt;&#x2F;gender&gt; </span><br><span class="line">  &lt;&#x2F;p1&gt; </span><br><span class="line">&lt;&#x2F;person&gt;</span><br></pre></td></tr></table></figure>
+
+<p>操作一：获取所有name标签中的文本值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//获取解析器</span></span><br><span class="line">		SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取document对象</span></span><br><span class="line">		Document doc = reader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//获取根标签</span></span><br><span class="line">		Element root = doc.getRootElement();</span><br><span class="line">		<span class="comment">//获取所有的p1标签</span></span><br><span class="line">		List&lt;Element&gt; p1s = root.elements(<span class="string">"p1"</span>);</span><br><span class="line">		<span class="comment">//获取所有p1下面的name标签</span></span><br><span class="line">		Element name = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">for</span>(Element p1:p1s)&#123;</span><br><span class="line">			name = p1.element(<span class="string">"name"</span>);</span><br><span class="line">			<span class="comment">//获取name标签的文本值</span></span><br><span class="line">			System.out.println(name.getText());</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SAXReader()：通过调用该构造方法，来创建一个解析器对象</span><br><span class="line">read()：解析器调用该方法来获取解析后的文档</span><br><span class="line">getRootElement()：获取该xml文件的根标签</span><br><span class="line">elements(&quot;标签名&quot;)：父标签调用该方法，获取所有指定标签名的子标签，返回一个List对象</span><br><span class="line">element((&quot;标签名&quot;)：父标签调用该方法，获取指定标签名的子标签，返回一个Element对象</span><br><span class="line">getText()：标签调用此方法，获取该标签的文本值</span><br></pre></td></tr></table></figure>
+
+<p>操作二：在第一个p1的最后添加一个gender标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addElementTest</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//获取解析器对象</span></span><br><span class="line">		SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = reader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//获取root</span></span><br><span class="line">		Element root = doc.getRootElement();</span><br><span class="line">		<span class="comment">//获取第一个p1</span></span><br><span class="line">		Element p1 = root.element(<span class="string">"p1"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//添加gender标签</span></span><br><span class="line">		Element gender = p1.addElement(<span class="string">"gender"</span>);	<span class="comment">//在末尾加的时候，不用手动创建标签</span></span><br><span class="line">		<span class="comment">//给gender标签的文本值设置为男</span></span><br><span class="line">		gender.setText(<span class="string">"男"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//回写操作</span></span><br><span class="line">		OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">		XMLWriter writer = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>), format);		</span><br><span class="line">		<span class="comment">//格式为：XMLWriter(OutputStream out, OutputFormat format) </span></span><br><span class="line">		writer.write(doc);</span><br><span class="line">		writer.close();			<span class="comment">//涉及到流的操作，一定要记得关闭</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">addElement(&quot;标签名&quot;)：父标签调用该方法，创建指定名称的标签，并将此标签添加进来</span><br><span class="line">setText(&quot;文本内容&quot;)：标签调用此方法，设置自己的文本值</span><br><span class="line">OutputFormat format &#x3D; OutputFormat.createPrettyPrint()：创建输出到XML后的格式</span><br><span class="line">new XMLWriter(参数1, 参数2)：创建回写对象</span><br><span class="line">	- 参数1：输出流</span><br><span class="line">	- 参数2：输出格式对象</span><br><span class="line">write(文档对象)：回写对象调用该方法，将修改后的文档对象写回到XML文件</span><br><span class="line">writer.close()：关闭输出流</span><br></pre></td></tr></table></figure>
+
+<p>操作三：第二个p1标签下的age标签前面添加school标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addBefore</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//创建解析器对象</span></span><br><span class="line">		SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = saxReader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//获取root对象</span></span><br><span class="line">		Element root = doc.getRootElement();</span><br><span class="line">		<span class="comment">//获取第二个p1标签</span></span><br><span class="line">		List&lt;Element&gt; p1s = root.elements(<span class="string">"p1"</span>);</span><br><span class="line">		Element p1 = p1s.get(<span class="number">1</span>);</span><br><span class="line">		<span class="comment">//获取p1标签下面的所有标签，返回为list</span></span><br><span class="line">		List&lt;Element&gt; eles = p1.elements();</span><br><span class="line">    </span><br><span class="line">		<span class="comment">//创建school标签</span></span><br><span class="line">		Element school = DocumentHelper.createElement(<span class="string">"school"</span>);</span><br><span class="line">		<span class="comment">//给school标签设置文本值</span></span><br><span class="line">		school.setText(<span class="string">"HUFE"</span>);</span><br><span class="line">		<span class="comment">//list调用add(int index, E element)方法插入标签</span></span><br><span class="line">		eles.add(<span class="number">1</span>, school);</span><br><span class="line">    </span><br><span class="line">		<span class="comment">//写回</span></span><br><span class="line">		OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">		XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>), format);</span><br><span class="line">		xmlWriter.write(doc);</span><br><span class="line">		xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DocumentHelper.createElement(&quot;标签名&quot;)：根据给定的标签名创建标签，并返回该标签对象</span><br><span class="line">eles.add(1, school)：此处是list调用add(int index, E element)方法在指定位置插入指定标签</span><br><span class="line">注意：</span><br><span class="line">	- 如果是在父标签末尾添加标签，则直接使用addElement(&quot;标签名&quot;)方法即可；</span><br><span class="line">	- 但是如果实在父标签中的指定位置添加标签，则需要使用DocumentHelper.createElement(&quot;标签名&quot;)方法。因为需要 获取Element对象</span><br></pre></td></tr></table></figure>
+
+<p>操作四：修改第一个p1下面的age标签的文本值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">modifyAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建解析器对象</span></span><br><span class="line">		SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = saxReader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//获取根节点</span></span><br><span class="line">		Element root = doc.getRootElement();</span><br><span class="line">		<span class="comment">//获取第一个p1</span></span><br><span class="line">		Element p1 = root.element(<span class="string">"p1"</span>);</span><br><span class="line">		<span class="comment">//获取age</span></span><br><span class="line">		Element age = p1.element(<span class="string">"age"</span>);</span><br><span class="line">		<span class="comment">//修改age标签的文本值</span></span><br><span class="line">		age.setText(<span class="string">"300"</span>);</span><br><span class="line">		<span class="comment">//回写</span></span><br><span class="line">		OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">		XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>), format);</span><br><span class="line">		xmlWriter.write(doc);</span><br><span class="line">		xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setText(&quot;文本内容&quot;)：标签调用此方法，设置自己的文本值</span><br></pre></td></tr></table></figure>
+
+<p>操作五：删除第一个p1下面的school标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delSch</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//创建解析器对象</span></span><br><span class="line">		SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = saxReader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//得到root</span></span><br><span class="line">		Element root = doc.getRootElement();</span><br><span class="line">		<span class="comment">//获取p1</span></span><br><span class="line">		Element p1 = root.element(<span class="string">"p1"</span>);</span><br><span class="line">		<span class="comment">//得到school</span></span><br><span class="line">		Element school = p1.element(<span class="string">"school"</span>);</span><br><span class="line">		<span class="comment">//删除</span></span><br><span class="line">		p1.remove(school);</span><br><span class="line">		<span class="comment">//写回</span></span><br><span class="line">		OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">		XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>), format);</span><br><span class="line">		xmlWriter.write(doc);</span><br><span class="line">		xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remove(标签对象)：父标签调用此方法，删除指定子标签</span><br></pre></td></tr></table></figure>
+
+<p>操作六：获取第一个p1的id属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private static void getValue() &#123;</span><br><span class="line">		&#x2F;&#x2F;创建解析器对象</span><br><span class="line">		SAXReader saxReader &#x3D; new SAXReader();</span><br><span class="line">		&#x2F;&#x2F;获取解析后的document对象</span><br><span class="line">		Document doc &#x3D; saxReader.read(&quot;src&#x2F;zuobiao&#x2F;testDom4j&#x2F;person.xml&quot;);</span><br><span class="line">		&#x2F;&#x2F;得到root</span><br><span class="line">		Element root &#x3D; doc.getRootElement();</span><br><span class="line">		&#x2F;&#x2F;获取p1</span><br><span class="line">		Element p1 &#x3D; root.element(&quot;p1&quot;);</span><br><span class="line">		&#x2F;&#x2F;获取属性值</span><br><span class="line">		String str &#x3D; p1.attributeValue(&quot;id&quot;);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">attributeValue(&quot;属性名&quot;)：标签调用此方法获取指定属性名的属性值</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、DOM4J对XPath的支持"><a href="#五、DOM4J对XPath的支持" class="headerlink" title="五、DOM4J对XPath的支持"></a>五、DOM4J对XPath的支持</h4><p>（一）什么是XPath</p>
+<p>​    要从 XML 文档中提取信息，最快捷简单的办法就是在程序中嵌入 XPath 表达式。XPath是一种为查询 XML 文档而设计的查询语言。</p>
+<p>（二）XPath选择节点时常用的路径表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">第一种形式</span><br><span class="line">	&#x2F;AAA&#x2F;DDD&#x2F;BBB： 表示一层一层的，AAA下面的DDD下面的BBB</span><br><span class="line">第二种形式</span><br><span class="line">	&#x2F;&#x2F;BBB： 表示第二层中只要名称是BBB，都得到</span><br><span class="line">第三种形式</span><br><span class="line">	&#x2F;*: 所有元素</span><br><span class="line">第四种形式</span><br><span class="line">	BBB[1]：　表示第一个BBB元素</span><br><span class="line">	BBB[last()]：表示最后一个BBB元素</span><br><span class="line">第五种形式</span><br><span class="line">	&#x2F;&#x2F;BBB[@id]： 表示第二层中只要BBB元素上面有id属性，都得到</span><br><span class="line">第六种形式</span><br><span class="line">	&#x2F;&#x2F;BBB[@id&#x3D;&#39;b1&#39;] 表示第二层中名称是BBB,上面有id属性，并且id的属性值是b1的标签</span><br></pre></td></tr></table></figure>
+
+<p>（三）在DOM4J里面提供了两个方法，用来支持XPath </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">selectNodes(&quot;xpath表达式&quot;)：获取多个节点</span><br><span class="line">selectSingleNode(&quot;xpath表达式&quot;)：获取一个节点</span><br></pre></td></tr></table></figure>
+
+<p>（四）DOM4J和XPath结合的实例(需要外部jar包)</p>
+<p>操作一：获取所有的name标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectAllName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//创建解析器对象</span></span><br><span class="line">		SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = saxReader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//document对象使用selectNodes()</span></span><br><span class="line">		List&lt;Node&gt; names = doc.selectNodes(<span class="string">"//name"</span>);	<span class="comment">//因为XPath也可以获取属性，所以返回值统一为Node</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取每个name标签的文本值</span></span><br><span class="line">		<span class="keyword">for</span>(Node name:names)&#123;</span><br><span class="line">			System.out.println(name.getText());</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>操作二：获取第一个p1标签下面的name标签的文本值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSingleName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//创建解析器对象</span></span><br><span class="line">		SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">		<span class="comment">//获取解析后的document对象</span></span><br><span class="line">		Document doc = saxReader.read(<span class="string">"src/zuobiao/testDom4j/person.xml"</span>);</span><br><span class="line">		<span class="comment">//获取第一个p1标签下面的name标签</span></span><br><span class="line">		Node name = doc.selectSingleNode(<span class="string">"//p1[@id='aaa']/name"</span>);</span><br><span class="line">		<span class="comment">//获取文本值</span></span><br><span class="line">		System.out.println(name.getText());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -243,6 +329,10 @@
 	  
 <!-- 开始添加阅读量-->
 
+		<span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
 <!-- 添加完成 -->	  
 	  
       
@@ -259,251 +349,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90(2)/">more >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaWeb--XML的解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-04-08T07:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90/">JavaWeb--XML的解析(1)</a>
-    </h1>
-  
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.2k字</span>
-      </span>
+      </div>
     </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
-      </span>
-    </span>
+  </div>
 </div>
-          
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、XML解析的技术"><a href="#一、XML解析的技术" class="headerlink" title="一、XML解析的技术"></a>一、XML解析的技术</h4><ol>
-<li>DOM</li>
-<li>SAX</li>
-</ol>
-        
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90(2)/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-	  
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaWeb--XML的约束" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/04/08/JavaWeb--XML%E7%9A%84%E7%BA%A6%E6%9D%9F/" class="archive-article-date">
-  	<time datetime="2020-04-08T06:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E7%BA%A6%E6%9D%9F/">JavaWeb--XML的约束</a>
-    </h1>
-  
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">14分</span>
-      </span>
-    </span>
 </div>
-          
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、什么是XML约束"><a href="#一、什么是XML约束" class="headerlink" title="一、什么是XML约束"></a>一、什么是XML约束</h4><p>​    在XML技术里，可以编写一个文档来约束一个XML文档的书写规范，约束文档定义了在XML中允许出现的元素名称、属性及元素出现的顺序等等。</p>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-	  
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/08/JavaWeb--XML%E7%9A%84%E7%BA%A6%E6%9D%9F/">more >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/08/JavaWeb--XML%E7%9A%84%E8%A7%A3%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb--XML的解析(1)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -518,256 +432,52 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、DOM4J是什么"><span class="toc-number">1.</span> <span class="toc-text">一、DOM4J是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、DOM4J所依赖的jar包"><span class="toc-number">2.</span> <span class="toc-text">二、DOM4J所依赖的jar包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、DOM4J对XPath的支持"><span class="toc-number">3.</span> <span class="toc-text">五、DOM4J对XPath的支持</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-  
-    <article id="post-JavaWeb--初始XML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/" class="archive-article-date">
-  	<time datetime="2020-04-08T03:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/">JavaWeb--初始XML</a>
-    </h1>
-  
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">451字</span>
-      </span>
-    </span>
+       if (typeof LivereTower === 'function') { return; }
 
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
 </div>
-          
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、什么是XML"><a href="#一、什么是XML" class="headerlink" title="一、什么是XML"></a>一、什么是XML</h4><ol>
-<li>XML是指可扩展标记语言(eXtensible Markup Language)，它是一种标记语言，很类似HTML。它被设计的宗旨是传输数据，而非显示数据。XML技术由W3C组织(World Wide Web Consortium万维网联盟)发布。</li>
-<li>XML中的数据必须通过软件程序来解析执行或显示，如IE；这样的解析程序称之为Parser(解析器)。</li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-	  
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaWeb--初始JavaScript（3）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%883%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-04-03T08:06:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%883%EF%BC%89/">JavaWeb--初始JavaScript（3）</a>
-    </h1>
-  
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">561字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、JS中的DOM对象"><a href="#一、JS中的DOM对象" class="headerlink" title="一、JS中的DOM对象"></a>一、JS中的DOM对象</h4><ol>
-<li>Document对象</li>
-<li>Element对象</li>
-<li>属性对象</li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-	  
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%883%EF%BC%89/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+<!-- City版安装代码已完成 -->
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+  
+
+  
+
+  
+
   
 
 
@@ -818,8 +528,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
