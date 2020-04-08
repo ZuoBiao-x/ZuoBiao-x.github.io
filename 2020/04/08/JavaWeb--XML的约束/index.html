@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 11
+			总文章数 10
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -236,14 +236,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!ELEMENT users (user+)&gt;</span><br><span class="line">&lt;!ELEMENT user (name,age,addr)&gt;</span><br><span class="line">&lt;!ELEMENT name (#PCDATA) &gt;</span><br><span class="line">&lt;!ELEMENT age (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT addr (#PCDATA)&gt;</span><br></pre></td></tr></table></figure>
 
 <p>第三步：引入DTD</p>
-<ol>
-<li>DTD的引入方式由如下三种</li>
-</ol>
+<p>DTD的引入方式由如下三种</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DTD主要用来约束xml文件，DTD可以单独写在文件中，也可以直接定义在xml中，可以在xml中引入第三方的公共DTD。</span><br><span class="line"></span><br><span class="line">方式一：</span><br><span class="line">外部DTD的引入方式：外部DTD主要指的一个独立的DTD文件。</span><br><span class="line">首先要书写DTD文件，然后在要被约束的xml文件中引入。</span><br><span class="line">&lt;!DOCTYPE 文档根结点 SYSTEM &quot;DTD文件的URL&quot;&gt;</span><br><span class="line">文档根结点 指的是当前xml中的根标签。</span><br><span class="line">SYSTEM  引入的系统中存在文件</span><br><span class="line">&quot;DTD文件的URL&quot; DTD存放的位置</span><br><span class="line"></span><br><span class="line">方式二：</span><br><span class="line">引入公共的DTD：</span><br><span class="line">&lt;!DOCTYPE 文档根结点 PUBLIC &quot;DTD名称&quot; &quot;DTD文件的URL&quot;&gt;</span><br><span class="line">文档根结点 指的是当前xml中的根标签。</span><br><span class="line">PUBLIC  表示当前引入的DTD是公共的DTD</span><br><span class="line">如：&lt;!DOCTYPE web-app PUBLIC </span><br><span class="line">		&quot;-&#x2F;&#x2F;Sun Microsystems, Inc.&#x2F;&#x2F;DTD Web Application 2.3&#x2F;&#x2F;EN&quot;</span><br><span class="line">		&quot;http:&#x2F;&#x2F;java.sun.com&#x2F;dtd&#x2F;web-app_2_3.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">方式三：</span><br><span class="line">在xml中直接书写DTD</span><br><span class="line">&lt;!DOCTYPE  根标签名 [</span><br><span class="line">具体的标签的约束</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>此处，在XML文件中使用的引入方式是使用的第三种</li>
-</ol>
+<p>此处，在XML文件中使用的引入方式是使用的第三种</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">users</span>[</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ELEMENT <span class="meta-keyword">users</span> (<span class="meta-keyword">user</span>+) &gt;</span>    </span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ELEMENT <span class="meta-keyword">user</span> (<span class="meta-keyword">name</span>,<span class="meta-keyword">age</span>,<span class="meta-keyword">addr</span>) &gt;</span>    </span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ELEMENT <span class="meta-keyword">name</span> (<span class="meta-keyword">#PCDATA</span>) &gt;</span>    </span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ELEMENT <span class="meta-keyword">age</span> (<span class="meta-keyword">#PCDATA</span>) &gt;</span>    </span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ELEMENT <span class="meta-keyword">addr</span> (<span class="meta-keyword">#PCDATA</span>) &gt;</span>    </span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">users</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>zhangsan<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>23<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">addr</span>&gt;</span>shanghai<span class="tag">&lt;/<span class="name">addr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisi<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>24<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">addr</span>&gt;</span>beijing<span class="tag">&lt;/<span class="name">addr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">users</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>（二）DTD约束语法细节</p>
@@ -632,10 +628,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
@@ -644,19 +636,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
             
             <div class="clearfix"></div>
