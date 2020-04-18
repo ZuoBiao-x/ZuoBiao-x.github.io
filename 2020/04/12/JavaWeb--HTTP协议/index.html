@@ -241,7 +241,7 @@
 <p>响应头：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Location: http:&#x2F;&#x2F;www.it315.org&#x2F;index.jsp 【服务器告诉浏览器要跳转到哪个页面】</span><br><span class="line">Server:apache tomcat【服务器告诉浏览器，服务器的型号是什么】</span><br><span class="line">Content-Encoding: gzip 【服务器告诉浏览器数据压缩的格式】</span><br><span class="line">Content-Length: 80 【服务器告诉浏览器回送数据的长度】</span><br><span class="line">Content-Language: zh-cn 【服务器告诉浏览器，服务器的语言环境】</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;GB2312 【服务器告诉浏览器，回送数据的类型】</span><br><span class="line">Last-Modified: Tue, 11 Jul 2000 18:23:51 GMT【服务器告诉浏览器该资源上次更新时间】</span><br><span class="line">Refresh: 1;url&#x3D;http:&#x2F;&#x2F;www.it315.org【服务器告诉浏览器要定时刷新】</span><br><span class="line">Content-Disposition: attachment; filename&#x3D;aaa.zip【服务器告诉浏览器以下载方式打开数据】</span><br><span class="line">Transfer-Encoding: chunked 【服务器告诉浏览器数据以分块方式回送】</span><br><span class="line">Set-Cookie:SS&#x3D;Q0&#x3D;5Lb_nQ; path&#x3D;&#x2F;search【服务器告诉浏览器要保存Cookie】</span><br><span class="line">Expires: -1【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Cache-Control: no-cache 【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Pragma: no-cache 【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Connection: close&#x2F;Keep-Alive 【服务器告诉浏览器连接方式】</span><br><span class="line">Date: Tue, 11 Jul 2000 18:23:51 GMT【服务器告诉浏览器回送数据的时间】</span><br></pre></td></tr></table></figure>
 
-<h5 id="（二）响应码："><a href="#（二）响应码：" class="headerlink" title="（二）响应码："></a>（二）响应码：</h5><p><img src="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/1.png" alt="1"><br>200：请求成功，浏览器会把响应体内容（通常是html）显示在浏览器中；<br>404：请求的资源没有找到，说明客户端错误的请求了不存在的资源；<br>500：请求资源找到了，但服务器内部出现了错误；<br>302：重定向，当响应码为302时，表示服务器要求浏览器重新再发一个请求，服务器会发送一个响应头Location，它指定了新请求的URL地址；<br>304：比较If-Modified-Since的时间与文件真实的时间一样时，服务器会响应304，而且不会有响正文，表示浏览器缓存的就是最新版本下图解释了工作原理：</p>
+<h5 id="（二）响应码："><a href="#（二）响应码：" class="headerlink" title="（二）响应码："></a>（二）响应码：</h5><p><img src="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/1.png" alt><br>200：请求成功，浏览器会把响应体内容（通常是html）显示在浏览器中；<br>404：请求的资源没有找到，说明客户端错误的请求了不存在的资源；<br>500：请求资源找到了，但服务器内部出现了错误；<br>302：重定向，当响应码为302时，表示服务器要求浏览器重新再发一个请求，服务器会发送一个响应头Location，它指定了新请求的URL地址；<br>304：比较If-Modified-Since的时间与文件真实的时间一样时，服务器会响应304，而且不会有响正文，表示浏览器缓存的就是最新版本下图解释了工作原理：</p>
 <p><img src="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/2.png" alt="2"><br>响应头：Last-Modified：最后的修改时间；<br>请求头：If-Modified-Since：把上次请求的index.html的最后修改时间还给服务器；</p>
 <h5 id="（三）其他响应头"><a href="#（三）其他响应头" class="headerlink" title="（三）其他响应头"></a>（三）其他响应头</h5><p>1、告诉浏览器不要缓存的响应头：<br>Expires: -1；<br>Cache-Control: no-cache；<br>Pragma: no-cache；</p>
 <p>2、自动刷新响应头，浏览器会在3秒之后请求指定的网址<br><code>Refresh: 3;url=http://www.itcast.cn</code></p>
@@ -593,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
+                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Hello</a>
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
             
             <div class="clearfix"></div>
