@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java中将文件夹复制到另一个文件夹 | 跑调大叔の博客</title>
+  <title>JavaWeb--HTTP协议 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 文件夹的拷贝">
+  <meta name="description" content="一、HTTP概述HTTP（hypertext transport protocol），即超文本传输协议。这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中将文件夹复制到另一个文件夹">
-<meta property="og:url" content="http://yoursite.com/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/index.html">
+<meta property="og:title" content="JavaWeb--HTTP协议">
+<meta property="og:url" content="http://yoursite.com/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="1. 文件夹的拷贝">
+<meta property="og:description" content="一、HTTP概述HTTP（hypertext transport protocol），即超文本传输协议。这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-21T15:47:44.000Z">
-<meta property="article:modified_time" content="2020-01-21T15:47:44.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/2.png">
+<meta property="article:published_time" content="2020-04-12T10:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-12T10:00:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="IO流">
+<meta property="article:tag" content="HTTP协议">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/1.png">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
   
@@ -172,20 +175,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java中将文件夹复制到另一个文件夹" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaWeb--HTTP协议" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/" class="archive-article-date">
-  	<time datetime="2020-01-21T15:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
+        <a href="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
+  	<time datetime="2020-04-12T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
 </a>
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      Java中将文件夹复制到另一个文件夹
+      JavaWeb--HTTP协议
     </h1>
   
 </p></center>
@@ -197,7 +200,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">727字</span>
+        <span class="post-count">2.5k字</span>
       </span>
     </span>
 
@@ -206,7 +209,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">10分</span>
       </span>
     </span>
 </div>
@@ -218,25 +221,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><em>1. 文件夹的拷贝</em></strong></p>
-<a id="more"></a>        
+        <h4 id="一、HTTP概述"><a href="#一、HTTP概述" class="headerlink" title="一、HTTP概述"></a>一、HTTP概述</h4><p>HTTP（hypertext transport protocol），即超文本传输协议。这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。<a id="more"></a><br>HTTP就是一个通信规则，通信规则规定了客户端发送给服务器的内容格式，也规定了服务器发送给客户端的内容格式。客户端发送给服务器的格式叫“请求协议”；服务器发送给客户端的格式叫“响应协议”。</p>
+<p>原理：当在浏览器中点击这个链接的时候，<strong>浏览器会向服务器发送一段文本</strong>，<strong>告诉服务器请求打开的是哪一个网页。服务器收到请求后，就返回一段文本给浏览器，浏览器会将该文本解析，然后显示出来。</strong>这段文本就是遵循HTTP协议规范的。</p>
+<h4 id="二、HTTP1-0和HTTP1-1的区别"><a href="#二、HTTP1-0和HTTP1-1的区别" class="headerlink" title="二、HTTP1.0和HTTP1.1的区别"></a>二、HTTP1.0和HTTP1.1的区别</h4><p>HTTP1.0协议中，客户端与web服务器建立连接后，只能获得一个web资源【短连接，获取资源后就断开连接】<br>HTTP1.1协议，允许客户端与web服务器建立连接后，在一个连接上获取多个web资源【保持连接】</p>
+<h4 id="三、请求协议"><a href="#三、请求协议" class="headerlink" title="三、请求协议"></a>三、请求协议</h4><h5 id="（一）请求协议的格式如下："><a href="#（一）请求协议的格式如下：" class="headerlink" title="（一）请求协议的格式如下："></a>（一）请求协议的格式如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请求首行；【描述客户端的请求方式、请求的资源名称，以及使用的HTTP协议版本号】</span><br><span class="line">请求头信息；【描述客户端请求哪台主机，以及客户端的一些环境信息等】</span><br><span class="line">空行；</span><br><span class="line">请求体</span><br></pre></td></tr></table></figure>
+<p>浏览器发送给服务器的内容就这个格式的，如果不是这个格式服务器将无法解读！</p>
+<h5 id="（二）请求方式"><a href="#（二）请求方式" class="headerlink" title="（二）请求方式"></a>（二）请求方式</h5><p>请求方式有：POST,GET,HEAD,OPTIONS,DELETE,TRACE,PUT。<br><strong>常用的有：POST,GET</strong><br>一般来说，当我们<strong>点击超链接，通过地址栏访问都是get请求方式</strong>。通过<strong>表单提交的数据一般是post方式</strong><br>可以简单理解<strong>GET方式用来查询数据</strong>,<strong>POST方式用来提交数据</strong>，<strong>get的提交速度比post快</strong><br>GET方式：在URL地址后附带的<strong>参数是有限制</strong>的，其<strong>数据容量通常不能超过1K</strong>。<br>POST方式：可以在请求的实体内容中向服务器发送数据，<strong>传送的数据量无限制</strong>。</p>
+<h5 id="（三）get方式"><a href="#（三）get方式" class="headerlink" title="（三）get方式"></a>（三）get方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;hello&#x2F;index.jsp HTTP&#x2F;1.1</span><br><span class="line">Host: localhost</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 5.1; rv:5.0) Gecko&#x2F;20100101 Firefox&#x2F;5.0</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: zh-cn,zh;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Charset: GB2312,utf-8;q&#x3D;0.7,*;q&#x3D;0.7</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cookie: JSESSIONID&#x3D;369766FDF6220F7803433C0B2DE36D98</span><br><span class="line">			&#x2F;&#x2F;这个位置虽然没有东西，但很重要，它是空行。如果有请求体，那么请求体在空行的下面</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyDir</span><span class="params">(String sourcePath, String newPath)</span> </span>&#123;</span><br><span class="line">		File start = <span class="keyword">new</span> File(sourcePath);</span><br><span class="line">		File end = <span class="keyword">new</span> File(newPath);</span><br><span class="line">		String[] filePath = start.list();		<span class="comment">//获取该文件夹下的所有文件以及目录的名字</span></span><br><span class="line">		<span class="keyword">if</span>(!end.exists()) &#123;</span><br><span class="line">			end.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(String temp:filePath) &#123;</span><br><span class="line">			<span class="comment">//查看其数组中每一个是文件还是文件夹</span></span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">new</span> File(sourcePath+File.separator+temp).isDirectory()) &#123;</span><br><span class="line">				<span class="comment">//为文件夹，进行递归</span></span><br><span class="line">				copyDir(sourcePath+File.separator+temp, newPath+File.separator+temp);</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">//为文件则进行拷贝</span></span><br><span class="line">				copyFile(sourcePath+File.separator+temp, newPath+File.separator+temp);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、GET &#x2F;hello&#x2F;index.jsp HTTP&#x2F;1.1：GET请求，请求服务器路径为&#x2F;hello&#x2F;index.jsp，协议为1.1；</span><br><span class="line">2、Host:localhost：请求的主机名为localhost；</span><br><span class="line">3、User-Agent: Mozilla&#x2F;5.0 (**Windows NT 5.1**; rv:5.0) Gecko&#x2F;20100101 **Firefox&#x2F;5.0**：与浏览器和OS相关的信息。有些网站会显示用户的系统版本和浏览器版本信息，这都是通过获取User-Agent头信息而来的；</span><br><span class="line">4、Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8：告诉服务器，当前客户端可以接收的文档类型，其实这里包含了*&#x2F;*，就表示什么都可以接收；</span><br><span class="line">5、Accept-Language: zh-cn,zh;q&#x3D;0.5：当前客户端支持的语言，可以在浏览器的工具à选项中找到语言相关信息；</span><br><span class="line">6、Accept-Encoding: gzip, deflate：支持的压缩格式。数据在网络上传递时，可能服务器会把数据压缩后再发送；</span><br><span class="line">7、ccept-Charset: GB2312,utf-8;q&#x3D;0.7,*;q&#x3D;0.7：客户端支持的编码；</span><br><span class="line">8、Connection: keep-alive：客户端支持的链接方式，保持一段时间链接，默认为3000ms；</span><br><span class="line">9、Cookie: JSESSIONID&#x3D;369766FDF6220F7803433C0B2DE36D98：因为不是第一次访问这个地址，所以会在请求中把上一次服务器响应中发送过来的Cookie在请求中一并发送去过；这个Cookie的名字为JSESSIONID</span><br></pre></td></tr></table></figure>
 
-<p><strong><em>2.文件的拷贝</em></strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span><span class="params">(String sourcePath, String newPath)</span> </span>&#123;</span><br><span class="line">		File start = <span class="keyword">new</span> File(sourcePath);</span><br><span class="line">		File end = <span class="keyword">new</span> File(newPath);</span><br><span class="line">		<span class="keyword">try</span>(BufferedInputStream bis=<span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(start));</span><br><span class="line">			BufferedOutputStream bos=<span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(end))) &#123;</span><br><span class="line">			<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">byte</span>[] flush = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">			<span class="keyword">while</span>((len=bis.read(flush)) != -<span class="number">1</span>) &#123;</span><br><span class="line">				bos.write(flush, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">			bos.flush();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（四）post方法"><a href="#（四）post方法" class="headerlink" title="（四）post方法"></a>（四）post方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;hello&#x2F;index.jsp HTTP&#x2F;1.1</span><br><span class="line">Accept: image&#x2F;gif, image&#x2F;jpeg, image&#x2F;pjpeg, image&#x2F;pjpeg, application&#x2F;msword, application&#x2F;vnd.ms-excel, application&#x2F;vnd.ms-powerpoint, application&#x2F;x-ms-application, application&#x2F;x-ms-xbap, application&#x2F;vnd.ms-xpsdocument, application&#x2F;xaml+xml, *&#x2F;*</span><br><span class="line">Referer: http:&#x2F;&#x2F;localhost:8080&#x2F;hello&#x2F;index.jsp</span><br><span class="line">Accept-Language: zh-cn,en-US;q&#x3D;0.5</span><br><span class="line">User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident&#x2F;4.0; InfoPath.2; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Host: localhost:8080</span><br><span class="line">Content-Length: 13</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Cookie: JSESSIONID&#x3D;E365D980343B9307023A1D271CC48E7D</span><br><span class="line">keyword&#x3D;hello</span><br></pre></td></tr></table></figure>
 
-<p>注意：在该函数中，用到的是java7增强的try语句来进行关闭资源。它允许在try关键字后紧跟一对圆括号，里面可以声明、初始化一个或多个资源（不同的资源之间用分号隔开），此处的资源指的是那些必须在程序结束时显示关闭的资源（数据库连接、网络连接等），try语句会在该语句结束时自动关闭这些资源。</p>
-<p><strong><em>3. 函数的调用</em></strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		System.out.print(<span class="string">"From："</span>);</span><br><span class="line">		String sourcePath = scanner.nextLine();</span><br><span class="line">		System.out.print(<span class="string">"To："</span>);</span><br><span class="line">		String newPath = scanner.nextLine();</span><br><span class="line">		copyDir(sourcePath, newPath);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、Referer: http:&#x2F;&#x2F;localhost:8080&#x2F;hello&#x2F;index.jsp：请求来自哪个页面，例如你在百度上点击链接到了这里，那么  		Referer:http:&#x2F;&#x2F;www.baidu.com；如果你是在浏览器的地址栏中直接输入的地址，那么就没有Referer这个请求头了；</span><br><span class="line">2、Content-Type: application&#x2F;x-www-form-urlencoded：表单的数据类型，说明会使用url格式编码数据；url编码的数据都是以“%”为前缀，后面跟随两位的16进制，例如“传智”这两个字使用UTF-8的url编码用为“%E4%BC%A0%E6%99%BA”；</span><br><span class="line">3、Content-Length:13：请求体的长度，这里表示13个字节。</span><br><span class="line">4、keyword&#x3D;hello：请求体内容！hello是在表单中输入的数据，keyword是表单字段的名字。</span><br></pre></td></tr></table></figure>
 
+<p>Referer请求头是比较有用的一个请求头，它可以用来做统计工作，也可以用来做防盗链。<br><strong>统计工作</strong>：比如一个公司网站在百度上做了广告，但不知道在百度上做广告对我们网站的访问量是否有影响，那么可以对每个请求中的Referer进行分析，如果Referer为百度的很多，那么说明用户都是通过百度找到我们公司网站的。<br><strong>防盗链</strong>：比如一个公司网站上有一个下载链接，而其他网站盗链了这个地址，例如在公司网站上的index.html页面中有一个链接，点击即可下载JDK7.0，但有某个人的微博中盗链了这个资源，它也有一个链接指向我们网站的JDK7.0，也就是说登录它的微博，点击链接就可以从我网站上下载JDK7.0，这导致我们网站的广告没有看，但下载的却是我网站的资源。这时可以使用Referer进行防盗链，在资源被下载之前，我们对Referer进行判断，如果请求来自本网站，那么允许下载，如果非本网站，先跳转到本网站看广告，然后再允许下载。<br><strong>注意：POST请求是可以有体的，而GET请求不能有请求体。</strong></p>
+<h4 id="四、响应协议"><a href="#四、响应协议" class="headerlink" title="四、响应协议"></a>四、响应协议</h4><h5 id="（一）响应协议的格式如下："><a href="#（一）响应协议的格式如下：" class="headerlink" title="（一）响应协议的格式如下："></a>（一）响应协议的格式如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">响应首行；</span><br><span class="line">响应头信息；</span><br><span class="line">空行；</span><br><span class="line">响应体</span><br></pre></td></tr></table></figure>
+<p>响应内容是由服务器发送给浏览器的内容，浏览器会根据响应内容来显示</p>
+<p>响应头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Location: http:&#x2F;&#x2F;www.it315.org&#x2F;index.jsp 【服务器告诉浏览器要跳转到哪个页面】</span><br><span class="line">Server:apache tomcat【服务器告诉浏览器，服务器的型号是什么】</span><br><span class="line">Content-Encoding: gzip 【服务器告诉浏览器数据压缩的格式】</span><br><span class="line">Content-Length: 80 【服务器告诉浏览器回送数据的长度】</span><br><span class="line">Content-Language: zh-cn 【服务器告诉浏览器，服务器的语言环境】</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;GB2312 【服务器告诉浏览器，回送数据的类型】</span><br><span class="line">Last-Modified: Tue, 11 Jul 2000 18:23:51 GMT【服务器告诉浏览器该资源上次更新时间】</span><br><span class="line">Refresh: 1;url&#x3D;http:&#x2F;&#x2F;www.it315.org【服务器告诉浏览器要定时刷新】</span><br><span class="line">Content-Disposition: attachment; filename&#x3D;aaa.zip【服务器告诉浏览器以下载方式打开数据】</span><br><span class="line">Transfer-Encoding: chunked 【服务器告诉浏览器数据以分块方式回送】</span><br><span class="line">Set-Cookie:SS&#x3D;Q0&#x3D;5Lb_nQ; path&#x3D;&#x2F;search【服务器告诉浏览器要保存Cookie】</span><br><span class="line">Expires: -1【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Cache-Control: no-cache 【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Pragma: no-cache 【服务器告诉浏览器不要设置缓存】</span><br><span class="line">Connection: close&#x2F;Keep-Alive 【服务器告诉浏览器连接方式】</span><br><span class="line">Date: Tue, 11 Jul 2000 18:23:51 GMT【服务器告诉浏览器回送数据的时间】</span><br></pre></td></tr></table></figure>
 
-
-<p><strong><em>4. 源代码</em></strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 复制文件夹d:/java下面所有文件和子文件夹内容到d:/java2。</span></span><br><span class="line"><span class="comment">    提示：涉及单个文件复制、目录的创建、递归的使用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Practice01</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		System.out.print(<span class="string">"From："</span>);</span><br><span class="line">		String sourcePath = scanner.nextLine();</span><br><span class="line">		System.out.print(<span class="string">"To："</span>);</span><br><span class="line">		String newPath = scanner.nextLine();</span><br><span class="line">		copyDir(sourcePath, newPath);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//文件夹的拷贝</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyDir</span><span class="params">(String sourcePath, String newPath)</span> </span>&#123;</span><br><span class="line">		File start = <span class="keyword">new</span> File(sourcePath);</span><br><span class="line">		File end = <span class="keyword">new</span> File(newPath);</span><br><span class="line">		String[] filePath = start.list();		<span class="comment">//获取该文件夹下的所有文件以及目录的名字</span></span><br><span class="line">		<span class="keyword">if</span>(!end.exists()) &#123;</span><br><span class="line">			end.mkdir();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(String temp:filePath) &#123;</span><br><span class="line">			<span class="comment">//查看其数组中每一个是文件还是文件夹</span></span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">new</span> File(sourcePath+File.separator+temp).isDirectory()) &#123;</span><br><span class="line">				<span class="comment">//为文件夹，进行递归</span></span><br><span class="line">				copyDir(sourcePath+File.separator+temp, newPath+File.separator+temp);</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">//为文件则进行拷贝</span></span><br><span class="line">				copyFile(sourcePath+File.separator+temp, newPath+File.separator+temp);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//文件的拷贝</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span><span class="params">(String sourcePath, String newPath)</span> </span>&#123;</span><br><span class="line">		File start = <span class="keyword">new</span> File(sourcePath);</span><br><span class="line">		File end = <span class="keyword">new</span> File(newPath);</span><br><span class="line">		<span class="keyword">try</span>(BufferedInputStream bis=<span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(start));</span><br><span class="line">			BufferedOutputStream bos=<span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(end))) &#123;</span><br><span class="line">			<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">byte</span>[] flush = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">			<span class="keyword">while</span>((len=bis.read(flush)) != -<span class="number">1</span>) &#123;</span><br><span class="line">				bos.write(flush, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">			bos.flush();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然和文件以及流有关的更多操作，可以使用Apache Software Foundation提供的相关jar包（commons-io）。</p>
-<p><strong><em>ps：</em></strong><a href="http://commons.apache.org/proper/commons-io/" target="_blank" rel="noopener">commons-io 下载地址</a></p>
+<h5 id="（二）响应码："><a href="#（二）响应码：" class="headerlink" title="（二）响应码："></a>（二）响应码：</h5><p><img src="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/1.png" alt="1"><br>200：请求成功，浏览器会把响应体内容（通常是html）显示在浏览器中；<br>404：请求的资源没有找到，说明客户端错误的请求了不存在的资源；<br>500：请求资源找到了，但服务器内部出现了错误；<br>302：重定向，当响应码为302时，表示服务器要求浏览器重新再发一个请求，服务器会发送一个响应头Location，它指定了新请求的URL地址；<br>304：比较If-Modified-Since的时间与文件真实的时间一样时，服务器会响应304，而且不会有响正文，表示浏览器缓存的就是最新版本下图解释了工作原理：</p>
+<p><img src="/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/2.png" alt="2"><br>响应头：Last-Modified：最后的修改时间；<br>请求头：If-Modified-Since：把上次请求的index.html的最后修改时间还给服务器；</p>
+<h5 id="（三）其他响应头"><a href="#（三）其他响应头" class="headerlink" title="（三）其他响应头"></a>（三）其他响应头</h5><p>1、告诉浏览器不要缓存的响应头：<br>Expires: -1；<br>Cache-Control: no-cache；<br>Pragma: no-cache；</p>
+<p>2、自动刷新响应头，浏览器会在3秒之后请求指定的网址<br><code>Refresh: 3;url=http://www.itcast.cn</code></p>
+<h5 id="（四）HTML中指定响应头"><a href="#（四）HTML中指定响应头" class="headerlink" title="（四）HTML中指定响应头"></a>（四）HTML中指定响应头</h5><p>在HTMl页面中可以使用<code>&lt;meta http-equiv=&quot;&quot; content=&quot;&quot;&gt;</code>来指定响应头，例如在index.html页面中给出<code>&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;3;url=http://www.baidu.com&quot;&gt;</code>，表示浏览器只会显示index.html页面3秒，然后自动跳转到<code>http://www.baidu.com</code>.</p>
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
 
       
 
@@ -271,7 +281,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HTTP协议</a>
         		</li>
       		
 		</ul>
@@ -292,7 +302,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
         		</li>
       		
 		</ul>
@@ -347,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/12/JavaWeb--HTTP%E5%8D%8F%E8%AE%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,18 +371,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/28/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/18/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java基础学习总结--反射
+          测试图片
         
       </div>
     </a>
   
   
-    <a href="/2019/12/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/04/08/Java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java单元测试</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -399,7 +409,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、HTTP概述"><span class="toc-number">1.</span> <span class="toc-text">一、HTTP概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、HTTP1-0和HTTP1-1的区别"><span class="toc-number">2.</span> <span class="toc-text">二、HTTP1.0和HTTP1.1的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、请求协议"><span class="toc-number">3.</span> <span class="toc-text">三、请求协议</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）请求协议的格式如下："><span class="toc-number">3.1.</span> <span class="toc-text">（一）请求协议的格式如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）请求方式"><span class="toc-number">3.2.</span> <span class="toc-text">（二）请求方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）get方式"><span class="toc-number">3.3.</span> <span class="toc-text">（三）get方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）post方法"><span class="toc-number">3.4.</span> <span class="toc-text">（四）post方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、响应协议"><span class="toc-number">4.</span> <span class="toc-text">四、响应协议</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）响应协议的格式如下："><span class="toc-number">4.1.</span> <span class="toc-text">（一）响应协议的格式如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）响应码："><span class="toc-number">4.2.</span> <span class="toc-text">（二）响应码：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）其他响应头"><span class="toc-number">4.3.</span> <span class="toc-text">（三）其他响应头</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）HTML中指定响应头"><span class="toc-number">4.4.</span> <span class="toc-text">（四）HTML中指定响应头</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
