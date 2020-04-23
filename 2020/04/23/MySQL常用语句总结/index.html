@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Java基础 | 跑调大叔の博客</title>
+  <title>MySQL常用语句总结 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="跑调大叔の博客">
-<meta property="og:url" content="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="一、SQL的分类1、DDL：数据定义语言2、DML：数据操作语言3、DCL：数据控制语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL常用语句总结">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
+<meta property="og:description" content="一、SQL的分类1、DDL：数据定义语言2、DML：数据操作语言3、DCL：数据控制语言">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-23T13:14:00.000Z">
+<meta property="article:modified_time" content="2020-04-23T13:14:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -167,169 +172,339 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL常用语句总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+		
+        
+        <a href="/2020/04/23/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-04-23T13:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        <center><p>
+  
+    <h1 class="article-title_code_ant" itemprop="name">
+      MySQL常用语句总结
+    </h1>
+  
+</p></center>
+		<!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">13分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+		
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、SQL的分类"><a href="#一、SQL的分类" class="headerlink" title="一、SQL的分类"></a>一、SQL的分类</h4><p>1、DDL：数据定义语言<br>2、DML：数据操作语言<br>3、DCL：数据控制语言 <a id="more"></a><br>4、DQL：数据查询语言（从DML中抽取出来的）</p>
+<h4 id="二、DDL"><a href="#二、DDL" class="headerlink" title="二、DDL"></a>二、DDL</h4><h5 id="（一）操作数据库"><a href="#（一）操作数据库" class="headerlink" title="（一）操作数据库"></a>（一）操作数据库</h5><p>1、创建数据库查看所有数据库名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE [IF NOT EXISTS] mydb1；</span><br></pre></td></tr></table></figure>
+<p>2、切换数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE mydb1，  -- 切换到mydb1数据库；</span><br></pre></td></tr></table></figure>
+<p>3、查看所有数据库名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES；</span><br></pre></td></tr></table></figure>
+<p>4、删除数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE [IF EXISTS] mydb1；</span><br></pre></td></tr></table></figure>
+<p>5、修改数据库编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER DATABASE mydb1 CHARACTER SET utf8</span><br></pre></td></tr></table></figure>
+<h5 id="（二）操作表"><a href="#（二）操作表" class="headerlink" title="（二）操作表"></a>（二）操作表</h5><p>1、创建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu(</span><br><span class="line">	sid	    CHAR(6),</span><br><span class="line">	sname	VARCHAR(20),</span><br><span class="line">	age		INT,</span><br><span class="line">	gender	VARCHAR(10) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>2、查看当前数据库中所有表名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW TABLES；</span><br></pre></td></tr></table></figure>
+<p>3、查看指定表的创建语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW CREATE TABLE emp	-- 查看emp表的创建语句；</span><br></pre></td></tr></table></figure>
+<p>4、查看表结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC emp 	-- 查看emp表结构；</span><br></pre></td></tr></table></figure>
+<p>5、删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE emp 	-- 删除emp表；</span><br></pre></td></tr></table></figure>
+<p>6、修改表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.修改之添加列：给stu表添加classname列：</span><br><span class="line">	ALTER TABLE stu ADD (classname varchar(100));</span><br><span class="line">2.修改之修改列类型：修改stu表的gender列类型为CHAR(2)：</span><br><span class="line">	ALTER TABLE stu MODIFY gender CHAR(2);</span><br><span class="line">3.修改之修改列名：修改stu表的gender列名为sex：</span><br><span class="line">	ALTER TABLE stu change gender sex CHAR(2);</span><br><span class="line">4.修改之删除列：删除stu表的classname列：</span><br><span class="line">	ALTER TABLE stu DROP classname;</span><br><span class="line">5.修改之修改表名称：修改stu表名称为student：</span><br><span class="line">	ALTER TABLE stu RENAME TO student;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、DML"><a href="#三、DML" class="headerlink" title="三、DML"></a>三、DML</h4><p>1、插入数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO stu(sid, sname,age,gender) VALUES(&#39;s_1001&#39;, &#39;zhangSan&#39;, 23, &#39;male&#39;);</span><br><span class="line"></span><br><span class="line">INSERT INTO stu(sid, sname) VALUES(&#39;s_1001&#39;, &#39;zhangSan&#39;);</span><br><span class="line"></span><br><span class="line">INSERT INTO stu VALUES(&#39;s_1002&#39;, &#39;liSi&#39;, 32, &#39;female&#39;);</span><br></pre></td></tr></table></figure>
+<p>2、修改数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE stu SET sname&#x3D;’zhangSanSan’, age&#x3D;’32’, gender&#x3D;’female’ WHERE sid&#x3D;’s_1001’;</span><br><span class="line">UPDATE stu SET gender&#x3D;’female’ WHERE gender IS NULL</span><br><span class="line">UPDATE stu SET age&#x3D;age+1 WHERE sname&#x3D;’zhaoLiu’;</span><br></pre></td></tr></table></figure>
+<p>3、删除数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM stu WHERE sid&#x3D;’s_1001’003B</span><br><span class="line"></span><br><span class="line">DELETE FROM stu;</span><br></pre></td></tr></table></figure>
+<p>4、查询数据（在后面有详细总结）</p>
+<h4 id="四、DCL"><a href="#四、DCL" class="headerlink" title="四、DCL"></a>四、DCL</h4><p>1、创建用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER 用户名@地址 IDENTIFIED BY &#39;密码&#39;;</span><br><span class="line"></span><br><span class="line">CREATE USER user1@localhost IDENTIFIED BY ‘123’; </span><br><span class="line">	-- user1用户只能在localhost这个IP登录mysql服务器</span><br><span class="line">CREATE USER user2@’%’ IDENTIFIED BY ‘123’;</span><br><span class="line">	-- user2用户可以在任何电脑上登录mysql</span><br></pre></td></tr></table></figure>
+<p>2、给用户授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GRANT 权限1, … , 权限n ON 数据库.* TO 用户名</span><br><span class="line"></span><br><span class="line">GRANT CREATE,ALTER,DROP,INSERT,UPDATE,DELETE,SELECT ON mydb1.* TO user1@localhost;</span><br><span class="line">GRANT ALL ON mydb1.* TO user2@localhost;</span><br></pre></td></tr></table></figure>
+<p>3、查看用户权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SHOW GRANTS FOR 用户名</span><br><span class="line"></span><br><span class="line">SHOW GRANTS FOR user1@localhost;</span><br></pre></td></tr></table></figure>
+<p>4、撤销授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE权限1, … , 权限n ON 数据库.* FORM 用户名</span><br><span class="line"></span><br><span class="line">REVOKE CREATE,ALTER,DROP ON mydb1.* FROM user1@localhost;</span><br></pre></td></tr></table></figure>
+<p>5、删除用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DROP USER 用户名</span><br><span class="line"></span><br><span class="line">DROP USER user1@localhost;</span><br></pre></td></tr></table></figure>
+<p>6、修改用户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">USE mysql;</span><br><span class="line">UPDATE USER SET PASSWORD&#x3D;PASSWORD(‘密码’) WHERE User&#x3D;’用户名’ and Host&#x3D;’IP’;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">USE mysql;</span><br><span class="line">UPDATE USER SET PASSWORD&#x3D;PASSWORD(&#39;1234&#39;) WHERE User&#x3D;&#39;user2&#39; and Host&#x3D;’localhost’;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、DQL"><a href="#五、DQL" class="headerlink" title="五、DQL"></a>五、DQL</h4><h5 id="（一）数据查询语法"><a href="#（一）数据查询语法" class="headerlink" title="（一）数据查询语法"></a>（一）数据查询语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT selection_list 			&#x2F;*要查询的列名称*&#x2F;</span><br><span class="line">FROM table_list 				&#x2F;*要查询的表名称*&#x2F;</span><br><span class="line">WHERE condition 				&#x2F;*行条件*&#x2F;</span><br><span class="line">GROUP BY grouping_columns 	 	 &#x2F;*对结果分组*&#x2F;</span><br><span class="line">HAVING condition 				&#x2F;*分组后的行条件*&#x2F;</span><br><span class="line">ORDER BY sorting_columns 		 &#x2F;*对结果分组*&#x2F;</span><br><span class="line">LIMIT offset_start, row_count 	 &#x2F;*结果限定*&#x2F;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）常见查询方式"><a href="#（二）常见查询方式" class="headerlink" title="（二）常见查询方式"></a>（二）常见查询方式</h5><p>1、基础查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM stu;				 -- 查询所有列</span><br><span class="line"></span><br><span class="line">SELECT sid, sname, age FROM stu;  -- 查询指定列</span><br></pre></td></tr></table></figure>
+<p>2、条件查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">条件查询就是在查询时给出WHERE子句，在WHERE子句中可以使用如下运算符及关键字：</span><br><span class="line">&#x3D;、!&#x3D;、&lt;&gt;、&lt;、&lt;&#x3D;、&gt;、&gt;&#x3D;；</span><br><span class="line">BETWEEN…AND；</span><br><span class="line">IN(set)；</span><br><span class="line">IS NULL；</span><br><span class="line">AND；</span><br><span class="line">OR；</span><br><span class="line">NOT；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*查询性别为女，并且年龄50的记录*&#x2F;</span><br><span class="line">SELECT * FROM stu </span><br><span class="line">WHERE gender&#x3D;&#39;female&#39; AND ge&lt;50;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询学号为S_1001，S_1002，S_1003的记录*&#x2F;</span><br><span class="line">SELECT * FROM stu </span><br><span class="line">WHERE sid IN (&#39;S_1001&#39;,&#39;S_1002&#39;,&#39;S_1003&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;*查询年龄为null的记录*&#x2F;</span><br><span class="line">SELECT * FROM stu</span><br><span class="line">WHERE age IS NULL;</span><br></pre></td></tr></table></figure>
+<p>3、模糊查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*查询姓名以“z”开头的学生记录*&#x2F;</span><br><span class="line">SELECT * </span><br><span class="line">FROM stu</span><br><span class="line">WHERE sname LIKE &#39;z%&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询姓名中第2个字母为“i”的学生记录*&#x2F;</span><br><span class="line">SELECT * </span><br><span class="line">FROM stu</span><br><span class="line">WHERE sname LIKE &#39;_i%&#39;;</span><br></pre></td></tr></table></figure>
+<p>4、字段控制查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*去除重复记录*&#x2F;</span><br><span class="line">SELECT DISTINCT sal FROM emp;</span><br><span class="line"></span><br><span class="line">&#x2F;*查看雇员的月薪与佣金之和*&#x2F;</span><br><span class="line">SELECT *,sal+comm FROM emp;</span><br><span class="line"></span><br><span class="line">&#x2F;*comm列如果有记录的值为NULL，因为任何东西与NULL相加结果还是NULL，所以结算结果可能会出现NULL。下面使用了把NULL转换成数值0的函数IFNULL：*&#x2F;</span><br><span class="line">SELECT *,sal+IFNULL(comm,0) FROM emp;</span><br><span class="line"></span><br><span class="line">&#x2F;*给列名添加别名*&#x2F;</span><br><span class="line">SELECT *, sal+IFNULL(comm,0) AS total FROM emp;</span><br><span class="line">SELECT *,sal+IFNULL(comm,0) total FROM emp; -- 省略AS关键字</span><br></pre></td></tr></table></figure>
+<p>5、排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*查询所有学生记录，按年龄降序排序*&#x2F;</span><br><span class="line">SELECT *</span><br><span class="line">FROM stu</span><br><span class="line">ORDER BY age DESC;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询所有雇员，按月薪降序排序，如果月薪相同时，按编号升序排序*&#x2F;</span><br><span class="line">SELECT * FROM emp</span><br><span class="line">ORDER BY sal DESC,empno ASC;</span><br></pre></td></tr></table></figure>
+<p>6、聚合函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">聚合函数是用来做纵向运算的函数：</span><br><span class="line">COUNT()：统计指定列不为NULL的记录行数；</span><br><span class="line">MAX()：计算指定列的最大值，如果指定列是字符串类型，那么使用字符串排序运算；</span><br><span class="line">MIN()：计算指定列的最小值，如果指定列是字符串类型，那么使用字符串排序运算；</span><br><span class="line">SUM()：计算指定列的数值和，如果指定列类型不是数值类型，那么计算结果为0；</span><br><span class="line">AVG()：计算指定列的平均值，如果指定列类型不是数值类型，那么计算结果为0；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*查询emp表中月薪大于2500的人数*&#x2F;</span><br><span class="line">SELECT COUNT(*) FROM emp</span><br><span class="line">WHERE sal &gt; 2500;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询最高工资和最低工资*&#x2F;</span><br><span class="line">SELECT MAX(sal), MIN(sal) FROM emp;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询所有雇员月薪和*&#x2F;</span><br><span class="line">SELECT SUM(sal) FROM emp;</span><br><span class="line"></span><br><span class="line">&#x2F;*统计所有员工平均工资*&#x2F;</span><br><span class="line">SELECT AVG(sal) FROM emp;</span><br></pre></td></tr></table></figure>
+<p>7、分组查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*查询每个部门的部门编号以及每个部门的人数*&#x2F;</span><br><span class="line">SELECT deptno,COUNT(*)</span><br><span class="line">FROM emp</span><br><span class="line">GROUP BY deptno;</span><br><span class="line"></span><br><span class="line">&#x2F;* HAVING子句 *&#x2F;</span><br><span class="line">&#x2F;*查询工资总和大于9000的部门编号以及工资和*&#x2F;</span><br><span class="line">SELECT deptno, SUM(sal)</span><br><span class="line">FROM emp</span><br><span class="line">GROUP BY deptno</span><br><span class="line">HAVING SUM(sal) &gt; 9000;</span><br><span class="line"></span><br><span class="line">-- 或者</span><br><span class="line">SELECT deptno, SUM(sal) total</span><br><span class="line">FROM emp</span><br><span class="line">GROUP BY deptno</span><br><span class="line">HAVING total &gt; 9000;</span><br></pre></td></tr></table></figure>
+<p>8、LIMIT</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- LIMIT用来限定查询结果的起始行，以及总行数。</span><br><span class="line"></span><br><span class="line">&#x2F;*查询5行记录，起始行从0开始*&#x2F;</span><br><span class="line">SELECT * FROM emp LIMIT 0, 5;</span><br><span class="line"></span><br><span class="line">&#x2F;*查询10行记录，起始行从3开始*&#x2F;</span><br><span class="line">SELECT * FROM emp LIMIT 3, 10;</span><br></pre></td></tr></table></figure>
+<h5 id="（三）多表查询"><a href="#（三）多表查询" class="headerlink" title="（三）多表查询"></a>（三）多表查询</h5><p>1、合并结果集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">作用：合并结果集就是把两个select语句的查询结果合并到一起！</span><br><span class="line"></span><br><span class="line">合并结果集有两种方式：</span><br><span class="line">UNION：去除重复记录，例如：SELECT * FROM t1 UNION SELECT * FROM t2；</span><br><span class="line">UNION ALL：不去除重复记录，例如：SELECT * FROM t1 UNION ALL SELECT * FROM t2。</span><br><span class="line"></span><br><span class="line">要求：被合并的两个结果：列数、列类型必须相同</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM cd</span><br><span class="line">UNION </span><br><span class="line">SELECT * FROM ab;</span><br></pre></td></tr></table></figure>
+<p>2、内连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- 特殊用法（不建议使用）</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e, dept d  </span><br><span class="line">WHERE e.deptno &#x3D; d.deptno;</span><br><span class="line"></span><br><span class="line">-- 标准用法（建议使用）</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e INNER JOIN dept d </span><br><span class="line">ON e.deptno&#x3D;d.deptno</span><br></pre></td></tr></table></figure>
+<p>3、外连接（左连接、右连接）<br>外连接的特点：查询出的结果存在不满足条件的可能。<br>左连接是先查询出左表（即以左表为主），然后查询右表，右表中满足条件的显示出来，不满足条件的显示NULL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 左外连接</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e LEFT OUTER JOIN dept d</span><br><span class="line">ON e.deptno&#x3D;d.deptno</span><br></pre></td></tr></table></figure>
+<p>右连接就是先把右表中所有记录都查询出来，然后左表满足条件的显示，不满足显示NULL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 右外连接</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e RIGHT OUTER JOIN dept d</span><br><span class="line">ON e.deptno&#x3D;d.deptno</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 全外连接（mysql不支持全外连接，但是我们可以使用合并结果集来达到同样的效果），了解即可</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e LEFT OUTER JOIN dept d</span><br><span class="line">ON e.deptno&#x3D;d.deptno</span><br><span class="line">UNION</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e RIGHT OUTER JOIN dept d</span><br><span class="line">ON e.deptno&#x3D;d.deptno</span><br></pre></td></tr></table></figure>
+<p>4、自然连接<br>两张连接的表中名称和类型完成一致的列作为条件，例如emp和dept表都存在deptno列，并且类型一致，所以会被自然连接找到！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 自然连接（可读性较差，不建议使用）</span><br><span class="line">&#x2F;* 自然连接的原理：使用该方法，mysql会自动的去找两张表中相同的列，然后列值相同的记录进行匹配后输出*&#x2F;</span><br><span class="line">SELECT e.ename, e.sal, d.dname</span><br><span class="line">FROM emp e NATURAL JOIN dept d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 自然连接其他的查找条件的方式</span><br><span class="line">SELECT * FROM emp NATURAL JOIN dept;</span><br><span class="line">SELECT * FROM emp NATURAL LEFT JOIN dept;</span><br><span class="line">SELECT * FROM emp NATURAL RIGHT JOIN dept;</span><br></pre></td></tr></table></figure>
+<p>5、子查询<br>子查询就是嵌套查询，即SELECT中包含SELECT，如果一条语句中存在两个，或两个以上SELECT，那么就是子查询语句了。<br>子查询出现的位置：<br>where后，作为条件的一部分；<br>from后，作为被查询的一条表；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 找出本公司工资最高的员工信息 *&#x2F;		-- 单行单列</span><br><span class="line">SELECT * FROM emp where sal&#x3D;(SELECT max(sal) FROM emp)	</span><br><span class="line"></span><br><span class="line">&#x2F;* 找出本公司中高于30部门所有员工工资的员工信息 *&#x2F;	-- 多行一列</span><br><span class="line">SELECT * </span><br><span class="line">FROM emp</span><br><span class="line">WHERE sal &gt; ALL (SELECT sal FROM emp WHERE deptno&#x3D;30)</span><br><span class="line"></span><br><span class="line">&#x2F;* 查询工资和部门与殷天正完全相同的员工信息 *&#x2F;</span><br><span class="line">&#x2F;* 即：找出殷天正所在部门中，和他工资相同的员工信息 *&#x2F;	-- 单行多列</span><br><span class="line">SELECT * </span><br><span class="line">FROM emp</span><br><span class="line">WHERE (sal, deptno) IN (SELECT sal,deptno FROM emp WHERE ename&#x3D;&#39;殷天正&#39;)</span><br><span class="line"></span><br><span class="line">&#x2F;* 可以对查询出的表进行二次查询 *&#x2F;</span><br><span class="line">&#x2F;*例如：先找出30部门的所有员工，然后找出奖金不为空的员工姓名和工资*&#x2F; 	-- 多行多列</span><br><span class="line">SELECT e.ename, e.sal </span><br><span class="line">FROM (SELECT * FROM emp WHERE deptno&#x3D;30) e		</span><br><span class="line">WHERE comm IS NOT NULL;</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line">1、单行单列：表示条件，相当于聚合函数的作用，通常用于where中</span><br><span class="line">2、单行多列：相当于一个对象，比较少见</span><br><span class="line">3、多行单列：相当于一个集合</span><br><span class="line">4、多行多列：表示一个查询出来的表，通常用在from中，进行二次查询</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、完整性约束"><a href="#六、完整性约束" class="headerlink" title="六、完整性约束"></a>六、完整性约束</h4><p>1、主键约束<br>当某一列添加了主键约束后，具有以下特点：<br>a. 非空<br>b. 唯一<br>c. 被其他表引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建表：定义列时指定主键*&#x2F;</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">	sid	    CHAR(6) PRIMARY KEY,</span><br><span class="line">	sname	VARCHAR(20),</span><br><span class="line">	age		INT,</span><br><span class="line">	gender	VARCHAR(10) </span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*创建表：定义列之后独立指定主键*&#x2F;</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">	sid	    CHAR(6),</span><br><span class="line">	sname	VARCHAR(20),</span><br><span class="line">	age		INT,</span><br><span class="line">	gender	VARCHAR(10),</span><br><span class="line">	PRIMARY KEY(sid)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*修改表时指定主键*&#x2F;</span><br><span class="line">ALTER TABLE stu</span><br><span class="line">ADD PRIMARY KEY(sid);</span><br><span class="line"></span><br><span class="line">&#x2F;*删除主键（只是删除主键约束，而不会删除主键列）*&#x2F;</span><br><span class="line">ALTER TABLE stu </span><br><span class="line">DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure>
+<p>2、主键自增长<br>MySQL提供了主键自动增长的功能！这样用户就不用再为是否有主键,是否重复而烦恼了。当主键设置为自动增长后，在没有给出主键值时，主键的值会自动生成，而且是最大主键值+1，也就不会出现重复主键的可能了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建表时设置主键自增长（主键必须是整型才可以自增长）*&#x2F;</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">	sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname	VARCHAR(20),</span><br><span class="line">	age		INT,</span><br><span class="line">	gender	VARCHAR(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*修改表时设置主键自增长*&#x2F;</span><br><span class="line">ALTER TABLE stu CHANGE sid sid INT AUTO_INCREMENT;</span><br><span class="line"></span><br><span class="line">&#x2F;*修改表时删除主键自增长*&#x2F;</span><br><span class="line">ALTER TABLE stu CHANGE sid sid INT;</span><br></pre></td></tr></table></figure>
+<p>3、非空约束<br>指定非空约束的列不能没有值，也就是说在插入记录时，对添加了非空约束的列一定要给值；在修改记录时，不能把非空列的值设置为NULL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">指定非空约束：</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">		sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">		sname VARCHAR(10) NOT NULL,</span><br><span class="line">		age		INT,</span><br><span class="line">		gender	VARCHAR(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>4、唯一<br>还可以为字段指定唯一约束！当为字段指定唯一约束后，那么字段的值必须是唯一的。这一点与主键相似！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tab_ab(</span><br><span class="line">	sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname VARCHAR(10) UNIQUE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>5、外键约束<br>主外键是构成表与表关联的唯一途径！<br>外键是另一张表的主键！例如员工表与部门表之间就存在关联关系，其中员工表中的部门编号字段就是外键，是相对部门表的外键。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建t_user表，指定uid为主键列*&#x2F;</span><br><span class="line">CREATE TABLE t_user(</span><br><span class="line">	uid	INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	uname	VARCHAR(20) UNIQUE NOT NULL</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*创建t_section表，指定sid为主键列，u_id为相对t_user表的uid列的外键*&#x2F;</span><br><span class="line">CREATE TABLE t_section(</span><br><span class="line">	sid	INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname	VARCHAR(30),</span><br><span class="line">	u_id	INT,</span><br><span class="line">	CONSTRAINT fk_t_user FOREIGN KEY(u_id) REFERENCES t_user(uid)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*修改t_section表，指定u_id为相对t_user表的uid列的外键*&#x2F;</span><br><span class="line">ALTER TABLE t_section </span><br><span class="line">ADD CONSTRAINT fk_t_user FOREIGN KEY(u_id) REFERENCES t_user(uid);</span><br><span class="line"></span><br><span class="line">&#x2F;*修改t_section表，删除u_id的外键约束*&#x2F;</span><br><span class="line">ALTER TABLE t_section</span><br><span class="line">DROP FOREIGN KEY fk_t_user;</span><br></pre></td></tr></table></figure>
+
+<h4 id="七、编码相关命令"><a href="#七、编码相关命令" class="headerlink" title="七、编码相关命令"></a>七、编码相关命令</h4><p>1、查看MySQL编码</p>
+<figure class="highlight plain"><figcaption><span>VARIABLES LIKE 'char%';```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2、修改character_set_client变量</span><br><span class="line">&#96;&#96;&#96;set character_set_client&#x3D;gbk;</span><br></pre></td></tr></table></figure>
+<p>3、修改character_set_results变量<br><code>set character_set_results=gbk;</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/29/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E6%9E%9A%E4%B8%BE%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-29T05:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/29/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E6%9E%9A%E4%B8%BE%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">Java基础学习总结--枚举的简单使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+	  
+<!-- 开始添加阅读量-->
+
+		<span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->	  
+	  
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/23/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/28/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E5%8F%8D%E5%B0%84/" class="archive-article-date">
-  	<time datetime="2020-03-28T13:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/18/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">测试图片</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/28/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E5%8F%8D%E5%B0%84/">Java基础学习总结--反射</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、SQL的分类"><span class="toc-number">1.</span> <span class="toc-text">一、SQL的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、DDL"><span class="toc-number">2.</span> <span class="toc-text">二、DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）操作数据库"><span class="toc-number">2.1.</span> <span class="toc-text">（一）操作数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）操作表"><span class="toc-number">2.2.</span> <span class="toc-text">（二）操作表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、DML"><span class="toc-number">3.</span> <span class="toc-text">三、DML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、DCL"><span class="toc-number">4.</span> <span class="toc-text">四、DCL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、DQL"><span class="toc-number">5.</span> <span class="toc-text">五、DQL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）数据查询语法"><span class="toc-number">5.1.</span> <span class="toc-text">（一）数据查询语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）常见查询方式"><span class="toc-number">5.2.</span> <span class="toc-text">（二）常见查询方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）多表查询"><span class="toc-number">5.3.</span> <span class="toc-text">（三）多表查询</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、完整性约束"><span class="toc-number">6.</span> <span class="toc-text">六、完整性约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、编码相关命令"><span class="toc-number">7.</span> <span class="toc-text">七、编码相关命令</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/" class="archive-article-date">
-  	<time datetime="2020-01-21T15:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/">Java中将文件夹复制到另一个文件夹</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
   
-    </div></section>
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -380,10 +555,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
