@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java设计模式--单例模式 | 跑调大叔の博客</title>
+  <title>JavaWeb--了解HTML | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、单例模式概述（一）定义：确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例场景，也就是说：确保某个类有且只有一个对象的场景，避免产生多个对象消耗过多的资源，或者某种类型的对象应该有且只有一个。">
+  <meta name="description" content="一、HTML的规范：12345671、一个html文件开始标签和结束的标签：&lt;html&gt;  &lt;&#x2F;html&gt;2、html包含两部分内容  （1）&lt;head&gt; 设置相关信息&lt;&#x2F;head&gt; （2）&lt;body&gt; 显示在页面上的内容都写在body里面&lt;&#x2F;body&gt;3、html的标签有开始标签，也要有结束标签">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java设计模式--单例模式">
-<meta property="og:url" content="http://yoursite.com/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="JavaWeb--了解HTML">
+<meta property="og:url" content="http://yoursite.com/2020/04/01/JavaWeb--%E4%BA%86%E8%A7%A3HTML/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="一、单例模式概述（一）定义：确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例场景，也就是说：确保某个类有且只有一个对象的场景，避免产生多个对象消耗过多的资源，或者某种类型的对象应该有且只有一个。">
+<meta property="og:description" content="一、HTML的规范：12345671、一个html文件开始标签和结束的标签：&lt;html&gt;  &lt;&#x2F;html&gt;2、html包含两部分内容  （1）&lt;head&gt; 设置相关信息&lt;&#x2F;head&gt; （2）&lt;body&gt; 显示在页面上的内容都写在body里面&lt;&#x2F;body&gt;3、html的标签有开始标签，也要有结束标签">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-26T14:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-26T14:00:00.000Z">
+<meta property="article:published_time" content="2020-04-01T02:55:00.000Z">
+<meta property="article:modified_time" content="2020-04-01T02:55:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -172,20 +172,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java设计模式--单例模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaWeb--了解HTML" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-03-26T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
+        <a href="/2020/04/01/JavaWeb--%E4%BA%86%E8%A7%A3HTML/" class="archive-article-date">
+  	<time datetime="2020-04-01T02:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
 </a>
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      Java设计模式--单例模式
+      JavaWeb--了解HTML
     </h1>
   
 </p></center>
@@ -197,7 +197,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">510字</span>
+        <span class="post-count">929字</span>
       </span>
     </span>
 
@@ -206,7 +206,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -218,27 +218,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、单例模式概述"><a href="#一、单例模式概述" class="headerlink" title="一、单例模式概述"></a>一、单例模式概述</h4><p>（一）定义：确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例场景，也就是说：确保某个类有且只有一个对象的场景，避免产生多个对象消耗过多的资源，或者某种类型的对象应该有且只有一个。<a id="more"></a><br>（二）单例模式的特点</p>
-<ol>
-<li>单例模式只能有一个实例。</li>
-<li>单例类必须创建自己的唯一实例。</li>
-<li>单例类必须向其他对象提供这一实例。<br>（三）常见的两种方式：</li>
-<li>饿汉式：类一加载的时候就创建对象</li>
-<li>懒汉式：需要的时候才创建对象</li>
+        <h4 id="一、HTML的规范："><a href="#一、HTML的规范：" class="headerlink" title="一、HTML的规范："></a>一、HTML的规范：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、一个html文件开始标签和结束的标签：&lt;html&gt;  &lt;&#x2F;html&gt;</span><br><span class="line">2、html包含两部分内容 </span><br><span class="line"> （1）&lt;head&gt; 设置相关信息&lt;&#x2F;head&gt;</span><br><span class="line"> （2）&lt;body&gt; 显示在页面上的内容都写在body里面&lt;&#x2F;body&gt;</span><br><span class="line">3、html的标签有开始标签，也要有结束标签 &lt;head&gt;&lt;&#x2F;head&gt; </span><br><span class="line">4、html的代码不区分大小写</span><br><span class="line">5、有些标签，没有结束标签 ，在标签内结束 &lt;br&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="二、HTML中常用的标签："><a href="#二、HTML中常用的标签：" class="headerlink" title="二、HTML中常用的标签："></a>二、HTML中常用的标签：</h4><ol>
+<li><strong>头标签</strong></li>
+<li>文字标签</li>
+<li>注释标签</li>
+<li>标题标签</li>
+<li>水平线标签</li>
+<li>特殊字符</li>
+<li>列表标签</li>
+<li><strong>图像标签</strong></li>
+<li><strong>超链接标签</strong></li>
+<li><strong>表格标签</strong></li>
+<li><strong>表单标签</strong></li>
+<li>b标签</li>
+<li>s标签</li>
+<li>u标签</li>
+<li>i标签</li>
+<li>pre标签</li>
+<li>sup标签</li>
+<li>sub标签</li>
+<li>p标签</li>
+<li><strong>div标签</strong></li>
+<li><strong>span标签</strong></li>
+<li><strong>框架标签</strong></li>
 </ol>
-<h4 id="二、案例"><a href="#二、案例" class="headerlink" title="二、案例"></a>二、案例</h4><p>需求：创建一个Student类对象<br><strong>饿汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Student stu = <span class="keyword">new</span> Student();</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> stu;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>懒汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Student stu = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(stu == <span class="keyword">null</span>) &#123;</span><br><span class="line">			stu = <span class="keyword">new</span> Student();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> stu;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>线程安全的懒汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Student stu = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> Student <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(stu == <span class="keyword">null</span>) &#123;</span><br><span class="line">			stu = <span class="keyword">new</span> Student();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> stu;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在main方法中获取Student实例对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Student stu = Student.getStudent();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="三、JDK中单例模式的体现"><a href="#三、JDK中单例模式的体现" class="headerlink" title="三、JDK中单例模式的体现"></a>三、JDK中单例模式的体现</h4><p>JDK中的RunTime类就是使用了饿汉式单例模式。其部分源码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Runtime</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Runtime</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Runtime currentRuntime = <span class="keyword">new</span> Runtime();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Runtime <span class="title">getRuntime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentRuntime;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其实这也告诉我们开发的时候尽可能的使用饿汉式的单例模式。</p>
-<h4 id="四、单例模式的优缺点："><a href="#四、单例模式的优缺点：" class="headerlink" title="四、单例模式的优缺点："></a>四、单例模式的优缺点：</h4><p><strong>优点</strong><br>在系统内存中只存在一个对象，因此可以节约系统资源，对于一些需要频繁创建和销毁的对象单例模式无疑可以提高系统的性能。<br><strong>缺点</strong><br>没有抽象层，因此扩展很难。<br>职责过重，在一定程序上违背了单一职责</p>
+<h4 id="三、重点标签："><a href="#三、重点标签：" class="headerlink" title="三、重点标签："></a>三、重点标签：</h4><p><strong>头标签：</strong><br>1、base标签：设置超链接的基本设置<br>可以统一设置超链接的打开方式 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如&lt;base target&#x3D;&quot;_blank&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>2、link标签：引入外部文件<br>3、meta标签：设置页面的一些相关内容<br>4、title标签：表示在标签上显示的内容<br><strong>图像标签：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;图片的路径&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>src: 图片的路径<br>width：图片的宽度<br>height：图片的高度<br>alt: 图片上显示的文字，把鼠标移动到图片上，停留片刻显示内容，兼容性差<br><strong>超链接标签：</strong><br><strong>(1)链接资源：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;链接到资源的路径&quot;&gt; 显示在页面上的内容  &lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<p>href: 链接的资源的地址<br>target：设置打开的方式 ，默认是在当前页打开<br><em>blank : 在一个新窗口打开</em><br>_self: 在当前页打开 默认<br><strong>(2)定位资源：</strong><br>如果想要定位资源：定义一个位置 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a name&#x3D;&quot;top&quot;&gt;顶部&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<p>回到这个位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#top&quot;&gt;回到顶部&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>表格标签：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示表格的范围:&lt;table&gt;&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<p>border：表格线<br>bordercolor：表格线的颜色<br>cellspacing：单元格之间的距离<br>width：表格的宽度<br>height：表格的高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">每一行 &lt;tr&gt;&lt;&#x2F;tr&gt;</span><br></pre></td></tr></table></figure>
+<p>设置对齐方式 align： left  center  right</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">每一列：&lt;td&gt;&lt;&#x2F;td&gt;</span><br></pre></td></tr></table></figure>
+<p>设置对齐方式 align： left  center  right</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用&lt;th&gt;&lt;&#x2F;th&gt;也可以表示单元格:可以实现居中和加粗</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表格的标题：&lt;caption&gt;&lt;&#x2F;caption&gt;</span><br></pre></td></tr></table></figure>
+<p>6、合并单元格 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rowspan：跨行</span><br><span class="line"> 如：&lt;td rowspan&#x3D;&quot;3&quot;&gt;人员信息&lt;&#x2F;td&gt;</span><br><span class="line">colspan：跨列</span><br><span class="line"> 如：&lt;td colspan&#x3D;&quot;3&quot;&gt;人员信息&lt;&#x2F;td&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>表单标签：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">普通输入项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>/&gt;</span></span><br><span class="line">密码输入项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span>/&gt;</span></span><br><span class="line">单选输入项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span>/&gt;</span></span><br><span class="line">复选输入项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>/&gt;</span></span><br><span class="line">文件输入项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line">下拉输入项：<span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"birth"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1991"</span>&gt;</span>1991<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">		  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">文本域：<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">cols</span>=<span class="string">"10"</span> <span class="attr">rows</span>=<span class="string">"10"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">隐藏项：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> /&gt;</span></span><br><span class="line">普通按钮：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">普通提交按钮：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>/&gt;</span></span><br><span class="line">图片提交按钮：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"图片路径"</span>/&gt;</span></span><br><span class="line">重置按钮：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>框架标签：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">rows</span>=<span class="string">"80,*"</span>&gt;</span>                        	//把页面划分成上下两部分 </span><br><span class="line">	<span class="tag">&lt;<span class="name">frame</span> <span class="attr">name</span>=<span class="string">"top"</span> <span class="attr">src</span>=<span class="string">"a.html"</span>&gt;</span>             //上面页面</span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">frameset</span> <span class="attr">cols</span>=<span class="string">"150,*"</span>&gt;</span>                     //把下面部分划分成左右两部分</span><br><span class="line">		<span class="tag">&lt;<span class="name">frame</span> <span class="attr">name</span>=<span class="string">"lower_left"</span> <span class="attr">src</span>=<span class="string">"b.html"</span>&gt;</span>  //左边的页面</span><br><span class="line">		<span class="tag">&lt;<span class="name">frame</span> <span class="attr">name</span>=<span class="string">"lower_right"</span> <span class="attr">src</span>=<span class="string">"c.html"</span>&gt;</span> //右边的页面</span><br><span class="line">	<span class="tag">&lt;/<span class="name">frameset</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">frameset</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>Java新手，若有错误，欢迎指正！</strong></p>
 
       
@@ -274,7 +304,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
@@ -295,7 +325,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
+        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
         		</li>
       		
 		</ul>
@@ -350,7 +380,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/01/JavaWeb--%E4%BA%86%E8%A7%A3HTML/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -364,18 +394,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/28/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E5%8F%8D%E5%B0%84/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/03/JavaWeb--%E4%BA%86%E8%A7%A3CSS/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java基础学习总结--反射
+          JavaWeb--了解CSS
         
       </div>
     </a>
   
   
-    <a href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java设计模式--工厂方法模式</div>
+    <a href="/2020/03/29/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E6%9E%9A%E4%B8%BE%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础学习总结--枚举的简单使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -402,7 +432,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、单例模式概述"><span class="toc-number">1.</span> <span class="toc-text">一、单例模式概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、案例"><span class="toc-number">2.</span> <span class="toc-text">二、案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、JDK中单例模式的体现"><span class="toc-number">3.</span> <span class="toc-text">三、JDK中单例模式的体现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、单例模式的优缺点："><span class="toc-number">4.</span> <span class="toc-text">四、单例模式的优缺点：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、HTML的规范："><span class="toc-number">1.</span> <span class="toc-text">一、HTML的规范：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、HTML中常用的标签："><span class="toc-number">2.</span> <span class="toc-text">二、HTML中常用的标签：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、重点标签："><span class="toc-number">3.</span> <span class="toc-text">三、重点标签：</span></a></li></ol>
                     </div>
                 </span>
             </div>

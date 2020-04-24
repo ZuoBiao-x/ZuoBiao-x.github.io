@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 17
+			总文章数 19
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -302,16 +302,15 @@
 <p>2、主键自增长<br>MySQL提供了主键自动增长的功能！这样用户就不用再为是否有主键,是否重复而烦恼了。当主键设置为自动增长后，在没有给出主键值时，主键的值会自动生成，而且是最大主键值+1，也就不会出现重复主键的可能了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建表时设置主键自增长（主键必须是整型才可以自增长）*&#x2F;</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">	sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname	VARCHAR(20),</span><br><span class="line">	age		INT,</span><br><span class="line">	gender	VARCHAR(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*修改表时设置主键自增长*&#x2F;</span><br><span class="line">ALTER TABLE stu CHANGE sid sid INT AUTO_INCREMENT;</span><br><span class="line"></span><br><span class="line">&#x2F;*修改表时删除主键自增长*&#x2F;</span><br><span class="line">ALTER TABLE stu CHANGE sid sid INT;</span><br></pre></td></tr></table></figure>
 <p>3、非空约束<br>指定非空约束的列不能没有值，也就是说在插入记录时，对添加了非空约束的列一定要给值；在修改记录时，不能把非空列的值设置为NULL。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">指定非空约束：</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">		sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">		sname VARCHAR(10) NOT NULL,</span><br><span class="line">		age		INT,</span><br><span class="line">		gender	VARCHAR(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">指定非空约束：</span><br><span class="line">CREATE TABLE stu(</span><br><span class="line">		sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">		sname VARCHAR(10) NOT NULL,</span><br><span class="line">		age		INT,</span><br><span class="line">		gender	VARCHAR(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>4、唯一<br>还可以为字段指定唯一约束！当为字段指定唯一约束后，那么字段的值必须是唯一的。这一点与主键相似！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tab_ab(</span><br><span class="line">	sid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname VARCHAR(10) UNIQUE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>5、外键约束<br>主外键是构成表与表关联的唯一途径！<br>外键是另一张表的主键！例如员工表与部门表之间就存在关联关系，其中员工表中的部门编号字段就是外键，是相对部门表的外键。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*创建t_user表，指定uid为主键列*&#x2F;</span><br><span class="line">CREATE TABLE t_user(</span><br><span class="line">	uid	INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	uname	VARCHAR(20) UNIQUE NOT NULL</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">&#x2F;*创建t_section表，指定sid为主键列，u_id为相对t_user表的uid列的外键*&#x2F;</span><br><span class="line">CREATE TABLE t_section(</span><br><span class="line">	sid	INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	sname	VARCHAR(30),</span><br><span class="line">	u_id	INT,</span><br><span class="line">	CONSTRAINT fk_t_user FOREIGN KEY(u_id) REFERENCES t_user(uid)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*修改t_section表，指定u_id为相对t_user表的uid列的外键*&#x2F;</span><br><span class="line">ALTER TABLE t_section </span><br><span class="line">ADD CONSTRAINT fk_t_user FOREIGN KEY(u_id) REFERENCES t_user(uid);</span><br><span class="line"></span><br><span class="line">&#x2F;*修改t_section表，删除u_id的外键约束*&#x2F;</span><br><span class="line">ALTER TABLE t_section</span><br><span class="line">DROP FOREIGN KEY fk_t_user;</span><br></pre></td></tr></table></figure>
 
-<h4 id="七、编码相关命令"><a href="#七、编码相关命令" class="headerlink" title="七、编码相关命令"></a>七、编码相关命令</h4><p>1、查看MySQL编码</p>
-<figure class="highlight plain"><figcaption><span>VARIABLES LIKE 'char%';```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2、修改character_set_client变量</span><br><span class="line">&#96;&#96;&#96;set character_set_client&#x3D;gbk;</span><br></pre></td></tr></table></figure>
-<p>3、修改character_set_results变量<br><code>set character_set_results=gbk;</code></p>
+<h4 id="七、编码相关命令"><a href="#七、编码相关命令" class="headerlink" title="七、编码相关命令"></a>七、编码相关命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、查看MySQL编码</span><br><span class="line">SHOW VARIABLES LIKE &#39;char%&#39;;</span><br><span class="line">2、修改character_set_client变量</span><br><span class="line">set character_set_client&#x3D;gbk;</span><br><span class="line">3、修改character_set_results变量</span><br><span class="line">set character_set_results&#x3D;gbk;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -629,11 +628,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,11 +652,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">枚举</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,10 +677,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>
