@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: IO流 | 跑调大叔の博客</title>
+  <title>JavaWeb--数据库连接池【入门】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="跑调大叔の博客">
-<meta property="og:url" content="http://yoursite.com/tags/IO%E6%B5%81/index.html">
+  <meta name="description" content="一、什么是数据库连接池可以简单的理解为存放数据库连接对象的容器当系统初始化好后，容器被创建，容器中会申请一些连接对象。当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb--数据库连接池【入门】">
+<meta property="og:url" content="http://yoursite.com/2020/04/26/JavaWeb--%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
+<meta property="og:description" content="一、什么是数据库连接池可以简单的理解为存放数据库连接对象的容器当系统初始化好后，容器被创建，容器中会申请一些连接对象。当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-26T13:00:44.000Z">
+<meta property="article:modified_time" content="2020-04-26T13:00:44.000Z">
 <meta property="article:author" content="_跑调大叔_">
+<meta property="article:tag" content="JDBC">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -167,71 +172,281 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaWeb--数据库连接池【入门】" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/" class="archive-article-date">
-  	<time datetime="2020-01-21T15:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
+      <header class="article-header">
+        
+		
+        
+        <a href="/2020/04/26/JavaWeb--%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/" class="archive-article-date">
+  	<time datetime="2020-04-26T13:00:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
 </a>
-        </div>
-    	 
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/">Java中将文件夹复制到另一个文件夹</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      JavaWeb--数据库连接池【入门】
     </h1>
   
+</p></center>
+		<!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.7k字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+		
+		
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、什么是数据库连接池"><a href="#一、什么是数据库连接池" class="headerlink" title="一、什么是数据库连接池"></a>一、什么是数据库连接池</h4><p>可以简单的理解为存放数据库连接对象的容器<br>当系统初始化好后，容器被创建，容器中会申请一些连接对象。当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。<a id="more"></a></p>
+<h4 id="二、数据库连接池的好处"><a href="#二、数据库连接池的好处" class="headerlink" title="二、数据库连接池的好处"></a>二、数据库连接池的好处</h4><p><strong>1、资源重用 (连接复用)</strong><br>由于数据库连接得到重用，避免了频繁创建、释放连接引起的大量性能开销。在减少系统消耗的基础上，增进了系统环境的平稳性（减少内存碎片以及数据库临时进程、线程的数量）<br><strong>2、更快的系统响应速度</strong><br>数据库连接池在初始化过程中，往往已经创建了若干数据库连接置于池内备用。此时连接池的初始化操作均已完成。对于业务请求处理而言，直接利用现有可用连接，避免了数据库连接初始化和释放过程的时间开销，从而缩减了系统整体响应时间。<br>3、新的资源分配手段<br>对于多应用共享同一数据库的系统而言，可在应用层通过数据库连接的配置，实现数据库连接技术。<br>4、统一的连接管理，避免数据库连接泄露<br>在较为完备的数据库连接池实现中，可根据预先的连接占用超时设定，强制收回被占用的连接，从而避免了常规数据库连接操作中可能出现的资源泄露</p>
+<h4 id="三、数据库连接池的实现"><a href="#三、数据库连接池的实现" class="headerlink" title="三、数据库连接池的实现"></a>三、数据库连接池的实现</h4><h5 id="（一）实现"><a href="#（一）实现" class="headerlink" title="（一）实现"></a>（一）实现</h5><p>所有的数据库连接池都需要实现<strong>javax.sql包下的DataSource接口</strong>。<br>有很多的数据库厂商和开源组织都提供了实现数据库连接池的技术</p>
+<h5 id="（二）数据库连接池技术"><a href="#（二）数据库连接池技术" class="headerlink" title="（二）数据库连接池技术"></a>（二）数据库连接池技术</h5><p>目前一共使用过两种连接技术，此处做一个小小的总结<br>1、C3P0数据源<br>2、Druid数据源</p>
+<h4 id="四、C3P0数据源"><a href="#四、C3P0数据源" class="headerlink" title="四、C3P0数据源"></a>四、C3P0数据源</h4><h5 id="（一）使用步骤"><a href="#（一）使用步骤" class="headerlink" title="（一）使用步骤"></a>（一）使用步骤</h5><p>1、<strong>导入jar包</strong>，该技术需要使用的jar包如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c3p0-0.9.5.2.jar</span><br><span class="line">mchange-commons-java-0.2.12.jar</span><br><span class="line"></span><br><span class="line">mysql-connector-java-8.0.11.jar  --可千万别忘了导入数据库驱动jar包</span><br></pre></td></tr></table></figure>
+<p>2、<strong>定义配置文件</strong><br>该配置文件名称必须为c3p0.properties 或者 c3p0-config.xml；<br>并且需要放在src目录下，程序会自动加载该配置文件。<br>如，使用c3p0-config.xml来做配置文件则大致如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">c3p0-config</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 使用默认的配置读取连接池对象 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">default-config</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!--  连接参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span>&gt;</span>jdbc:mysql://localhost:3306/exam?useSSL=false<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 连接池参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"checkoutTimeout"</span>&gt;</span>3000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">default-config</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">named-config</span> <span class="attr">name</span>=<span class="string">"otherc3p0"</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!--  连接参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span>&gt;</span>jdbc:mysql://localhost:3306/exam?useSSL=false<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 连接池参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"checkoutTimeout"</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">named-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">c3p0-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中<code>&lt;default-config&gt;</code>是默认配置，<code>&lt;named-config name=&quot;XXX&quot;&gt;</code>是自定义配置，一个配置文件中可以有一个或者多个自定义配置，调用ComboPoolDataSource(String configName)方法传入<code>&lt;named-config&gt;</code>节点中name属性的值即可创建C3P0数据源对象。<br>补充：虽然也可以不用配置文件，而通过调用一些方法来设置，但是一般都不会这样做。<br>3、<strong>创建DataSource对象（连接池）</strong><br>C3P0使用ComboPooledDataSource类来创建数据库连接池对象，直接创建实例对象即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataSource ds  = <span class="keyword">new</span> ComboPooledDataSource();</span><br></pre></td></tr></table></figure>
+<p>4、<strong>获取Connection对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = ds.getConnection();</span><br></pre></td></tr></table></figure>
+<p>5、<strong>归还Connection连接</strong><br>在使用完后，我们需要将Connection对象归还给连接池。对此我们只需要调用close()方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+<h5 id="（二）入门小Demo"><a href="#（二）入门小Demo" class="headerlink" title="（二）入门小Demo"></a>（二）入门小Demo</h5><p>Demo1：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3P0Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">        <span class="comment">//使用默认配置</span></span></span><br><span class="line"><span class="function">        DataSource pool </span>= <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Connection conn = pool.getConnection();</span><br><span class="line">            System.out.println(conn);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Demo2：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3P0Demo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用自定义配置</span></span><br><span class="line">        DataSource pool = <span class="keyword">new</span> ComboPooledDataSource(<span class="string">"otherc3p0"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Connection conn = <span class="keyword">null</span>;</span><br><span class="line">            conn = pool.getConnection();</span><br><span class="line">            System.out.println(conn);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、Druid数据源"><a href="#五、Druid数据源" class="headerlink" title="五、Druid数据源"></a>五、Druid数据源</h4><p>Druid是阿里巴巴开源的一个数据源，主要用于java数据库连接池，相比spring推荐的DBCP和hibernate推荐的C3P0、Proxool数据库连接池，Druid在市场上占有绝对的优势；</p>
+<h5 id="（一）使用步骤-1"><a href="#（一）使用步骤-1" class="headerlink" title="（一）使用步骤"></a>（一）使用步骤</h5><p>1、<strong>导入jar包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">druid-1.0.9.jar</span><br><span class="line"></span><br><span class="line">mysql-connector-java-8.0.11.jar  --可千万别忘了导入数据库驱动jar包</span><br></pre></td></tr></table></figure>
+<p>2、<strong>定义配置文件</strong><br>其配置文件是properties形式的，可以叫任意名称，可以放在任意目录下（一般放在src目录下，通过ClassLoader来进行加载），因为和C3P0相比，不会自动加载，需要我们手动进行加载。<br>配置文件大致如下，如：druid.properties</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">driverClassName=com.mysql.cj.jdbc.Driver</span><br><span class="line">url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/exam?useSSL=false</span></span><br><span class="line">username=root</span><br><span class="line">password=<span class="number">123456</span></span><br><span class="line">initialSize=<span class="number">5</span></span><br><span class="line">maxActive=<span class="number">10</span></span><br><span class="line">maxWait=<span class="number">3000</span></span><br></pre></td></tr></table></figure>
+<p>3、<strong>加载配置文件</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line">InputStream is = DruidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");</span><br><span class="line">pro.load(is);</span><br></pre></td></tr></table></figure>
+<p>4、<strong>获取数据库连接池对象</strong><br>和C3P0相比，该技术的数据库连接池对象需要通过DruidDataSourceFactory工厂类来获取，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DataSource pool = DruidDataSourceFactory.createDataSource(参数);</span><br><span class="line"><span class="comment">//此处的需要传递加载进来的配置文件对象，即Properties对象</span></span><br></pre></td></tr></table></figure>
+<p>5、<strong>获取连接</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = pool.getConnection();</span><br></pre></td></tr></table></figure>
+<p>6、<strong>归还Connection连接</strong><br>在使用完后，我们需要将Connection对象归还给连接池。对此我们只需要调用close()方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+
+<h5 id="（二）入门小Demo-1"><a href="#（二）入门小Demo-1" class="headerlink" title="（二）入门小Demo"></a>（二）入门小Demo</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 1、导入jar包</span></span><br><span class="line"><span class="comment">         * 2、添加配置文件</span></span><br><span class="line"><span class="comment">         * 3、加载配置文件</span></span><br><span class="line"><span class="comment">         * 4、获取连接池对象</span></span><br><span class="line"><span class="comment">         * 5、获取Connection对象</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//加载配置文件</span></span><br><span class="line">            Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line">            InputStream is = DruidDemo1.class.getClassLoader().getResourceAsStream("druid.properties");</span><br><span class="line">            pro.load(is);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取连接池对象</span></span><br><span class="line">            DataSource pool = DruidDataSourceFactory.createDataSource(pro);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取连接</span></span><br><span class="line">            Connection conn = pool.getConnection();</span><br><span class="line">            System.out.println(conn);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的3个小demo中，为了方便，没有加入归还Connection对象的代码。在实际应用中，只需要调用其close()即可。</p>
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+	  
+<!-- 开始添加阅读量-->
+
+		<span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->	  
+	  
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/26/JavaWeb--%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/23/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL常用语句总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、什么是数据库连接池"><span class="toc-number">1.</span> <span class="toc-text">一、什么是数据库连接池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、数据库连接池的好处"><span class="toc-number">2.</span> <span class="toc-text">二、数据库连接池的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、数据库连接池的实现"><span class="toc-number">3.</span> <span class="toc-text">三、数据库连接池的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）实现"><span class="toc-number">3.1.</span> <span class="toc-text">（一）实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）数据库连接池技术"><span class="toc-number">3.2.</span> <span class="toc-text">（二）数据库连接池技术</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、C3P0数据源"><span class="toc-number">4.</span> <span class="toc-text">四、C3P0数据源</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）使用步骤"><span class="toc-number">4.1.</span> <span class="toc-text">（一）使用步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）入门小Demo"><span class="toc-number">4.2.</span> <span class="toc-text">（二）入门小Demo</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、Druid数据源"><span class="toc-number">5.</span> <span class="toc-text">五、Druid数据源</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）使用步骤-1"><span class="toc-number">5.1.</span> <span class="toc-text">（一）使用步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）入门小Demo-1"><span class="toc-number">5.2.</span> <span class="toc-text">（二）入门小Demo</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -282,9 +497,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
