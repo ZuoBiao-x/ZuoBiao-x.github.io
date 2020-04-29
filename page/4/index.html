@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 24
+			总文章数 25
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -633,20 +633,20 @@
 
 
   
-    <article id="post-Java设计模式--单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java设计模式--模板设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-03-26T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
+        <a href="/2020/03/28/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E6%A8%A1%E6%9D%BF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-03-28T11:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
 </a>
         <center><p>
   
     <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">Java设计模式--单例模式</a>
+      <a class="article-title_code_ant" href="/2020/03/28/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E6%A8%A1%E6%9D%BF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">Java设计模式--模板设计模式</a>
     </h1>
   
 </p></center>
@@ -658,7 +658,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">510字</span>
+        <span class="post-count">713字</span>
       </span>
     </span>
 
@@ -679,7 +679,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、单例模式概述"><a href="#一、单例模式概述" class="headerlink" title="一、单例模式概述"></a>一、单例模式概述</h4><p>（一）定义：确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例场景，也就是说：确保某个类有且只有一个对象的场景，避免产生多个对象消耗过多的资源，或者某种类型的对象应该有且只有一个。</p>
+        <p>####一、模版设计模式概述<br>在阎宏博士的《JAVA与模式》一书中开头是这样描述模板方法（Template Method）模式的：<br>　　<strong>模板方法模式是类的行为模式。准备一个抽象类，将部分逻辑以具体方法以及具体构造函数的形式实现，然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现。这就是模板方法模式的用意。</strong></p>
         
       
 
@@ -719,7 +719,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">more >></a>
+          <a class="article-more-a" href="/2020/03/28/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E6%A8%A1%E6%9D%BF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">more >></a>
         </p>
       
 
@@ -898,7 +898,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,11 +906,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,15 +926,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
