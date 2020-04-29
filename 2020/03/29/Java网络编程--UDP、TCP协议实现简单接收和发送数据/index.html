@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaWeb--初识XML | 跑调大叔の博客</title>
+  <title>Java网络编程--UDP、TCP协议实现简单接收和发送数据 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、什么是XML1、XML是指可扩展标记语言(eXtensible Markup Language)，它是一种标记语言，很类似HTML。它被设计的宗旨是传输数据，而非显示数据。XML技术由W3C组织(World Wide Web Consortium万维网联盟)发布。 2、XML中的数据必须通过软件程序来解析执行或显示，如IE；这样的解析程序称之为Parser(解析器)。">
+  <meta name="description" content="一、UDP协议（一）服务器端： 步骤如下：1、创建接收端Socket对象2、创建一个接收数据包3、调用socket对象的接收数据方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb--初识XML">
-<meta property="og:url" content="http://yoursite.com/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/index.html">
+<meta property="og:title" content="Java网络编程--UDP、TCP协议实现简单接收和发送数据">
+<meta property="og:url" content="http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="一、什么是XML1、XML是指可扩展标记语言(eXtensible Markup Language)，它是一种标记语言，很类似HTML。它被设计的宗旨是传输数据，而非显示数据。XML技术由W3C组织(World Wide Web Consortium万维网联盟)发布。 2、XML中的数据必须通过软件程序来解析执行或显示，如IE；这样的解析程序称之为Parser(解析器)。">
+<meta property="og:description" content="一、UDP协议（一）服务器端： 步骤如下：1、创建接收端Socket对象2、创建一个接收数据包3、调用socket对象的接收数据方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-08T03:47:44.000Z">
-<meta property="article:modified_time" content="2020-04-08T03:47:44.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/3.png">
+<meta property="article:published_time" content="2020-03-29T12:15:00.000Z">
+<meta property="article:modified_time" content="2020-03-29T12:15:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="XML">
+<meta property="article:tag" content="网络编程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/1.png">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
   
@@ -172,20 +176,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JavaWeb--初始XML" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java网络编程--UDP、TCP协议实现简单接收和发送数据" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/" class="archive-article-date">
-  	<time datetime="2020-04-08T03:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
+        <a href="/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2020-03-29T12:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
 </a>
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaWeb--初识XML
+      Java网络编程--UDP、TCP协议实现简单接收和发送数据
     </h1>
   
 </p></center>
@@ -197,7 +201,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">631字</span>
+        <span class="post-count">636字</span>
       </span>
     </span>
 
@@ -218,48 +222,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、什么是XML"><a href="#一、什么是XML" class="headerlink" title="一、什么是XML"></a>一、什么是XML</h4><p>1、XML是指可扩展标记语言(eXtensible Markup Language)，它是一种标记语言，很类似HTML。它被设计的宗旨是传输数据，而非显示数据。XML技术由W3C组织(World Wide Web Consortium万维网联盟)发布。</p>
-<p>2、XML中的数据必须通过软件程序来解析执行或显示，如IE；这样的解析程序称之为Parser(解析器)。</p>
-<a id="more"></a>
-
-<h4 id="二、XML的应用"><a href="#二、XML的应用" class="headerlink" title="二、XML的应用"></a>二、XML的应用</h4><p>1、在不同系统之间传输数据。</p>
-<p>2、用来存储有层级结构关系的数据。</p>
-<p>3、用作软件配置文件，以描述程序模块之间的关系。(如Spring就是基于XML作为配置文件的)。</p>
-<p>补充：在一个软件系统中，通过XML配置文件可以提高系统的灵活性。即程序的行为是通过XML文件来配置的，而不是硬编码。</p>
-<h4 id="三、XML的语法"><a href="#三、XML的语法" class="headerlink" title="三、XML的语法"></a>三、XML的语法</h4><p>（一）XML的文档说明</p>
-<p>文档说明必须添加在文档的第一行第一列。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="no”?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> (二) XML中定义元素（即：标签）</p>
-<p>1、有开始标签必须要有结束标签。如果没有内容，可以在标签内结束</p>
-<p>2、标签可以嵌套，但是必须合理嵌套</p>
-<p>3、一个XML文件中，只能由一个根标签</p>
-<p>4、在XML文件中，空格和换行都被当成内容来解析</p>
-<p>5、XML代码区分大小写</p>
-<p>6、XML标签不能以XML、xml、Xml等开头，不能包含空格和冒号</p>
-<p>（三）XML中定义属性</p>
-<p>1、一个标签可以由多个属性，但是属性名称不能相同</p>
-<p>2、属性名称与属性值之间使用=，属性值使用引号括起来（可以是单引号，也可以是双引号）</p>
-<p>3、属性的命名规范和标签的命名规范一致</p>
-<p>（四）XML中的特殊字符</p>
-<p>1、&lt; &gt; &amp; “” ‘’ 这些字符都是特殊字符，如果需要显示需要进行转义</p>
-<p>2、对应如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt; ---&gt; &lt;</span><br><span class="line">&gt; ---&gt; &gt;</span><br><span class="line">&amp; ---&gt; &amp;</span><br><span class="line">&quot; --&gt; &quot;</span><br><span class="line">&#39; ---&gt; &amp;apos</span><br></pre></td></tr></table></figure>
-
-<p>3、CTADA区 </p>
-<p>CDATA是Character Data的缩写<br>作用：把标签当做普通文本内容；<br>语法：<!--[CDATA[内容]]--></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[</span><br><span class="line">	&lt;blog&gt;http:&#x2F;&#x2F;ZuoBiao-x.github.io&lt;&#x2F;blog&gt;</span><br><span class="line">]]&gt;</span><br><span class="line">此处的&lt;blog&gt;http:&#x2F;&#x2F;ZuoBiao-x.github.io&lt;&#x2F;blog&gt;会被当做文本内容输出</span><br></pre></td></tr></table></figure>
-
-<p>4、PI指令</p>
-<p>处理指令，简称PI(Processing Instruction)。<br>作用：用来指挥软件如何解析XML文档。<br>语法：必须以“<?”作为开头，以“?>”作为结尾。<br>常用处理指令：<br>XML声明：<?xml version="1.0" encoding="GB2312”?><br>xml-stylesheet指令：<?xml-stylesheet type="text/css" href="css文件路径"?></p>
-<h4 id="四、XML的约束"><a href="#四、XML的约束" class="headerlink" title="四、XML的约束"></a>四、XML的约束</h4><p>1、原因：由于xml的标签由用户自己定义，因此在开发的时候，每个人都可以根据自己的需求来定义xml标签，这样导致项目中的xml难以维护，因此需要使用一定的规范机制来约束xml文件中的标签书写。</p>
-<p>2、种类：XML的约束有两种DTD和Schema（在之后的文章中介绍具体的使用方法）。</p>
-<h4 id="五、XML的解析"><a href="#五、XML的解析" class="headerlink" title="五、XML的解析"></a>五、XML的解析</h4><p>1、XML的解析技术有两种：dom和sax</p>
-<p>2、针对这两种解析技术，官方以及其他组织提供的不同的实现方式</p>
-<p>3、常见的解析方式有如下三种：（在之后的文章中介绍具体的使用方法）</p>
-<p>   a. sun公司提供的jaxp</p>
-<p>   b. dom4j组织提供的dom4j</p>
-<p>   c. jdom组织提供的jdom</p>
+        <h4 id="一、UDP协议"><a href="#一、UDP协议" class="headerlink" title="一、UDP协议"></a>一、UDP协议</h4><h5 id="（一）服务器端："><a href="#（一）服务器端：" class="headerlink" title="（一）服务器端："></a>（一）服务器端：</h5><p> 步骤如下：<br>1、创建接收端Socket对象<br>2、创建一个接收数据包<br>3、调用socket对象的接收数据方法<a id="more"></a><br>4、解析数据包，并将其输出在控制台<br>5、释放资源<br>代码实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReceiveDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">//创建接收端socket对象</span></span><br><span class="line">		DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">12345</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//创建接收数据包</span></span><br><span class="line">		<span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(buf, buf.length);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//接收数据</span></span><br><span class="line">		ds.receive(dp);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//解析数据包</span></span><br><span class="line">		String ip = dp.getAddress().getHostName();</span><br><span class="line">		String datas = <span class="keyword">new</span> String(dp.getData(), <span class="number">0</span>, dp.getLength());</span><br><span class="line">		System.out.println(<span class="string">"接收到来自 "</span>+ip+<span class="string">" 的数据："</span>+datas);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//释放资源</span></span><br><span class="line">		ds.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）客户端："><a href="#（二）客户端：" class="headerlink" title="（二）客户端："></a>（二）客户端：</h5><p> 步骤如下：<br>1、创建发送端Socket对象<br>2、创建数据，并把数据打包<br>3、调用socket对象的发送方法来发送数据包<br>4、释放资源<br>代码实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">//创建发送端socket对象</span></span><br><span class="line">		DatagramSocket ds = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//创建需要发送的数据，并封装成数据包</span></span><br><span class="line">		<span class="keyword">byte</span>[] datas = <span class="string">"Hello UDP"</span>.getBytes();</span><br><span class="line">		DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(datas, datas.length, netAddress.getByName(<span class="string">"127.0.0.1"</span>), <span class="number">12345</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//发送</span></span><br><span class="line">		ds.send(dp);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//释放资源</span></span><br><span class="line">		ds.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>服务器端收到数据如下：<br><img src="/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/1.png" alt="1"></p>
+<h4 id="二、TCP协议"><a href="#二、TCP协议" class="headerlink" title="二、TCP协议"></a>二、TCP协议</h4><h5 id="（一）服务器端：-1"><a href="#（一）服务器端：-1" class="headerlink" title="（一）服务器端："></a>（一）服务器端：</h5><p>步骤如下：<br>1、创建服务器端socket对象（ServerSocket类）<br>2、监听客户端连接。并且针对每一个客户端都返回一个socket对象（Socket类的实例）<br>3、获取输入流，读取数据<br>4、释放资源<br>代码实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServerDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		<span class="comment">//创建ServerSocket对象</span></span><br><span class="line">		ServerSocket ss = <span class="keyword">new</span> ServerSocket(<span class="number">12345</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//监听客户端连接。返回客户端socket对象</span></span><br><span class="line">		Socket s = ss.accept();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取输入流，读取数据</span></span><br><span class="line">		InputStream is = s.getInputStream();</span><br><span class="line">		<span class="keyword">byte</span>[] datas = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		<span class="keyword">int</span> len = is.read(datas);</span><br><span class="line">		System.out.println(<span class="string">"Server:"</span>+<span class="keyword">new</span> String(datas, <span class="number">0</span>, len));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取输出流，写出反馈</span></span><br><span class="line">		OutputStream os = s.getOutputStream();</span><br><span class="line">		os.write(<span class="string">"数据已收到"</span>.getBytes());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//释放资源</span></span><br><span class="line">		s.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）客户端：-1"><a href="#（二）客户端：-1" class="headerlink" title="（二）客户端："></a>（二）客户端：</h5><p>步骤如下：<br>1、创建发送端socket对象（这一步如果成功，表明连接已经建立成功）<br>2、获取输出流，发送数据<br>3、释放资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="comment">//创建socket对象</span></span><br><span class="line">		Socket s = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">12345</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取输出流</span></span><br><span class="line">		OutputStream os = s.getOutputStream();</span><br><span class="line">		os.write(<span class="string">"Hello TCP"</span>.getBytes());</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//获取输入流</span></span><br><span class="line">		InputStream is = s.getInputStream();</span><br><span class="line">		<span class="keyword">byte</span>[] datas = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		<span class="keyword">int</span> len = is.read(datas);</span><br><span class="line">		System.out.println(<span class="string">"Client:"</span>+<span class="keyword">new</span> String(datas, <span class="number">0</span>, len));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//释放资源</span></span><br><span class="line">		s.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：<br>服务器端收到消息：<br><img src="/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/2.png" alt="2"><br>客户端收到反馈：<br><img src="/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/3.png" alt="3"></p>
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
 
       
 
@@ -294,7 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
         		</li>
       		
 		</ul>
@@ -315,7 +288,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaWeb//" class="article-tag-list-link color3">JavaWeb</a>
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
@@ -370,7 +343,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/08/JavaWeb--%E5%88%9D%E5%A7%8BXML/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/29/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B--UDP%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E6%8E%A5%E6%94%B6%E5%92%8C%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +357,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/08/JavaWeb--XML%E7%9A%84%E7%BA%A6%E6%9D%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/01/JavaWeb--%E4%BA%86%E8%A7%A3HTML/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaWeb--XML的约束
+          JavaWeb--了解HTML
         
       </div>
     </a>
   
   
-    <a href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%883%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaWeb--初始JavaScript（3）</div>
+    <a href="/2020/03/29/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E6%9E%9A%E4%B8%BE%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础学习总结--枚举的简单使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -422,7 +395,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、什么是XML"><span class="toc-number">1.</span> <span class="toc-text">一、什么是XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、XML的应用"><span class="toc-number">2.</span> <span class="toc-text">二、XML的应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、XML的语法"><span class="toc-number">3.</span> <span class="toc-text">三、XML的语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、XML的约束"><span class="toc-number">4.</span> <span class="toc-text">四、XML的约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、XML的解析"><span class="toc-number">5.</span> <span class="toc-text">五、XML的解析</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、UDP协议"><span class="toc-number">1.</span> <span class="toc-text">一、UDP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）服务器端："><span class="toc-number">1.1.</span> <span class="toc-text">（一）服务器端：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）客户端："><span class="toc-number">1.2.</span> <span class="toc-text">（二）客户端：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、TCP协议"><span class="toc-number">2.</span> <span class="toc-text">二、TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）服务器端：-1"><span class="toc-number">2.1.</span> <span class="toc-text">（一）服务器端：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）客户端：-1"><span class="toc-number">2.2.</span> <span class="toc-text">（二）客户端：</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
