@@ -231,7 +231,7 @@
 <p>如果在元素中配置了<code>&lt;load-on-startup&gt;</code>元素，那么服务器在启动时，就会装载并创建Servlet的实例对象、以及调用Servlet实例对象的init()方法。</p>
 <h4 id="四、同一个Servlet可以被映射到多个URL上"><a href="#四、同一个Servlet可以被映射到多个URL上" class="headerlink" title="四、同一个Servlet可以被映射到多个URL上"></a>四、同一个Servlet可以被映射到多个URL上</h4><h5 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servlet04<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.zuobiao.servlet.Servlet04<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>0<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servlet4<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/AServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/BServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>无论我访问的是<code>http://localhost:8080/AServlet</code>还是<code>http://localhost:8080/BServlet</code>我访问的都是Servlet04。<br>注意：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">##### （二）Servlet映射的URL可以使用通配符</span><br><span class="line">1、所谓通配符就是星号“*”，星号可以匹配任何URL前缀或后缀，使用通配符可以命名一个Servlet绑定一组URL，例如：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;xml</span><br><span class="line">路径匹配:</span><br><span class="line">&lt;url-pattern&gt;&#x2F;servlet&#x2F;*&lt;url-patter&gt;：&#x2F;servlet&#x2F;a、&#x2F;servlet&#x2F;b，都匹配&#x2F;servlet&#x2F;*；</span><br><span class="line">扩展名匹配:</span><br><span class="line">&lt;url-pattern&gt;*.do&lt;&#x2F;url-pattern&gt;：&#x2F;abc&#x2F;def&#x2F;ghi.do、&#x2F;a.do，都匹配 *.do；</span><br><span class="line">啥都匹配:</span><br><span class="line">&lt;url-pattern&gt;&#x2F;*&lt;url-pattern&gt;：匹配所有URL；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">##### （二）Servlet映射的URL可以使用通配符</span><br><span class="line">1、所谓通配符就是星号“*”，星号可以匹配任何URL前缀或后缀，使用通配符可以命名一个Servlet绑定一组URL，例如：</span><br><span class="line">&#96;&#96;&#96;xml</span><br><span class="line">路径匹配:</span><br><span class="line">&lt;url-pattern&gt;&#x2F;servlet&#x2F;*&lt;url-patter&gt;：&#x2F;servlet&#x2F;a、&#x2F;servlet&#x2F;b，都匹配&#x2F;servlet&#x2F;*；</span><br><span class="line">扩展名匹配:</span><br><span class="line">&lt;url-pattern&gt;*.do&lt;&#x2F;url-pattern&gt;：&#x2F;abc&#x2F;def&#x2F;ghi.do、&#x2F;a.do，都匹配 *.do；</span><br><span class="line">啥都匹配:</span><br><span class="line">&lt;url-pattern&gt;&#x2F;*&lt;url-pattern&gt;：匹配所有URL；</span><br></pre></td></tr></table></figure>
 <p>请注意，通配符要么为前缀，要么为后缀，不能出现在URL中间位置，也不能只有通配符。例如：/<em>.do就是错误的，因为星号出现在URL的中间位置上了。</em>.*也是不对的，因为一个URL中最多只能出现一个通配符。<br>2、通配符是一种模糊匹配URL的方式，如果存在更具体的<code>&lt;url-pattern&gt;</code>，那么访问路径会去匹配具体的<code>&lt;url-pattern&gt;</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、看谁的匹配度高，谁就被选择</span><br><span class="line">2、*.扩展名的优先级最低</span><br></pre></td></tr></table></figure>
 <p>例如：</p>
@@ -576,11 +576,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,11 +592,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,7 +604,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,7 +612,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
