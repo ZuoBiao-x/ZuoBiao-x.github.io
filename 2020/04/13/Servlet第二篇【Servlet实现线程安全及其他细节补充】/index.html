@@ -197,7 +197,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">950字</span>
+        <span class="post-count">962字</span>
       </span>
     </span>
 
@@ -230,7 +230,7 @@
 <p>如果在元素中配置了<code>&lt;load-on-startup&gt;</code>元素，那么服务器在启动时，就会装载并创建Servlet的实例对象、以及调用Servlet实例对象的init()方法。</p>
 <h4 id="四、同一个Servlet可以被映射到多个URL上"><a href="#四、同一个Servlet可以被映射到多个URL上" class="headerlink" title="四、同一个Servlet可以被映射到多个URL上"></a>四、同一个Servlet可以被映射到多个URL上</h4><h5 id="（一）"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servlet04<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.zuobiao.servlet.Servlet04<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>0<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Servlet4<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/AServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/BServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>无论我访问的是<code>http://localhost:8080/AServlet</code>还是<code>http://localhost:8080/BServlet</code>我访问的都是Servlet04。<br>注意：<br><code>&lt;url-pattern&gt;是&lt;servlet-mapping&gt;</code>的子元素，用来指定Servlet的访问路径，即URL。它必须是以“/”开头！</p>
-
+<h5 id="（二）Servlet映射的URL可以使用通配符"><a href="#（二）Servlet映射的URL可以使用通配符" class="headerlink" title="（二）Servlet映射的URL可以使用通配符"></a>（二）Servlet映射的URL可以使用通配符</h5>
       
 
       
@@ -392,7 +392,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、Servlet是单例的"><span class="toc-number">1.</span> <span class="toc-text">一、Servlet是单例的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、Servlet与线程安全"><span class="toc-number">2.</span> <span class="toc-text">二、Servlet与线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、让服务器在启动时就创建Servlet"><span class="toc-number">3.</span> <span class="toc-text">三、让服务器在启动时就创建Servlet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、同一个Servlet可以被映射到多个URL上"><span class="toc-number">4.</span> <span class="toc-text">四、同一个Servlet可以被映射到多个URL上</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）"><span class="toc-number">4.1.</span> <span class="toc-text">（一）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、Servlet是单例的"><span class="toc-number">1.</span> <span class="toc-text">一、Servlet是单例的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、Servlet与线程安全"><span class="toc-number">2.</span> <span class="toc-text">二、Servlet与线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、让服务器在启动时就创建Servlet"><span class="toc-number">3.</span> <span class="toc-text">三、让服务器在启动时就创建Servlet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、同一个Servlet可以被映射到多个URL上"><span class="toc-number">4.</span> <span class="toc-text">四、同一个Servlet可以被映射到多个URL上</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）"><span class="toc-number">4.1.</span> <span class="toc-text">（一）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）Servlet映射的URL可以使用通配符"><span class="toc-number">4.2.</span> <span class="toc-text">（二）Servlet映射的URL可以使用通配符</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -564,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,11 +584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,11 +604,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
