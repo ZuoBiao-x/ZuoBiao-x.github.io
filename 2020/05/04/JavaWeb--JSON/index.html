@@ -236,7 +236,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"></span><br><span class="line">String s = objectMapper.writeValueAsString(person);</span><br><span class="line"></span><br><span class="line">objectMapper.writeValue(<span class="keyword">new</span> File(<span class="string">"e:/test1.tex"</span>), person);</span><br><span class="line">objectMapper.writeValue(<span class="keyword">new</span> FileWriter(<span class="string">"e:/test2.txt"</span>), person);</span><br><span class="line">objectMapper.writeValue(<span class="keyword">new</span> FileOutputStream(<span class="string">"e:/test3.json"</span>), person);</span><br></pre></td></tr></table></figure>
 <h5 id="（三）集合对象转换"><a href="#（三）集合对象转换" class="headerlink" title="（三）集合对象转换"></a>（三）集合对象转换</h5><h6 id="1、List对象"><a href="#1、List对象" class="headerlink" title="1、List对象"></a>1、List对象</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Person person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.setName(<span class="string">"张三"</span>);</span><br><span class="line">person1.setAge(<span class="number">20</span>);</span><br><span class="line">person1.setGender(<span class="string">"man"</span>);</span><br><span class="line"></span><br><span class="line">Person person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.setName(<span class="string">"李四"</span>);</span><br><span class="line">person2.setAge(<span class="number">22</span>);</span><br><span class="line">person2.setGender(<span class="string">"woman"</span>);</span><br><span class="line"></span><br><span class="line">Person person3 = <span class="keyword">new</span> Person();</span><br><span class="line">person3.setName(<span class="string">"王五"</span>);</span><br><span class="line">person3.setAge(<span class="number">23</span>);</span><br><span class="line">person3.setGender(<span class="string">"man"</span>);</span><br><span class="line"></span><br><span class="line">List&lt;Person&gt; ps = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</span><br><span class="line">ps.add(person1);</span><br><span class="line">ps.add(person2);</span><br><span class="line">ps.add(person3);</span><br><span class="line"></span><br><span class="line">ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">String s = objectMapper.writeValueAsString(ps);</span><br></pre></td></tr></table></figure>
 <h6 id="2、Map对象"><a href="#2、Map对象" class="headerlink" title="2、Map对象"></a>2、Map对象</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">map.put(<span class="string">"name"</span>, <span class="string">"zhangsan"</span>);</span><br><span class="line">map.put(<span class="string">"age"</span>, <span class="number">20</span>);</span><br><span class="line">map.put(<span class="string">"gender"</span>, <span class="string">"男"</span>);</span><br><span class="line"></span><br><span class="line">ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">String s = objectMapper.writeValueAsString(map);</span><br></pre></td></tr></table></figure>
-<h5 id="（四）使用注解"><a href="#（四）使用注解" class="headerlink" title="（四）使用注解"></a>（四）使用注解</h5><p>有时候对于一个Bean对象中的属性，可能不希望它存进json数据，或者该属性的类型需要格式化。<br>那么一下两个注解就派上用场了：<br>1、@JsonIgnore：排除属性。<br>2、@JsonFormat：属性值得格式化<br>只需要在对应的属性或者setter、getter方法使用该注解即可，如：</p>
+<h5 id="（四）使用注解"><a href="#（四）使用注解" class="headerlink" title="（四）使用注解"></a>（四）使用注解</h5><p>有时候对于一个Bean对象中的属性，可能不希望它存进json数据，或者该属性的类型需要格式化。<br>那么以下两个注解就派上用场了：<br>1、@JsonIgnore：排除属性。<br>2、@JsonFormat：属性值得格式化<br>只需要在对应的属性或者setter、getter方法使用该注解即可，如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String gender;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//@JsonIgnore</span></span><br><span class="line">    <span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    </span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="六、JSON对象转换为Java对象"><a href="#六、JSON对象转换为Java对象" class="headerlink" title="六、JSON对象转换为Java对象"></a>六、JSON对象转换为Java对象</h4><h5 id="（一）使用步骤-1"><a href="#（一）使用步骤-1" class="headerlink" title="（一）使用步骤"></a>（一）使用步骤</h5><p>由JSON对象转换为Java对象貌似用得不多，所以见到了解即可<br>步骤和Java对象转换成JSON对象是一样的：<br>1、导入jar包<br>2、创建JackSon核心对象:ObjectMapper<br>3、调用相关方法进行转换：readValue(json字符串数据,Bean对象.class)</p>
@@ -557,6 +557,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
@@ -565,15 +569,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,15 +605,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,7 +617,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
             
             <div class="clearfix"></div>
