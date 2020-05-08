@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaWeb--Redis【入门】 | 跑调大叔の博客</title>
+  <title>JavaWeb--初始JavaScript（2） | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NOSQL在学习Redis之前，我们需要先知道什么是NOSQLNoSQL(NoSQL &#x3D; Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。">
+  <meta name="description" content="一、JavaScript中的BOM对象1、Window对象：表示浏览器中打开的窗口2、Navigator对象：该对象包含有关浏览器的信息3、Screen对象：包含有关客户端显示屏幕的信息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb--Redis【入门】">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/JavaWeb--Redis%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/index.html">
+<meta property="og:title" content="JavaWeb--初始JavaScript（2）">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="一、NOSQL在学习Redis之前，我们需要先知道什么是NOSQLNoSQL(NoSQL &#x3D; Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库。">
+<meta property="og:description" content="一、JavaScript中的BOM对象1、Window对象：表示浏览器中打开的窗口2、Navigator对象：该对象包含有关浏览器的信息3、Screen对象：包含有关客户端显示屏幕的信息">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-05T09:27:44.000Z">
-<meta property="article:modified_time" content="2020-05-05T09:27:44.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/7.png">
+<meta property="article:published_time" content="2020-04-03T07:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-03T07:00:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="Redis">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
   
@@ -172,20 +180,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JavaWeb--Redis【入门】" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaWeb--初始JavaScript（2）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/05/05/JavaWeb--Redis%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-05-05T09:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+        <a href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-04-03T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
 </a>
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaWeb--Redis【入门】
+      JavaWeb--初始JavaScript（2）
     </h1>
   
 </p></center>
@@ -197,7 +205,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
+        <span class="post-count">336字</span>
       </span>
     </span>
 
@@ -206,7 +214,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -218,46 +226,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、NOSQL"><a href="#一、NOSQL" class="headerlink" title="一、NOSQL"></a>一、NOSQL</h4><p>在学习Redis之前，我们需要先知道什么是NOSQL<br>NoSQL(NoSQL = Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指<strong>非关系型的数据库。</strong><a id="more"></a></p>
-<h5 id="（一）NOSQL和关系型数据库比较"><a href="#（一）NOSQL和关系型数据库比较" class="headerlink" title="（一）NOSQL和关系型数据库比较"></a>（一）NOSQL和关系型数据库比较</h5><h6 id="1、优点："><a href="#1、优点：" class="headerlink" title="1、优点："></a>1、优点：</h6><p>1）成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。<br>2）查询速度：<strong>nosql数据库将数据存储于缓存之中</strong>，<strong>关系型数据库将数据存储在硬盘中</strong>，自然查询速度远不及nosql数据库。<br>3）存储数据的格式：<strong>nosql的存储格式是key,value形式</strong>，可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。<br>4）扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。</p>
-<h6 id="2、缺点："><a href="#2、缺点：" class="headerlink" title="2、缺点："></a>2、缺点：</h6><p>1）维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库10几年的技术同日而语。<br>2）不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。<br>3）不提供关系型数据库对事务的处理。</p>
-<h5 id="（二）非关系型数据库的优势"><a href="#（二）非关系型数据库的优势" class="headerlink" title="（二）非关系型数据库的优势"></a>（二）非关系型数据库的优势</h5><p>1）性能：NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高。<br>2）可扩展性：同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。</p>
-<h5 id="（三）关系型数据库的优势"><a href="#（三）关系型数据库的优势" class="headerlink" title="（三）关系型数据库的优势"></a>（三）关系型数据库的优势</h5><p>1）复杂查询：用SQL语句很方便的在一个表以及多个表之间做非常复杂的数据查询。<br>2）事务支持：关系型数据库支持事务操作，使得对于安全性能很高的数据访问要求得以实现。</p>
-<h5 id="（四）小结"><a href="#（四）小结" class="headerlink" title="（四）小结"></a>（四）小结</h5><p><strong>关系型数据库与NoSQL数据库并非对立而是互补的关系</strong>，即通常情况下使用关系型数据库，在适合使用NoSQL的时候使用NoSQL数据库，<br>让NoSQL数据库对关系型数据库的不足进行弥补。<br><strong>一般会将数据存储在关系型数据库中，在nosql数据库中备份存储关系型数据库的数据</strong></p>
-<h4 id="二、什么是Redis"><a href="#二、什么是Redis" class="headerlink" title="二、什么是Redis"></a>二、什么是Redis</h4><p>Redis是用C语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50个并发执行100000个请求,读的速度是110000次/s,写的速度是81000次/s ，且Redis通过提供多种键值数据类型来适应不同场景下的存储需求。<br>redis的应用场景<br>缓存（数据查询、短连接、新闻内容、商品内容等等）<br>聊天室的在线好友列表<br>任务队列（秒杀、抢购、12306等等）<br>应用排行榜<br>网站访问统计<br>数据过期处理（可以精确到毫秒）<br>分布式集群架构中的session分离            </p>
-<h4 id="三、Redis的下载与安装"><a href="#三、Redis的下载与安装" class="headerlink" title="三、Redis的下载与安装"></a>三、Redis的下载与安装</h4><h5 id="（一）下载"><a href="#（一）下载" class="headerlink" title="（一）下载"></a>（一）下载</h5><p>1、<a href="https://redis.io" target="_blank">Redis官网</a><br>2、<a href="http://www.redis.net.cn/" target="_blank">Redis中文网</a></p>
-<h5 id="（二）安装"><a href="#（二）安装" class="headerlink" title="（二）安装"></a>（二）安装</h5><p>Redis是绿色版本的，不需要安装，只需要解压就能直接使用<br>在解压后的文件夹中，以下三个文件需要简单了解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis.windows.conf：配置文件</span><br><span class="line">redis-cli.exe：redis的客户端</span><br><span class="line">redis-server.exe：redis服务器端</span><br></pre></td></tr></table></figure>
-<h5 id="（三）如何启动"><a href="#（三）如何启动" class="headerlink" title="（三）如何启动"></a>（三）如何启动</h5><p>1、运行redis-server.exe文件，则启动了redis的服务器端程序<br>2、运行redis-cli.exe文件，则启动了redis的客户端程序</p>
-<h4 id="四、Redis的数据结构"><a href="#四、Redis的数据结构" class="headerlink" title="四、Redis的数据结构"></a>四、Redis的数据结构</h4><p>在使用Redis之前，我们需要先学习Redis的数据结构：<br>redis存储的是：key,value格式的数据，其中key都是字符串，<strong>value有5种不同的数据结构</strong><br>value的数据结构：</p>
-<p>1) 字符串类型 string<br>2) 哈希类型 hash：map格式<br>3) 列表类型 list：linkedlist格式。支持重复元素<br>4) 集合类型 set：不允许重复元素<br>5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序</p>
-<h4 id="五、使用命令行方式操作Redis"><a href="#五、使用命令行方式操作Redis" class="headerlink" title="五、使用命令行方式操作Redis"></a>五、使用命令行方式操作Redis</h4><h5 id="（一）字符串类型"><a href="#（一）字符串类型" class="headerlink" title="（一）字符串类型"></a>（一）字符串类型</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）存储数据: set key value</span><br><span class="line"></span><br><span class="line">2）获取数据: get key</span><br><span class="line"></span><br><span class="line">3）删除数据: del key</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set username zhangsan</span><br><span class="line"></span><br><span class="line">get username</span><br><span class="line"></span><br><span class="line">del username</span><br></pre></td></tr></table></figure>
-<h5 id="（二）哈希类型：相当于集合中的map"><a href="#（二）哈希类型：相当于集合中的map" class="headerlink" title="（二）哈希类型：相当于集合中的map"></a>（二）哈希类型：相当于集合中的map</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1）存储数据: hset key field value</span><br><span class="line"></span><br><span class="line">2）获取数据: </span><br><span class="line">	a. hget key field:获取指定的field对应的值</span><br><span class="line">	b. hgetall key:获取所有的field和value</span><br><span class="line">	</span><br><span class="line">3）删除数据: hdel key field</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hset myhash username zhangsan</span><br><span class="line">hset myhash pwd <span class="number">123</span></span><br><span class="line"></span><br><span class="line">hget myhash username</span><br><span class="line">hget myhash pwd</span><br><span class="line"></span><br><span class="line">hgetall myhash</span><br><span class="line"></span><br><span class="line">hdel myhash username</span><br><span class="line">hdel myhash pwd</span><br></pre></td></tr></table></figure>
-<h5 id="（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）"><a href="#（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）" class="headerlink" title="（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）"></a>（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1）添加数据: </span><br><span class="line">	a. lpush key value: 将元素加入列表左表</span><br><span class="line">	b. rpush key value：将元素加入列表右边</span><br><span class="line">	</span><br><span class="line">2）获取数据: lrange key start end ：范围获取</span><br><span class="line"></span><br><span class="line">3）删除数据: </span><br><span class="line">	a. lpop key： 删除列表最左边的元素，并将元素返回</span><br><span class="line">	b. rpop key： 删除列表最右边的元素，并将元素返回</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lpush mylist zhangsan</span><br><span class="line">rpush mylist lisi, wangwu</span><br><span class="line"></span><br><span class="line">lrange mylist <span class="number">0</span> -<span class="number">1</span>: 遍历所有</span><br><span class="line"></span><br><span class="line">lpop mylist</span><br><span class="line">rpop mylist</span><br></pre></td></tr></table></figure>
-<h5 id="（四）集合类型：不允许重复元素"><a href="#（四）集合类型：不允许重复元素" class="headerlink" title="（四）集合类型：不允许重复元素"></a>（四）集合类型：不允许重复元素</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）存储数据: sadd key value</span><br><span class="line"></span><br><span class="line">2）获取数据: smembers key（获取set集合中的所有元素）</span><br><span class="line"></span><br><span class="line">3）删除数据: srem key value（删除set集合中的某个元素）</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sadd myset zhangsan</span><br><span class="line"></span><br><span class="line">smembers myset</span><br><span class="line"></span><br><span class="line">srem myset lisi</span><br></pre></td></tr></table></figure>
-<h5 id="（五）有序集合类型：不允许重复元素，且元素有顺序"><a href="#（五）有序集合类型：不允许重复元素，且元素有顺序" class="headerlink" title="（五）有序集合类型：不允许重复元素，且元素有顺序."></a>（五）有序集合类型：不允许重复元素，且元素有顺序.</h5><p>每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行<strong>从小到大</strong>的排序。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）存储数据: zadd key score value</span><br><span class="line"></span><br><span class="line">2）获取数据: zrange key start end [withscores]</span><br><span class="line"></span><br><span class="line">3）删除数据: zrem key value</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zadd mysort <span class="number">20</span> zhangsan</span><br><span class="line">zadd mysort <span class="number">25</span> lisi</span><br><span class="line"></span><br><span class="line">zrange mysort <span class="number">0</span> -<span class="number">1</span></span><br><span class="line">zrange mysort <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"></span><br><span class="line">zrem mysort lisi</span><br></pre></td></tr></table></figure>
-<h5 id="（六）通用命令"><a href="#（六）通用命令" class="headerlink" title="（六）通用命令"></a>（六）通用命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">keys * : 查询所有的键</span><br><span class="line">type key ： 获取键对应的value的类型</span><br><span class="line">del key：删除指定的key value</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">keys *</span><br><span class="line">type mysort</span><br><span class="line">del mysort</span><br></pre></td></tr></table></figure>
-
-<h4 id="六、Redis的持久化"><a href="#六、Redis的持久化" class="headerlink" title="六、Redis的持久化"></a>六、Redis的持久化</h4><p>redis是一个内存数据库，当redis服务器重启，获取电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中。</p>
-<h5 id="（一）RDM方式"><a href="#（一）RDM方式" class="headerlink" title="（一）RDM方式"></a>（一）RDM方式</h5><p>默认方式，不需要进行配置，redis默认就使用这种机制。这种机制会在一定的间隔时间中，检测key的变化情况，然后持久化数据。<br>在解压后的redis文件夹中的redis.windwos.conf文件中，可以看到默认配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#   after 900 sec (15 min) if at least 1 key changed</span><br><span class="line"># 在900秒（15分钟）的间隔内，如果至少1个键发生改变，则进行持久化</span><br><span class="line">save 900 1</span><br><span class="line"></span><br><span class="line">#   after 300 sec (5 min) if at least 10 keys changed</span><br><span class="line"># 300（5分钟）的间隔内，如果至少10个键发生改变，则进行持久化</span><br><span class="line">save 300 10</span><br><span class="line"></span><br><span class="line">#   after 60 sec if at least 10000 keys changed</span><br><span class="line"># 在60秒（1分钟）的间隔内，如果至少10000个键发生改变，则进行持久化</span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
-<p>在实际开发时，我们只需要根据项目的实际情况，对配置进行修改即可。</p>
-<h5 id="（二）AOF方式"><a href="#（二）AOF方式" class="headerlink" title="（二）AOF方式"></a>（二）AOF方式</h5><p>日志记录的方式。可以每一次命令操作后，持久化数据；也可以每隔一秒就进行持久化操作。<br>同样，在解压后的redis文件夹中的redis.windwos.conf文件中，可以看到默认配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendonly no（关闭aof） --&gt; appendonly yes （开启aof）</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># appendfsync always ： 每一次操作都进行持久化</span><br><span class="line">appendfsync everysec ： 每隔一秒进行一次持久化</span><br><span class="line"># appendfsync no	 ： 不进行持久化</span><br></pre></td></tr></table></figure>
-
-<h4 id="七、补充知识（了解）"><a href="#七、补充知识（了解）" class="headerlink" title="七、补充知识（了解）"></a>七、补充知识（了解）</h4><p>主流的NOSQL产品</p>
-<h5 id="1、键值-Key-Value-存储数据库"><a href="#1、键值-Key-Value-存储数据库" class="headerlink" title="1、键值(Key-Value)存储数据库"></a>1、键值(Key-Value)存储数据库</h5><p>相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB<br>典型应用： 内容缓存，主要用于处理大量数据的高访问负载。<br>数据模型： 一系列键值对<br>优势： 快速查询<br>劣势： 存储的数据缺少结构化</p>
-<h5 id="2、列存储数据库"><a href="#2、列存储数据库" class="headerlink" title="2、列存储数据库"></a>2、列存储数据库</h5><p>相关产品：Cassandra, HBase, Riak<br>典型应用：分布式的文件系统<br>数据模型：以列簇式存储，将同一列数据存在一起<br>优势：查找速度快，可扩展性强，更容易进行分布式扩展<br>劣势：功能相对局限</p>
-<h5 id="3、文档型数据库"><a href="#3、文档型数据库" class="headerlink" title="3、文档型数据库"></a>3、文档型数据库</h5><p>相关产品：CouchDB、MongoDB<br>典型应用：Web应用（与Key-Value类似，Value是结构化的）<br>数据模型： 一系列键值对<br>优势：数据结构要求不严格<br>劣势： 查询性能不高，而且缺乏统一的查询语法</p>
-<h5 id="4、图形-Graph-数据库"><a href="#4、图形-Graph-数据库" class="headerlink" title="4、图形(Graph)数据库"></a>4、图形(Graph)数据库</h5><p>相关数据库：Neo4J、InfoGrid、Infinite Graph<br>典型应用：社交网络<br>数据模型：图结构<br>优势：利用图结构相关算法。<br>劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。<br>更详细的Redis学习可以参考：<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484359&idx=1&sn=0994c6246990b7ad42a2d3f294042316&chksm=ebd742c6dca0cbd0a826ace13f4d4eeff282052f4a97b31654ef1b3b32f991374f5c67a45ae9&token=620000779&lang=zh_CN&scene=21###wechat_redirect" target="_blank">【3y】从零单排学Redis【青铜】</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484386&idx=1&sn=323ddc84dc851a975530090fcd6e2326&chksm=ebd742e3dca0cbf52bc65d430447e639d81cc13e0ac34613edf464dae3950b10e2e1df74dcc5&token=620000779&lang=zh_CN&scene=21###wechat_redirect" target="_blank">【3y】从零单排学Redis【白银】</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484391&idx=1&sn=9bd54938ecdced37d69d3ce5bfd65a2e&chksm=ebd742e6dca0cbf020b5e1e18b59626ce5d85a3f8de35d8d5b32e7fd5bf0be9dcadb1bb98177&token=620000779&lang=zh_CN&scene=21###wechat_redirect" target="_blank">【3y】从零单排学Redis【黄金】</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484430&idx=1&sn=be69ef08e58dc7559d054221732ee8ee&chksm=ebd7450fdca0cc19a4a8cd788161bfdebc0d51abe9989debadd61ba29e3cce6961ebe6093d5b&token=620000779&lang=zh_CN&scene=21###wechat_redirect" target="_blank">【3y】从零单排学Redis【铂金一】</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484451&idx=1&sn=5495b1165954cd6b84b011489e04a66b&chksm=ebd74522dca0cc3416ab0ccd3a4ddb4ddd28290c9769596a069d81df3b03f4bad72e27d30a6d&token=620000779&lang=zh_CN&scene=21###wechat_redirect" target="_blank">【3y】从零单排学Redis【铂金二】</a></p>
+        <h4 id="一、JavaScript中的BOM对象"><a href="#一、JavaScript中的BOM对象" class="headerlink" title="一、JavaScript中的BOM对象"></a>一、JavaScript中的BOM对象</h4><p>1、Window对象：表示浏览器中打开的窗口<br>2、Navigator对象：该对象包含有关浏览器的信息<br>3、Screen对象：包含有关客户端显示屏幕的信息<a id="more"></a><br>4、History对象：包含用户（在浏览器窗口中）访问过的 URL。<br>  该对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。<br>5、Location对象：包含有关当前 URL 的信息<br>  该对象是 Window 对象的一个部分，可通过 window.location 属性来访问</p>
+<h4 id="二、History对象"><a href="#二、History对象" class="headerlink" title="二、History对象"></a>二、History对象</h4><p>1、back()：加载 history 列表中的前一个 URL<br>2、forward()：加载 history 列表中的下一个 URL<br>3、go()：加载 history 列表中的某个具体页面 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- 到访问的上一个页面</span><br><span class="line">			history.back();</span><br><span class="line">			history.go(-1);</span><br><span class="line"></span><br><span class="line">- 到访问的下一个页面</span><br><span class="line">			history.forward();</span><br><span class="line">			history.go(1);</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/1.jpg" alt="1"></p>
+<h4 id="三、Location对象"><a href="#三、Location对象" class="headerlink" title="三、Location对象"></a>三、Location对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- href属性</span><br><span class="line"> a. 获取到请求的url地址</span><br><span class="line"> b. 设置url地址:页面可以跳转到另外一个页面</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/2.jpg" alt="2"></p>
+<h3 id="四、Window对象"><a href="#四、Window对象" class="headerlink" title="四、Window对象"></a>四、Window对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var theOpener &#x3D; window.opener;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/3.jpg" alt="3"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">window.alert("aaa") : 页面弹出一个框，显示内容</span><br><span class="line"></span><br><span class="line">window.confirm("是否删除？");</span><br><span class="line"></span><br><span class="line">window.prompt("请输入：","hhh");</span><br><span class="line"></span><br><span class="line">window.open("https://www.baidu.com", "", "width=200, height=100");</span><br><span class="line"></span><br><span class="line">window.close(); 	//(浏览器兼容性比较差)</span><br><span class="line"></span><br><span class="line">var id_interval = window.setInterval("alert('a');", 4000);</span><br><span class="line">window.clearInterval(id_interval);</span><br><span class="line"></span><br><span class="line">var id_timeout = window.setTimeout("alert('a');", 3000);</span><br><span class="line">window.clearTimeout(id_timeout);</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/4.jpg" alt="4"></p>
+<h4 id="五、Navigator对象"><a href="#五、Navigator对象" class="headerlink" title="五、Navigator对象"></a>五、Navigator对象</h4><p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/5.png" alt="5"><br><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/6.png" alt="6"></p>
+<h4 id="六、Screen对象"><a href="#六、Screen对象" class="headerlink" title="六、Screen对象"></a>六、Screen对象</h4><p><img src="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/7.png" alt="7"></p>
 <p><strong>Java新手，若有错误，欢迎指正！</strong></p>
 
       
@@ -293,7 +273,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -369,7 +349,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/05/JavaWeb--Redis%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%882%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,18 +363,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/06/JavaWeb--Redis%E3%80%90%E8%BF%9B%E9%98%B6%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%883%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaWeb--Redis【进阶】
+          JavaWeb--初始JavaScript（3）
         
       </div>
     </a>
   
   
-    <a href="/2020/05/04/JavaWeb--JSON/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaWeb--JSON</div>
+    <a href="/2020/04/03/JavaWeb--%E5%88%9D%E5%A7%8BJavaScript%EF%BC%881%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaWeb--初始JavaScript（1）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -421,7 +401,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、NOSQL"><span class="toc-number">1.</span> <span class="toc-text">一、NOSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）NOSQL和关系型数据库比较"><span class="toc-number">1.1.</span> <span class="toc-text">（一）NOSQL和关系型数据库比较</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、优点："><span class="toc-number">1.1.1.</span> <span class="toc-text">1、优点：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、缺点："><span class="toc-number">1.1.2.</span> <span class="toc-text">2、缺点：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）非关系型数据库的优势"><span class="toc-number">1.2.</span> <span class="toc-text">（二）非关系型数据库的优势</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）关系型数据库的优势"><span class="toc-number">1.3.</span> <span class="toc-text">（三）关系型数据库的优势</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）小结"><span class="toc-number">1.4.</span> <span class="toc-text">（四）小结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、什么是Redis"><span class="toc-number">2.</span> <span class="toc-text">二、什么是Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、Redis的下载与安装"><span class="toc-number">3.</span> <span class="toc-text">三、Redis的下载与安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）下载"><span class="toc-number">3.1.</span> <span class="toc-text">（一）下载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）安装"><span class="toc-number">3.2.</span> <span class="toc-text">（二）安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）如何启动"><span class="toc-number">3.3.</span> <span class="toc-text">（三）如何启动</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、Redis的数据结构"><span class="toc-number">4.</span> <span class="toc-text">四、Redis的数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、使用命令行方式操作Redis"><span class="toc-number">5.</span> <span class="toc-text">五、使用命令行方式操作Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）字符串类型"><span class="toc-number">5.1.</span> <span class="toc-text">（一）字符串类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）哈希类型：相当于集合中的map"><span class="toc-number">5.2.</span> <span class="toc-text">（二）哈希类型：相当于集合中的map</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）"><span class="toc-number">5.3.</span> <span class="toc-text">（三）列表类型：可以添加一个元素到列表的头部（左边）或者尾部（右边）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）集合类型：不允许重复元素"><span class="toc-number">5.4.</span> <span class="toc-text">（四）集合类型：不允许重复元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（五）有序集合类型：不允许重复元素，且元素有顺序"><span class="toc-number">5.5.</span> <span class="toc-text">（五）有序集合类型：不允许重复元素，且元素有顺序.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（六）通用命令"><span class="toc-number">5.6.</span> <span class="toc-text">（六）通用命令</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、Redis的持久化"><span class="toc-number">6.</span> <span class="toc-text">六、Redis的持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）RDM方式"><span class="toc-number">6.1.</span> <span class="toc-text">（一）RDM方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）AOF方式"><span class="toc-number">6.2.</span> <span class="toc-text">（二）AOF方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、补充知识（了解）"><span class="toc-number">7.</span> <span class="toc-text">七、补充知识（了解）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、键值-Key-Value-存储数据库"><span class="toc-number">7.1.</span> <span class="toc-text">1、键值(Key-Value)存储数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、列存储数据库"><span class="toc-number">7.2.</span> <span class="toc-text">2、列存储数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、文档型数据库"><span class="toc-number">7.3.</span> <span class="toc-text">3、文档型数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、图形-Graph-数据库"><span class="toc-number">7.4.</span> <span class="toc-text">4、图形(Graph)数据库</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、JavaScript中的BOM对象"><span class="toc-number">1.</span> <span class="toc-text">一、JavaScript中的BOM对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、History对象"><span class="toc-number">2.</span> <span class="toc-text">二、History对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、Location对象"><span class="toc-number">3.</span> <span class="toc-text">三、Location对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Window对象"><span class="toc-number"></span> <span class="toc-text">四、Window对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#五、Navigator对象"><span class="toc-number">1.</span> <span class="toc-text">五、Navigator对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、Screen对象"><span class="toc-number">2.</span> <span class="toc-text">六、Screen对象</span></a></li></ol>
                     </div>
                 </span>
             </div>
