@@ -226,7 +226,7 @@
         <h4 id="一、面向对象的三大特性：封装、继承、多态"><a href="#一、面向对象的三大特性：封装、继承、多态" class="headerlink" title="一、面向对象的三大特性：封装、继承、多态"></a>一、面向对象的三大特性：<strong>封装、继承、多态</strong></h4><p>​    从一定角度来看，封装和继承几乎都是为多态而准备的。</p>
 <h4 id="二、什么是多态？"><a href="#二、什么是多态？" class="headerlink" title="二、什么是多态？"></a>二、什么是多态？</h4><p>​    指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。（发送消息就是函数调用)<a id="more"></a></p>
 <h4 id="三、实现多态的技术以及三个必要条件："><a href="#三、实现多态的技术以及三个必要条件：" class="headerlink" title="三、实现多态的技术以及三个必要条件："></a>三、实现多态的技术以及三个必要条件：</h4><p>​    实现多态的技术称为：动态绑定（dynamic binding），是指在执行期间判断所引用对象的实际类型，根据其实际的类型调用其相应的方法。<br>三个必要条件：<br>1、继承<br>2、重写<br>3、父类引用指向子类对象</p>
-<h4 id="四、多态的作用、好处、类型、实现方式："><a href="#四、多态的作用、好处、类型、实现方式：" class="headerlink" title="四、多态的作用、好处、类型、实现方式："></a>四、多态的作用、好处、类型、实现方式：</h4><p><strong>（一）多态的作用：</strong>消除类型之间的耦合关系。<br><strong>（二）多态的好处：</strong><br>1、可替换性（substitutability）。多态对已存在代码具有可替换性。例如，多态对圆Circle类工作，对其他任何圆形几何体，如圆环，也同样工作。<br>2、可扩充性（extensibility）。多态对代码具有可扩充性。增加新的子类不影响已存在类的多态性、继承性，以及其他特性的运行和操作。实际上新加子类更容易获得多态功能。例如，在实现了圆锥、半圆锥以及半球体的多态基础上，很容易增添球体类的多态性。<br>3、接口性（interface-ability）。多态是超类通过方法签名，向子类提供了一个共同接口，由子类来完善或者覆盖它而实现的。例如：超类Shape规定了两个实现多态的接口方法，computeArea()以及computeVolume()。子类，如Circle和Sphere为了实现多态，完善或者覆盖这两个接口方法。<br>4、灵活性（flexibility）。它在应用中体现了灵活多样的操作，提高了使用效率。<br>5、简化性（simplicity）。多态简化对应用软件的代码编写和修改过程，尤其在处理大量对象的运算和操作时，这个特点尤为突出和重要。<br><strong>（三）多态的类型：</strong><br>1、编译时多态性<br>对于多个同名方法,如果在编译时能够确定执行同名方法中的哪一个,则称为编译时多态性.<br>2、运行时多态性<br>如果在编译时不能确定,只能在运行时才能确定执行多个同名方法中的哪一个,则称为运行时多态性.<br><strong>（四）多态的实现方式</strong>：<br>1、接口实现<br>2、继承父类进行方法重写<br>3、同一个类中进行方法重载</p>
+<h4 id="四、多态的作用、好处、类型、实现方式："><a href="#四、多态的作用、好处、类型、实现方式：" class="headerlink" title="四、多态的作用、好处、类型、实现方式："></a>四、多态的作用、好处、类型、实现方式：</h4><p><strong>（一）多态的作用：</strong><br>消除类型之间的耦合关系。<br><strong>（二）多态的好处：</strong><br>1、可替换性（substitutability）。多态对已存在代码具有可替换性。例如，多态对圆Circle类工作，对其他任何圆形几何体，如圆环，也同样工作。<br>2、可扩充性（extensibility）。多态对代码具有可扩充性。增加新的子类不影响已存在类的多态性、继承性，以及其他特性的运行和操作。实际上新加子类更容易获得多态功能。例如，在实现了圆锥、半圆锥以及半球体的多态基础上，很容易增添球体类的多态性。<br>3、接口性（interface-ability）。多态是超类通过方法签名，向子类提供了一个共同接口，由子类来完善或者覆盖它而实现的。例如：超类Shape规定了两个实现多态的接口方法，computeArea()以及computeVolume()。子类，如Circle和Sphere为了实现多态，完善或者覆盖这两个接口方法。<br>4、灵活性（flexibility）。它在应用中体现了灵活多样的操作，提高了使用效率。<br>5、简化性（simplicity）。多态简化对应用软件的代码编写和修改过程，尤其在处理大量对象的运算和操作时，这个特点尤为突出和重要。<br><strong>（三）多态的类型：</strong><br>1、编译时多态性<br>对于多个同名方法,如果在编译时能够确定执行同名方法中的哪一个,则称为编译时多态性.<br>2、运行时多态性<br>如果在编译时不能确定,只能在运行时才能确定执行多个同名方法中的哪一个,则称为运行时多态性.<br><strong>（四）多态的实现方式</strong>：<br>1、接口实现<br>2、继承父类进行方法重写<br>3、同一个类中进行方法重载</p>
 <h4 id="五、遇到的多态案例："><a href="#五、遇到的多态案例：" class="headerlink" title="五、遇到的多态案例："></a>五、遇到的多态案例：</h4><p>由于最近正在学IO操作，所以就列举出了最近遇到的使用多态的情形，如下：<br><strong>案例一：</strong>封装一个方法进行文件的拷贝</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 进行文件的拷贝</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> is：输入流</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> os：输出流</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(InputStream is, OutputStream os)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span>(is; os)&#123;</span><br><span class="line">		<span class="keyword">byte</span>[] flush = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>*<span class="number">2</span>];</span><br><span class="line">		<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>((len=is.read(flush)) != -<span class="number">1</span>) &#123;</span><br><span class="line">			os.write(flush, <span class="number">0</span>, len);</span><br><span class="line">		&#125;</span><br><span class="line">		os.flush();</span><br><span class="line">	&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		InputStream is = <span class="keyword">new</span> FileInputStream(<span class="string">"C:/Users/ASUS/Desktop/2.jpg"</span>);</span><br><span class="line">		OutputStream os = <span class="keyword">new</span> FileOutputStream(<span class="string">"2copy.jpg"</span>);</span><br><span class="line">		copy(is, os);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -562,19 +562,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +590,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +611,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多态</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,15 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">多态</a>
+                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
               </li>
             
             <div class="clearfix"></div>
