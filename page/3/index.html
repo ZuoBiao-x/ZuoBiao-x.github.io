@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 44
+			总文章数 45
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -630,20 +630,20 @@
 
 
   
-    <article id="post-Servlet第五篇【Response总结】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Servlet第六篇【乱码以及URL编码】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
 		
         
-        <a href="/2020/04/15/Servlet%E7%AC%AC%E4%BA%94%E7%AF%87%E3%80%90Response%E6%80%BB%E7%BB%93%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-04-15T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+        <a href="/2020/04/16/Servlet%E7%AC%AC%E5%85%AD%E7%AF%87%E3%80%90%E4%B9%B1%E7%A0%81%E4%BB%A5%E5%8F%8AURL%E7%BC%96%E7%A0%81%E3%80%91/" class="archive-article-date">
+  	<time datetime="2020-04-16T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
 </a>
         <center><p>
   
     <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/15/Servlet%E7%AC%AC%E4%BA%94%E7%AF%87%E3%80%90Response%E6%80%BB%E7%BB%93%E3%80%91/">Servlet第五篇【Response总结】</a>
+      <a class="article-title_code_ant" href="/2020/04/16/Servlet%E7%AC%AC%E5%85%AD%E7%AF%87%E3%80%90%E4%B9%B1%E7%A0%81%E4%BB%A5%E5%8F%8AURL%E7%BC%96%E7%A0%81%E3%80%91/">Servlet第六篇【乱码以及URL编码】</a>
     </h1>
   
 </p></center>
@@ -655,7 +655,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">678字</span>
+        <span class="post-count">1.1k字</span>
       </span>
     </span>
 
@@ -664,7 +664,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -676,7 +676,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、Response概述"><a href="#一、Response概述" class="headerlink" title="一、Response概述"></a>一、Response概述</h4><p>response是Servlet.service方法的一个参数，类型为javax.servlet.http.HttpServletResponse。在客户端发出每个请求时，服务器都会创建一个response对象。response对象是用来对客户端进行响应的，这说明在HttpServletResponse的doXXX()方法中使用response对象可以完成对客户端的响应工作。</p>
+        <h4 id="一、请求编码"><a href="#一、请求编码" class="headerlink" title="一、请求编码"></a>一、请求编码</h4><h5 id="（一）直接在地址栏中给出中文"><a href="#（一）直接在地址栏中给出中文" class="headerlink" title="（一）直接在地址栏中给出中文"></a>（一）直接在地址栏中给出中文</h5><p>​    请求数据是由客户端浏览器发送服务器的，请求数据的编码是由浏览器决定的。如在浏览器地址栏中给出：<code>http://localhost:8080/hello/AServlet?name=张三</code>那么其中“张三”是什么编码的呢？不同浏览器使用不同的编码，所以这是不确定的！</p>
         
       
 
@@ -716,7 +716,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/Servlet%E7%AC%AC%E4%BA%94%E7%AF%87%E3%80%90Response%E6%80%BB%E7%BB%93%E3%80%91/">more >></a>
+          <a class="article-more-a" href="/2020/04/16/Servlet%E7%AC%AC%E5%85%AD%E7%AF%87%E3%80%90%E4%B9%B1%E7%A0%81%E4%BB%A5%E5%8F%8AURL%E7%BC%96%E7%A0%81%E3%80%91/">more >></a>
         </p>
       
 
@@ -875,23 +875,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,7 +887,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,7 +907,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -915,11 +915,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,7 +927,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IO</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -939,15 +939,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,11 +955,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Hello</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
             
             <div class="clearfix"></div>
