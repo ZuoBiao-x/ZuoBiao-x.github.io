@@ -221,7 +221,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><h5 id="（一）什么是Filter"><a href="#（一）什么是Filter" class="headerlink" title="（一）什么是Filter"></a>（一）什么是Filter</h5><p>Filter是服务器端的组件，用来过滤web请求。<br>流程是这样的，当一个web请求进来时，web容器会先检查请求的URL是否设置了Filter，如果设置了，则执行该Filter的doFilter方法。所有Filter都实现了javax.servlet.Filter接口，doFilter是定义在该接口中的最重要的方法。<a id="more"></a><br><strong>Filter其实本质就是个实现Filter接口的Java类罢了！</strong></p>
-<h5 id="（二）Filter的作用"><a href="#（二）Filter的作用" class="headerlink" title="（二）Filter的作用"></a>（二）Filter的作用</h5><p>当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些通用的操作。如：登录验证、统一编码处理、敏感字符过滤，等等…<br>#####（三）Filter所处的位置<br><img src="/2020/05/02/JavaWeb--Filter%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/filter%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="filter流程图"></p>
+<h5 id="（二）Filter的作用"><a href="#（二）Filter的作用" class="headerlink" title="（二）Filter的作用"></a>（二）Filter的作用</h5><p>当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些通用的操作。如：登录验证、统一编码处理、敏感字符过滤，等等…</p>
+<h5 id="（三）Filter所处的位置"><a href="#（三）Filter所处的位置" class="headerlink" title="（三）Filter所处的位置"></a>（三）Filter所处的位置</h5><p><img src="/2020/05/02/JavaWeb--Filter%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/filter%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="filter流程图"></p>
 <h4 id="二、Filter快速入门Demo"><a href="#二、Filter快速入门Demo" class="headerlink" title="二、Filter快速入门Demo"></a>二、Filter快速入门Demo</h4><h5 id="（一）步骤"><a href="#（一）步骤" class="headerlink" title="（一）步骤"></a>（一）步骤</h5><p>1、定义一个类，实现Filter接口<br>2、实现Filter接口中的三个方法<br>3、配置Filter的拦截路径</p>
 <h5 id="（二）Demo如下"><a href="#（二）Demo如下" class="headerlink" title="（二）Demo如下"></a>（二）Demo如下</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterDemo1</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Filter被执行了..."</span>);</span><br><span class="line">        <span class="comment">//放行拦截</span></span><br><span class="line">        filterChain.doFilter(servletRequest, servletResponse);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -242,7 +243,7 @@
 <p>创建一个如下的Filter进行测试</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterDemo2</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse resp, FilterChain chain)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"拦截..."</span>);</span><br><span class="line">        chain.doFilter(req, resp);</span><br><span class="line">        System.out.println(<span class="string">"放行..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试结果为：<br><img src="/2020/05/02/JavaWeb--Filter%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B.png" alt="执行流程"><br>由此总结Filter的执行流程为：<br>1、执行过滤器<br>2、执行放行后请求的资源<br>3、回来执行过滤器放行代码下边的代码</p>
-<p>####六、过滤器链<br>当有多个过滤器时，就构成了过滤器链。</p>
+<h4 id="六、过滤器链"><a href="#六、过滤器链" class="headerlink" title="六、过滤器链"></a>六、过滤器链</h4><p>当有多个过滤器时，就构成了过滤器链。</p>
 <h5 id="（一）执行优先级"><a href="#（一）执行优先级" class="headerlink" title="（一）执行优先级"></a>（一）执行优先级</h5><p>那么当有多个过滤器时，如何确定每个过滤器的执行优先级呢？？？<br>这其实和Filter的配置方式有关：<br>1、在web.xml文件中配置则由mapping的先后顺序决定，如果放在前面就先执行，放在后面就后执行</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>FilterDemo3<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>FilterDemo4<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如此时，则Demo3会先于Demo4执行。<br>2、如果是通过注解的方式配置，就比较urlPatterns的字符串优先级<br><img src="/2020/05/02/JavaWeb--Filter%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/%E6%89%A7%E8%A1%8C%E4%BC%98%E5%85%88%E7%BA%A7_1.png" alt="执行优先级_1"><br><img src="/2020/05/02/JavaWeb--Filter%E3%80%90%E5%85%A5%E9%97%A8%E3%80%91/%E6%89%A7%E8%A1%8C%E4%BC%98%E5%85%88%E7%BA%A7_2.png" alt="执行优先级_2"><br>如此时，则Demo3会先于Demo4执行。</p>
@@ -414,7 +415,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、概念"><span class="toc-number">1.</span> <span class="toc-text">一、概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）什么是Filter"><span class="toc-number">1.1.</span> <span class="toc-text">（一）什么是Filter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）Filter的作用"><span class="toc-number">1.2.</span> <span class="toc-text">（二）Filter的作用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、Filter快速入门Demo"><span class="toc-number">2.</span> <span class="toc-text">二、Filter快速入门Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）步骤"><span class="toc-number">2.1.</span> <span class="toc-text">（一）步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）Demo如下"><span class="toc-number">2.2.</span> <span class="toc-text">（二）Demo如下</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、Filter的生命周期方法"><span class="toc-number">3.</span> <span class="toc-text">三、Filter的生命周期方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、Filter的配置"><span class="toc-number">4.</span> <span class="toc-text">四、Filter的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）配置方式"><span class="toc-number">4.1.</span> <span class="toc-text">（一）配置方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）拦截路径配置"><span class="toc-number">4.2.</span> <span class="toc-text">（二）拦截路径配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）拦截方式配置-资源被访问的方式"><span class="toc-number">4.3.</span> <span class="toc-text">（三）拦截方式配置:资源被访问的方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、Filter的执行流程"><span class="toc-number">5.</span> <span class="toc-text">五、Filter的执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）执行优先级"><span class="toc-number">5.1.</span> <span class="toc-text">（一）执行优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）过滤器链执行顺序"><span class="toc-number">5.2.</span> <span class="toc-text">（二）过滤器链执行顺序</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、概念"><span class="toc-number">1.</span> <span class="toc-text">一、概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）什么是Filter"><span class="toc-number">1.1.</span> <span class="toc-text">（一）什么是Filter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）Filter的作用"><span class="toc-number">1.2.</span> <span class="toc-text">（二）Filter的作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）Filter所处的位置"><span class="toc-number">1.3.</span> <span class="toc-text">（三）Filter所处的位置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、Filter快速入门Demo"><span class="toc-number">2.</span> <span class="toc-text">二、Filter快速入门Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）步骤"><span class="toc-number">2.1.</span> <span class="toc-text">（一）步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）Demo如下"><span class="toc-number">2.2.</span> <span class="toc-text">（二）Demo如下</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、Filter的生命周期方法"><span class="toc-number">3.</span> <span class="toc-text">三、Filter的生命周期方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、Filter的配置"><span class="toc-number">4.</span> <span class="toc-text">四、Filter的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）配置方式"><span class="toc-number">4.1.</span> <span class="toc-text">（一）配置方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）拦截路径配置"><span class="toc-number">4.2.</span> <span class="toc-text">（二）拦截路径配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）拦截方式配置-资源被访问的方式"><span class="toc-number">4.3.</span> <span class="toc-text">（三）拦截方式配置:资源被访问的方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、Filter的执行流程"><span class="toc-number">5.</span> <span class="toc-text">五、Filter的执行流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、过滤器链"><span class="toc-number">6.</span> <span class="toc-text">六、过滤器链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）执行优先级"><span class="toc-number">6.1.</span> <span class="toc-text">（一）执行优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）过滤器链执行顺序"><span class="toc-number">6.2.</span> <span class="toc-text">（二）过滤器链执行顺序</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -586,11 +587,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,15 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Listener</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,6 +632,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多态</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,10 +651,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">多态</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
@@ -662,11 +659,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,6 +676,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
               </li>
             
             <div class="clearfix"></div>
