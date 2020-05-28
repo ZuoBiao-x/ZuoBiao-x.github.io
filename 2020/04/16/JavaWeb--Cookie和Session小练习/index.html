@@ -27,7 +27,7 @@
 <meta property="article:published_time" content="2020-04-16T13:00:00.000Z">
 <meta property="article:modified_time" content="2020-04-16T13:00:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="Cookie和Session">
+<meta property="article:tag" content="练手项目">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/1.png">
   
@@ -246,7 +246,7 @@
 <p>succ2.jsp：和succ1.jsp只有最后两个h1标签不一样</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;我是succ2页面&lt;/h1&gt;&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">&lt;h1&gt;&lt;a href="/day11_3/session2/succ1.jsp"&gt;浏览succ1&lt;/a&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
 
-<h5 id="五、测试结果"><a href="#五、测试结果" class="headerlink" title="五、测试结果"></a>五、测试结果</h5><p>1、在浏览器中输入：<code>http://localhost:8080/day11_3/session2/login.jsp</code><br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/4.png" alt="4"><br>2、登陆失败：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/5.png" alt="5"><br>3、登陆成功后:<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/6.png" alt="6"><br>4、通过“浏览succ2链接”访问succ2：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/7.png" alt="7"><br>5、尝试直接使用succ1的链接地址来访问：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/8.png" alt="8"><br>6、第二次登陆：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/9.png" alt="9"></p>
+<h4 id="五、测试结果"><a href="#五、测试结果" class="headerlink" title="五、测试结果"></a>五、测试结果</h4><p>1、在浏览器中输入：<code>http://localhost:8080/day11_3/session2/login.jsp</code><br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/4.png" alt="4"><br>2、登陆失败：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/5.png" alt="5"><br>3、登陆成功后:<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/6.png" alt="6"><br>4、通过“浏览succ2链接”访问succ2：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/7.png" alt="7"><br>5、尝试直接使用succ1的链接地址来访问：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/8.png" alt="8"><br>6、第二次登陆：<br><img src="/2020/04/16/JavaWeb--Cookie%E5%92%8CSession%E5%B0%8F%E7%BB%83%E4%B9%A0/9.png" alt="9"></p>
 <h4 id="六、需要注意的地方"><a href="#六、需要注意的地方" class="headerlink" title="六、需要注意的地方"></a>六、需要注意的地方</h4><h5 id="（一）Cookie需要处理中文"><a href="#（一）Cookie需要处理中文" class="headerlink" title="（一）Cookie需要处理中文"></a>（一）Cookie需要处理中文</h5><p><strong>Cookie使用Unicode字符时需要对Unicode字符进行编码。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置Cookie时：</span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"userName"</span>, URLEncoder.encode(userName, <span class="string">"utf-8"</span>));</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">获取Cookie时：</span><br><span class="line">userName = URLDecoder.decode(c.getValue(), <span class="string">"utf-8"</span>);</span><br></pre></td></tr></table></figure>
@@ -289,7 +289,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Cookie和Session</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">练手项目</a>
         		</li>
       		
 		</ul>
@@ -417,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、需求"><span class="toc-number">2.</span> <span class="toc-text">二、需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、需求分析"><span class="toc-number">3.</span> <span class="toc-text">三、需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）其流程图大概如下："><span class="toc-number">3.1.</span> <span class="toc-text">（一）其流程图大概如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）其各部分功能如下"><span class="toc-number">3.2.</span> <span class="toc-text">（二）其各部分功能如下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）该案例中使用request域和request的请求转发，以及session域和cookie的具体地方"><span class="toc-number">3.3.</span> <span class="toc-text">（三）该案例中使用request域和request的请求转发，以及session域和cookie的具体地方</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、代码实现"><span class="toc-number">4.</span> <span class="toc-text">四、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）目录结构"><span class="toc-number">4.1.</span> <span class="toc-text">（一）目录结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）源代码"><span class="toc-number">4.2.</span> <span class="toc-text">（二）源代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、测试结果"><span class="toc-number">4.3.</span> <span class="toc-text">五、测试结果</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、需要注意的地方"><span class="toc-number">5.</span> <span class="toc-text">六、需要注意的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）Cookie需要处理中文"><span class="toc-number">5.1.</span> <span class="toc-text">（一）Cookie需要处理中文</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）在jsp中进行Cookie进行解码时，记得导包"><span class="toc-number">5.2.</span> <span class="toc-text">（二）在jsp中进行Cookie进行解码时，记得导包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、Cookie和Session的基础知识"><span class="toc-number">6.</span> <span class="toc-text">七、Cookie和Session的基础知识</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、需求"><span class="toc-number">2.</span> <span class="toc-text">二、需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、需求分析"><span class="toc-number">3.</span> <span class="toc-text">三、需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）其流程图大概如下："><span class="toc-number">3.1.</span> <span class="toc-text">（一）其流程图大概如下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）其各部分功能如下"><span class="toc-number">3.2.</span> <span class="toc-text">（二）其各部分功能如下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）该案例中使用request域和request的请求转发，以及session域和cookie的具体地方"><span class="toc-number">3.3.</span> <span class="toc-text">（三）该案例中使用request域和request的请求转发，以及session域和cookie的具体地方</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、代码实现"><span class="toc-number">4.</span> <span class="toc-text">四、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）目录结构"><span class="toc-number">4.1.</span> <span class="toc-text">（一）目录结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）源代码"><span class="toc-number">4.2.</span> <span class="toc-text">（二）源代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、测试结果"><span class="toc-number">5.</span> <span class="toc-text">五、测试结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、需要注意的地方"><span class="toc-number">6.</span> <span class="toc-text">六、需要注意的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）Cookie需要处理中文"><span class="toc-number">6.1.</span> <span class="toc-text">（一）Cookie需要处理中文</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）在jsp中进行Cookie进行解码时，记得导包"><span class="toc-number">6.2.</span> <span class="toc-text">（二）在jsp中进行Cookie进行解码时，记得导包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#七、Cookie和Session的基础知识"><span class="toc-number">7.</span> <span class="toc-text">七、Cookie和Session的基础知识</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -585,7 +585,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cookie和Session</a>
+                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +609,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
+                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,11 +673,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
               </li>
              
               <li class="article-tag-list-item">
