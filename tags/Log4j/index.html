@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java基础学习总结--集合的遍历 | 跑调大叔の博客</title>
+  <title>Tag: Log4j | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：通常，我们可以使用for、for each以及迭代器iterator进行遍历。但是这三种方法其实还是有很大的区别的。 一、for、for each以及iterator的用法和区别：（一）相同点：三个都可以用来遍历数组和集合">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java基础学习总结--集合的遍历">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="跑调大叔の博客">
+<meta property="og:url" content="http://yoursite.com/tags/Log4j/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="前言：通常，我们可以使用for、for each以及迭代器iterator进行遍历。但是这三种方法其实还是有很大的区别的。 一、for、for each以及iterator的用法和区别：（一）相同点：三个都可以用来遍历数组和集合">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/1.png">
-<meta property="article:published_time" content="2020-03-20T12:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-20T12:00:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
-<meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/1.png">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
   
@@ -170,273 +163,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础学习总结--集合的遍历" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/" class="archive-article-date">
-  	<time datetime="2020-03-20T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
-</a>
-        <center><p>
+            
   
-    <h1 class="article-title_code_ant" itemprop="name">
-      Java基础学习总结--集合的遍历
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/26/Log4j/" class="archive-article-date">
+  	<time datetime="2020-05-26T15:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/26/Log4j/">Log4j</a>
     </h1>
   
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.9k字</span>
-      </span>
-    </span>
 
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h4><p>通常，我们可以使用for、for each以及迭代器iterator进行遍历。但是这三种方法其实还是有很大的区别的。</p>
-<h4 id="一、for、for-each以及iterator的用法和区别："><a href="#一、for、for-each以及iterator的用法和区别：" class="headerlink" title="一、for、for each以及iterator的用法和区别："></a>一、for、for each以及iterator的用法和区别：</h4><h5 id="（一）相同点："><a href="#（一）相同点：" class="headerlink" title="（一）相同点："></a>（一）相同点：</h5><p>三个都可以用来遍历数组和集合<a id="more"></a></p>
-<h5 id="（二）不同点："><a href="#（二）不同点：" class="headerlink" title="（二）不同点："></a>（二）不同点：</h5><p>1、形式差别</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//for的形式是</span></span><br><span class="line"><span class="keyword">for</span>（<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.size();i++）&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//foreach的形式是</span></span><br><span class="line"><span class="keyword">for</span>（<span class="keyword">int</span>　i：arr）&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//iterator的形式是</span></span><br><span class="line">Iterator it = arr.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123; </span><br><span class="line">    object o =it.next(); </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、条件差别：<br>for需要知道集合或数组的大小，而且需要是有序的(有下标），不然无法遍历；<br>foreach和iterator都不需要知道集合或数组的大小，他们都是得到集合内的每个元素然后进行处理<br>3、多态差别：<br>for和foreach都需要先知道集合的类型，甚至是集合内元素的类型，即需要访问内部的成员，不能实现态；<br>iterator是一个接口类型，他不关心集合或者数组的类型，而且他还能随时修改和删除集合的元素。<br>该例子很好的体现了多态差别：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void display（Iterator&lt;object&gt; it）&#123;</span><br><span class="line">    while(it.hasNext())&#123;</span><br><span class="line">        system.out.print(it.next()+&quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当我们需要遍历不同的集合时，我们只需要传递集合的iterator（如arr.iterator()）。这就是iterator的好处，他不包含任何有关他所遍历的序列的类型信息，能够将遍历序列的操作与序列底层的结构分离。迭代器统一了对容器的访问方式，这也是接口的解耦的最好体现。<br>4. 用法差别<br>   (1)for循环一般用来处理比较简单的有序的，可预知大小的集合或数组;<br>   (2)foreach可用于遍历任何集合或数组，而且操作简单易懂，但是需要了解集合内部类型，<strong>不能修改或者删除集合内部的元素</strong>;<br>   (3)iterator是最强大的，<strong>可以随时修改或者删除集合内部的元素</strong>，并且是在不需要知道元素和集合的类型的情况下进行的（原因可参考第三点：多态差别），当你需要对不同的容器实现同样的遍历方式时，迭代器是最好的选择！<br>   补充：<br>   <a href="https://www.cnblogs.com/kobelieve/p/10626473.html" target="_blank">for each循环里不能remove或者add元素的原因</a><br>   <a href="https://www.cnblogs.com/chenhuan001/p/6432518.html" target="_blank">Java中迭代器实现的原理</a></p>
-<h4 id="二、for，for-each和iterator的选择使用："><a href="#二、for，for-each和iterator的选择使用：" class="headerlink" title="二、for，for each和iterator的选择使用："></a>二、for，for each和iterator的选择使用：</h4><p>（一）如果是ArrayList，用三种方式遍历的速度是for&gt;Iterator&gt;foreach，但基本上属于同一个速度级别；<br>（二）如果是LinkedList，则三种方式遍历的差距很大了，用for遍历的效率远远落后于foreach和Iterator，Iterator&gt;foreach&gt;&gt;&gt;for<br>下面对ArrayList和LinkedList的普通for循环效率进行测试以及分析原因。<br><strong>ArrayList和LinkedList使用普通for循环遍历速度对比</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIteratorTest</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> LIST_SIZE = <span class="number">1000</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        List&lt;Integer&gt; linkedList = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; LIST_SIZE; i++)&#123;</span><br><span class="line">            arrayList.add(i);</span><br><span class="line">            linkedList.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++)&#123;</span><br><span class="line">            arrayList.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"ArrayList遍历速度："</span> + (System.currentTimeMillis() - startTime) + <span class="string">"ms"</span>);</span><br><span class="line">        </span><br><span class="line">        startTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; linkedList.size(); i++)&#123;</span><br><span class="line">            linkedList.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"LinkedList遍历速度："</span> + (System.currentTimeMillis() - startTime) + <span class="string">"ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不断增大LIST_SIZE，运行结果如下：<br><img src="/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/1.png" alt="1"><br>从运行结果我们看到，按倍数增大List容量，ArrayList的遍历显得比较稳定，而LinkedList的遍历几乎是爆发式的增长。<br><strong>ArrayList使用普通for循环遍历快的原因</strong><br>先看一下ArrayList的get方法源代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">RangeCheck(index);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (E) elementData[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看到ArrayList的get方法只是从数组里面拿一个位置上的元素罢了。我们有结论，<strong>ArrayList的get方法的时间复杂度是O(1)</strong><br>我们都知道在计算机底层，数据都是有地址的，就像人有住址一样。假设有代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[3] ints &#x3D; &#123;1, 3, 5&#125;;</span><br></pre></td></tr></table></figure>
-<p>在Java中一个int型数据是4个字节，此时计算机内部做的事情是，在内存空间中找到一块连续的、足以存放3个4字节也就是12字节的数组的内存空间，并返回该内存空间的首地址。比方说该内存空间的首地址是0x00吧，那么1就放在0x00-0x03中、3就放在0x04-0x07中、5就放在0x08-0x0B中。<br>这时就很简单了，取ints[1]的时候，计算机就会算出ints[1]的数据是存放在以0x04开头，占据4个字节空间的内存中，因此，计算机会从0x04~0x07这块地址空间中读取数据出来。<br>整个过程，和数组有多大，并没有关系，计算机做的只是<strong>算出起始地址–&gt;去该地址中取数据</strong>而已，因此我们看到使用普通for循环遍历ArrayList的速度很快，也很稳定。<br><strong>LinkedList使用普通for循环遍历慢的原因</strong><br>再看一下LinkedList的get方法做了什么：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> entry(index).element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Entry&lt;E&gt; <span class="title">entry</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"Index: "</span>+index+</span><br><span class="line">                                            <span class="string">", Size: "</span>+size);</span><br><span class="line">    Entry&lt;E&gt; e = header;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= index; i++)</span><br><span class="line">            e = e.next;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size; i &gt; index; i--)</span><br><span class="line">            e = e.previous;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于LinkedList是双向链表，因此第6行的意思是算出i在一半前还是一半后，一半前正序遍历、一半后倒序遍历，这样会快很多，当然，先不管这个，分析一下为什么使用普通for循环遍历LinkedList会这么慢。<br>原因就在第7-8行，第10-11行的两个for循里面，以前者为例：<br>1、get(0)，直接拿到0位的Node0的地址，拿到Node0里面的数据<br>2、get(1)，直接拿到0位的Node0的地址，从0位的Node0中找到下一个1位的Node1的地址，找到Node1，拿到Node1里面的数据<br>3、get(2)，直接拿到0位的Node0的地址，从0位的Node0中找到下一个1位的Node1的地址，找到Node1，从1位的Node1中找到下一个2位的Node2的地址，找到Node2，拿到Node2里面的数据。<br>后面的以此类推。<br>也就是说，<strong>LinkedList在get任何一个位置的数据的时候，都会把前面的数据走一遍</strong>。假如我有10个数据，那么将要查询1+2+3+4+5+5+4+3+2+1=30次数据，相比ArrayList，却只需要查询10次数据就行了，随着LinkedList的容量越大，差距会越拉越大。其实使用LinkedList到底要查询多少次数据，大家应该已经很明白了，来算一下：按照前一半算应该是（1 + 0.5N） * 0.5N / 2，后一半算上即乘以2，应该是（1 + 0.5N） * 0.5N = 0.25N2 + 0.5N，忽略低阶项和首项系数，得出结论，LinikedList遍历的时间复杂度为<strong>O(N2)</strong>，<strong>N为LinkedList的容量</strong>。<br>时间复杂度有以下经验规则：<br><strong>O(1) &lt; O(log2N) &lt; O(n) &lt; O(N * log2N) &lt; O(N2) &lt; O(N3) &lt; 2N &lt; 3N &lt; N!</strong><br>根据以上的分析，各位Java程序员朋友们，切记一定不要使用普通for循环去遍历LinkedList。<strong>使用迭代器或者foreach循环（foreach循环的原理就是迭代器）去遍历LinkedList</strong>即可，这种方式是直接按照地址去找数据的，将会大大提升遍历LinkedList的效率。<br>本文参考自：<br><a href="https://www.cnblogs.com/goloving/p/7737767.html" target="_blank">Java遍历总结：for、for each和迭代器iterator</a><br><a href="https://www.cnblogs.com/xrq730/p/5189565.html" target="_blank">To Java程序员：切勿用普通for循环遍历LinkedList</a></p>
-<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Log4j</a>
         		</li>
       		
 		</ul>
 	</div>
 
-	  
-<!-- 开始添加阅读量-->
+          
 
-		<span id="busuanzi_container_page_pv">
-  |  阅读量<span id="busuanzi_value_page_pv"></span>次
-</span>
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java设计模式--简单工厂模式
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/20/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--%E5%A4%9A%E6%80%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础学习总结--多态</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言："><span class="toc-number">1.</span> <span class="toc-text">前言：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一、for、for-each以及iterator的用法和区别："><span class="toc-number">2.</span> <span class="toc-text">一、for、for each以及iterator的用法和区别：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）相同点："><span class="toc-number">2.1.</span> <span class="toc-text">（一）相同点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）不同点："><span class="toc-number">2.2.</span> <span class="toc-text">（二）不同点：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、for，for-each和iterator的选择使用："><span class="toc-number">3.</span> <span class="toc-text">二、for，for each和iterator的选择使用：</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -487,9 +267,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
