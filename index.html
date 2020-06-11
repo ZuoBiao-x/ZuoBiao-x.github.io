@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 62
+			总文章数 63
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -164,6 +164,162 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-SSM-Mybatis【进阶二】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+		
+        
+        <a href="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/" class="archive-article-date">
+  	<time datetime="2020-05-29T11:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/">SSM-Mybatis【进阶二】</a>
+    </h1>
+  
+</p></center>
+		<!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">5分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+		
+		
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p><a href="https://zuobiao-x.github.io/2020/05/27/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%B8%80%E3%80%91/" target="_blank">SSM-Mybatis【进阶一】</a>总结了基于XML文件方式的基本操作，本文主要介绍基于<strong>注解方式</strong>的基本操作.</p>
+<h5 id="案例背景"><a href="#案例背景" class="headerlink" title="案例背景"></a>案例背景</h5><p>1、数据库中的user表结构和数据分别如下：<br>user表结构：<br><img src="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/user_%E7%BB%93%E6%9E%84.png" alt="user_结构"><br>user表中的数据：<br><img src="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/user_%E6%95%B0%E6%8D%AE.png" alt="user_数据"><br>2、假设项目已经搭建完成，并且基本的类（User、IUserDao）都创建完成，以及Mybatis主配置文件(SqlMapConfig.xml)都进行了正确的配置。<br>其中，User类的属性如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目结构如下图所示：<br><img src="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="项目结构"></p>
+<h4 id="二、基本CRUD操作"><a href="#二、基本CRUD操作" class="headerlink" title="二、基本CRUD操作"></a>二、基本CRUD操作</h4><h5 id="（一）查询操作"><a href="#（一）查询操作" class="headerlink" title="（一）查询操作"></a>（一）查询操作</h5><p><strong>1、查询所有用户信息</strong><br>a. 在IUserDao接口中添加findAll方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(value = <span class="string">"select * from user"</span>)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationCRUDTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> InputStream is;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> IuserDao userDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        is = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line">        sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(is);</span><br><span class="line">        sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        userDao = sqlSession.getMapper(IuserDao<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;User&gt; users = userDao.findAll();</span><br><span class="line">        <span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        sqlSession.commit();</span><br><span class="line">        sqlSession.close();</span><br><span class="line">        is.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2、根据id进行查询</strong><br>a. 在IUserDao接口中添加findById方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from user where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">findById</span><span class="params">(Integer id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = userDao.findById(<span class="number">48</span>);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、根据username进行模糊查询</strong><br>a. 在IUserDao接口中添加findByUsername方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 模糊查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> username</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from user where username like #&#123;username&#125;"</span>)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findByUsername</span><span class="params">(String username)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindByUsername</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List&lt;User&gt; users = userDao.findByUsername(<span class="string">"%王%"</span>);</span><br><span class="line">    <span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4、使用聚合函数进行查询</strong><br>a. 在IUserDao接口中添加findTotalCount方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用聚合函数查询总记录数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select count(*) from user"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findTotalCount</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindTotalCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(userDao.findTotalCount());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）添加操作"><a href="#（二）添加操作" class="headerlink" title="（二）添加操作"></a>（二）添加操作</h5><p><strong>添加用户</strong><br>a. 在IUserDao接口中添加方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Insert</span>(<span class="string">"insert into user(username,birthday,sex,address) values(#&#123;username&#125;,#&#123;birthday&#125;,#&#123;sex&#125;,#&#123;address&#125;)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">saveUser</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSaveUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setUsername(<span class="string">"mybatis annotation"</span>);</span><br><span class="line">    user.setAddress(<span class="string">"湖南长沙"</span>);</span><br><span class="line">    user.setBirthday(<span class="keyword">new</span> Date());</span><br><span class="line">    user.setSex(<span class="string">"男"</span>);</span><br><span class="line">    userDao.saveUser(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（三）删除操作"><a href="#（三）删除操作" class="headerlink" title="（三）删除操作"></a>（三）删除操作</h5><p><strong>删除用户</strong><br>a. 在IUserDao接口中添加方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Delete</span>(<span class="string">"delete from user where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delUser</span><span class="params">(Integer id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDelUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    userDao.delUser(<span class="number">48</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（四）更新操作"><a href="#（四）更新操作" class="headerlink" title="（四）更新操作"></a>（四）更新操作</h5><p><strong>更新用户信息</strong><br>a. 在IUserDao接口中添加方法和注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新用户信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Update</span>(<span class="string">"update user set username=#&#123;username&#125;, sex=#&#123;sex&#125; where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">updateUser</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b. 在AnnotationCRUDTest类中编写测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setUsername(<span class="string">"mybatis annotation update"</span>);</span><br><span class="line">    user.setSex(<span class="string">"男"</span>);</span><br><span class="line">    user.setId(<span class="number">48</span>);</span><br><span class="line">    userDao.updateUser(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、Java类的属性名与Mysql表中列名的对应"><a href="#三、Java类的属性名与Mysql表中列名的对应" class="headerlink" title="三、Java类的属性名与Mysql表中列名的对应"></a>三、Java类的属性名与Mysql表中列名的对应</h4><p>在进行查询完之后，更重要的就是需要将查询结果进行封装。在封装时，如果Java类的属性名与Mysql表中列名是相同的话，那么Mybatis就可以直接进行封装。但是，如果类的属性名和标的列名不一致就会导致查询到的结果不能封装到对象中。<br>因此如果类中的属性名不是和列名完全一样的话，那么将两者进行一一对应的步骤是非常重要的。<br>原因：因为在进行封装时，Mybatis会根据列名才知道调用该对象的哪一个set方法，所以两者必须要有对应关系才能够进行封装。<br>通常由两种方法将两者进行对应：<br><strong>方法一：给表中的列名指定别名</strong><br><strong>方法二：使用特殊注解进行对应</strong><br>假设User类中的属性更改如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer userId;</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="keyword">private</span> Date userBirthday;</span><br><span class="line">    <span class="keyword">private</span> String userSex;</span><br><span class="line">    <span class="keyword">private</span> String userAddress;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么以下就以findAll方法的配置进行举例。</p>
+<h5 id="（一）方法一"><a href="#（一）方法一" class="headerlink" title="（一）方法一"></a>（一）方法一</h5><p>之前配置的findAll方法就可以更改如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select id uid, username userName, address userAddress, sex userSex, birthday userBirthday from user)</span></span><br><span class="line"><span class="string">    List&lt;User&gt; findAll();</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="（二）方法二"><a href="#（二）方法二" class="headerlink" title="（二）方法二"></a>（二）方法二</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IuserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select</span>(value = <span class="string">"select * from user"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(id = <span class="string">"userMap"</span>, value = &#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>, column = <span class="string">"id"</span>, property = <span class="string">"userId"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"username"</span>, property = <span class="string">"userName"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"address"</span>, property = <span class="string">"userAddress"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"sex"</span>, property = <span class="string">"userSex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(column = <span class="string">"birthday"</span>, property = <span class="string">"userBirthday"</span>),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+	  
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->	  
+	  
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/“SSM”//" class="article-tag-list-link color1">“SSM”</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/SSM-Mybatis%E3%80%90%E8%BF%9B%E9%98%B6%E4%BA%8C%E3%80%91/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Mybatis--用户模糊查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -618,122 +774,6 @@
 
 
   
-    <article id="post-SSM-Mybatis【入门二】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-		
-        
-        <a href="/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-05-26T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/">SSM-Mybatis【入门二】</a>
-    </h1>
-  
-</p></center>
-		<!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-		
-		
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p><a href="https://zuobiao-x.github.io/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%B8%80%E3%80%91/" target="_blank">SSM-Mybatis【入门1】</a>中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-	  
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->	  
-	  
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SSM//" class="article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -867,19 +907,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
+                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,11 +927,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,15 +935,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,11 +951,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,19 +967,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">多态</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">多态</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -955,7 +991,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color3">枚举</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,6 +1000,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
