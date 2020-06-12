@@ -193,7 +193,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">467字</span>
+        <span class="post-count">469字</span>
       </span>
     </span>
 
@@ -222,7 +222,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.parseInt(<span class="string">"100"</span>);	<span class="comment">//注意：这里的字符串必须是由数字字符组成</span></span><br></pre></td></tr></table></figure>
 <p>2、int -&gt; String</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.valueOf(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="（三）JDK5的新特性"><a href="#（三）JDK5的新特性" class="headerlink" title="（三）JDK5的新特性"></a>（三）JDK5的新特性</h5><p>JDK1.5为了方便Integer和int类型的转换，提供了自动拆装箱操作。<br>自动装箱：基本类型–引用类型<br>自动拆箱：引用类型–基本类型</p>
+<h5 id="（三）JDK5的新特性"><a href="#（三）JDK5的新特性" class="headerlink" title="（三）JDK5的新特性"></a>（三）JDK5的新特性</h5><p>JDK1.5为了方便Integer和int类型的转换，提供了自动拆装箱操作。<br>自动装箱：基本类型 -&gt; 引用类型<br>自动拆箱：引用类型 -&gt; 基本类型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">100</span>;</span><br><span class="line">i += <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
 <p>如上面的两行代码，其实进行了3个操作：<br>a. 在第一行中，将int类型转换为Integer类型；<br>b. 在第二行中，将Integer类型转换为int类型，并和200进行相加；<br>c. 在第二行中，将相加的结果从int类型转换为Integer类型。<br>通过反编译，我们可以看到其实操作如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i = Integer.valueOf(<span class="number">100</span>); <span class="comment">//自动装箱                    </span></span><br><span class="line">i = Integer.valueOf(ii.intValue() + <span class="number">200</span>); <span class="comment">//自动拆箱，再自动装箱</span></span><br></pre></td></tr></table></figure>
@@ -579,11 +579,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
+                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">JSON</a>
               </li>
              
               <li class="article-tag-list-item">
