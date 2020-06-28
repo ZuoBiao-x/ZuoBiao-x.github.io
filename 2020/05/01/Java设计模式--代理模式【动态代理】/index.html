@@ -196,7 +196,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
+        <span class="post-count">1.4k字</span>
       </span>
     </span>
 
@@ -220,7 +220,7 @@
         <h4 id="一、原理"><a href="#一、原理" class="headerlink" title="一、原理"></a>一、原理</h4><p>静态代理需要在运行之前就写好代理类，这样就造成了代码的大量重复，所以我们通过动态代理在运行时期动态生成业务类的代理类，那么动态代理类是如何实现的呢？<a id="more"></a><br>动态代理类的字节码在程序运行时由Java反射机制动态生成，无需程序员手工编写它的源代码。动态代理类不仅简化了编程工作，而且提高了软件系统的可扩展性，因为Java 反射机制可以生成任意类型的动态代理类。<br>JDK动态代理中包含一个类和一个接口： InvocationHandler接口，和我们定义的一个实现类“Proxy“，这是一个万能的代理类，我们就是通过这个代理类实现动态代理的。<br>InvocationHandler接口： </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InvocationHandler</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy,Method method,Object[] args)</span> <span class="keyword">throws</span> Throwable</span>; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">参数说明： </span><br><span class="line">	Object proxy：指被代理的对象。 </span><br><span class="line">	Method method：要调用的方法 </span><br><span class="line">	Object[] args：方法调用时所需要的参数</span><br></pre></td></tr></table></figure>
 <p>Proxy类：<br>Proxy类是专门完成代理的操作类，可以通过此类为一个或多个接口动态地生成实现类，此类提供了如下的操作方法： </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</span> <span class="keyword">throws</span> IllegalArgumentException </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">参数说明： </span></span><br><span class="line"><span class="function">	ClassLoader loader：类加载器 </span></span><br><span class="line"><span class="function">	Class&lt;?&gt;[] interfaces：得到全部的接口 </span></span><br><span class="line"><span class="function">	InvocationHandler h：得到InvocationHandler接口的子类实例</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</span> <span class="keyword">throws</span> IllegalArgumentException </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">参数说明： </span></span><br><span class="line"><span class="function">	ClassLoader loader：用于加载被代理对象字节码的类加载器，其必须和被代理对象使用相同的类加载器</span></span><br><span class="line"><span class="function">	Class&lt;?&gt;[] interfaces：得到全部的接口 </span></span><br><span class="line"><span class="function">	InvocationHandler h：得到InvocationHandler接口的子类实例</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="二、实现动态代理"><a href="#二、实现动态代理" class="headerlink" title="二、实现动态代理"></a>二、实现动态代理</h4><h5 id="（一）实现类的方式"><a href="#（一）实现类的方式" class="headerlink" title="（一）实现类的方式"></a>（一）实现类的方式</h5><p><strong>步骤：</strong><br><strong>1、创建接口</strong><br><strong>2、创建被代理类，实现该接口</strong><br><strong>3、创建代理类</strong><br>还是使用<a href="http://localhost:4000/2020/05/01/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F--%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E3%80%90%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E3%80%91" target="_blank">静态代理</a>中使用的购买二手车的例子<br>创建接口：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 出售二手Audi的接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SellCar</span> </span>&#123;</span><br><span class="line">    <span class="comment">//看车</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//买车</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">buy</span><span class="params">(<span class="keyword">double</span> money)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -558,10 +558,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
@@ -570,11 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +586,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,7 +594,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,19 +618,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,15 +642,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
