@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SSM-Mybatis【入门二】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、前言SSM-Mybatis【入门1】中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。">
+  <meta name="description" content="一、前言SSM-Mybatis【入门一】中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSM-Mybatis【入门二】">
 <meta property="og:url" content="http://yoursite.com/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="一、前言SSM-Mybatis【入门1】中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。">
+<meta property="og:description" content="一、前言SSM-Mybatis【入门一】中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/user_1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/user_2.png">
@@ -221,7 +221,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p><a href="https://zuobiao-x.github.io/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%B8%80%E3%80%91/" target="_blank">SSM-Mybatis【入门1】</a>中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。<a id="more"></a><br>另外，在实际开发中我们一般都是不会通过实现接口的方式来进行开发的，但其实Mybatis也可以通过实现接口的方式来实现需求。</p>
+        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p><a href="https://zuobiao-x.github.io/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%B8%80%E3%80%91/" target="_blank">SSM-Mybatis【入门一】</a>中已经介绍过以XML文件对Dao接口（Mapper）进行配置的方式了，其实Mybatis还给我们提供了注解来进行配置的方案。<a id="more"></a><br>另外，在实际开发中我们一般都是不会通过实现接口的方式来进行开发的，但其实Mybatis也可以通过实现接口的方式来实现需求。</p>
 <h4 id="二、注解配置的方式"><a href="#二、注解配置的方式" class="headerlink" title="二、注解配置的方式"></a>二、注解配置的方式</h4><h5 id="（一）需求"><a href="#（一）需求" class="headerlink" title="（一）需求"></a>（一）需求</h5><p><strong>需求</strong>：名为mybatis数据库中有一张user表，现使用Mybatis框架实现查询该user表中所有用户信息。</p>
 <h5 id="（二）数据库"><a href="#（二）数据库" class="headerlink" title="（二）数据库"></a>（二）数据库</h5><p>user表的结构如下：<br><img src="/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/user_1.png" alt="user_1"><br>user表中数据如下：<br><img src="/2020/05/26/SSM-Mybatis%E3%80%90%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/user_2.png" alt="user_2"></p>
 <h5 id="（三）需求实现"><a href="#（三）需求实现" class="headerlink" title="（三）需求实现"></a>（三）需求实现</h5><p>步骤大致如下：<br>1、创建一个Maven项目，并引入相关依赖的坐标</p>
