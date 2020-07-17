@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SSM-Spring【入门一】 | 跑调大叔の博客</title>
+  <title>SSM-Spring【IOC入门一】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、Spring是什么Spring 是分层的 Java SE&#x2F;EE 应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSM-Spring【入门一】">
+<meta property="og:title" content="SSM-Spring【IOC入门一】">
 <meta property="og:url" content="http://yoursite.com/2020/06/10/SSM-Spring%E3%80%90%E5%85%A5%E9%97%A8%E4%B8%80%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
 <meta property="og:description" content="一、Spring是什么Spring 是分层的 Java SE&#x2F;EE 应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的">
@@ -183,7 +183,7 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      SSM-Spring【入门一】
+      SSM-Spring【IOC入门一】
     </h1>
   
 </p></center>
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">894字</span>
+        <span class="post-count">895字</span>
       </span>
     </span>
 
@@ -218,7 +218,7 @@
       
         <h4 id="一、Spring是什么"><a href="#一、Spring是什么" class="headerlink" title="一、Spring是什么"></a>一、Spring是什么</h4><p>Spring 是分层的 Java SE/EE 应用 full-stack 轻量级开源框架，以 <strong>IoC（Inverse Of Control：反转控制）</strong>和 <strong>AOP（Aspect Oriented Programming：面向切面编程）</strong>为内核，提供了展现层 Spring MVC 和持久层 Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的 Java EE 企业应用开源框架。<a id="more"></a></p>
 <h4 id="二、为什么需要使用Spring"><a href="#二、为什么需要使用Spring" class="headerlink" title="二、为什么需要使用Spring"></a>二、为什么需要使用Spring</h4><p>1、<strong>方便解耦，简化开发</strong><br>通过 Spring 提供的 IoC 容器，可以将对象间的依赖关系交由 Spring 进行控制，避免硬编码所造成的过度程序耦合。用户也不必再为单例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。<br>2、<strong>AOP编程的支持</strong><br>通过 Spring 的 AOP 功能，方便进行面向切面的编程，许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松应付。<br>3、<strong>方便集成各种优秀框架</strong><br>Spring 可以降低各种框架的使用难度，提供了对各种优秀框架（Struts、Hibernate、Hessian、Quartz等）的直接支持。<br>4、<strong>Java源码是经典学习范例</strong><br>Spring 的源代码设计精妙、结构清晰、匠心独用，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。它的源代码无意是 Java 技术的最佳实践的范例。</p>
-<h4 id="三、Spring的快速入门案例"><a href="#三、Spring的快速入门案例" class="headerlink" title="三、Spring的快速入门案例"></a>三、Spring的快速入门案例</h4><p>当需要使用Spring时，有两种方式可以使用：<br>a. XML文件方式<br>b. 注解方式<br>本文主要总结XMl文件方式<br>注解方式：<a href target="_blank">SSM-Spring【入门二】</a></p>
+<h4 id="三、Spring的快速入门案例"><a href="#三、Spring的快速入门案例" class="headerlink" title="三、Spring的快速入门案例"></a>三、Spring的快速入门案例</h4><p>当需要使用Spring时，有两种方式可以使用：<br>a. XML文件方式<br>b. 注解方式<br>本文主要总结XMl文件方式<br>注解方式：<a href="https://zuobiao-x.github.io/2020/06/16/SSM-Spring%E3%80%90IOC%E5%85%A5%E9%97%A8%E4%BA%8C%E3%80%91/" target="_blank">SSM-Spring【IOC入门二】</a></p>
 <h5 id="（一）需求"><a href="#（一）需求" class="headerlink" title="（一）需求"></a>（一）需求</h5><p>假设有一个关于账户的项目，其项目结构如下：<br><img src="/2020/06/10/SSM-Spring%E3%80%90%E5%85%A5%E9%97%A8%E4%B8%80%E3%80%91/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="项目结构"><br><strong>需要实现一个添加账户的功能。</strong><br>注：该案例只是模拟，因此不使用数据库，也不会具体实现dao方法。</p>
 <h5 id="（二）实现"><a href="#（二）实现" class="headerlink" title="（二）实现"></a>（二）实现</h5><p>项目和pom文件都已创建和配置完毕，只需通过xml文件进行Spring的配置即可。<br>1、在resource下创建一个名为bean.xml的配置文件<br>其内容如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置bean的相关信息--&gt;</span><br><span class="line">    &lt;bean id="accountService" class="com.zuobiao.service.impl.AccountServiceImpl"&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;bean id="accountDao" class="com.zuobiao.dao.impl.AccountDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
