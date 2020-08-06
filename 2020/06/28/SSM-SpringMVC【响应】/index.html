@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | 跑调大叔の博客</title>
+  <title>SSM-SpringMVC【响应】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="跑调大叔の博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
+  <meta name="description" content="一、返回值分类（一）返回值是字符串Controller方法返回字符串可以指定逻辑视图的名称，根据视图解析器为物理视图的地址。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM-SpringMVC【响应】">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/SSM-SpringMVC%E3%80%90%E5%93%8D%E5%BA%94%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
+<meta property="og:description" content="一、返回值分类（一）返回值是字符串Controller方法返回字符串可以指定逻辑视图的名称，根据视图解析器为物理视图的地址。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-28T14:10:00.000Z">
+<meta property="article:modified_time" content="2020-06-28T14:10:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
+<meta property="article:tag" content="SpringMVC">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -163,36 +168,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SSM-SpringMVC【响应】" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/SSM-SpringMVC%E3%80%90%E5%93%8D%E5%BA%94%E3%80%91/" class="archive-article-date">
+      <header class="article-header">
+        
+		
+        
+        <a href="/2020/06/28/SSM-SpringMVC%E3%80%90%E5%93%8D%E5%BA%94%E3%80%91/" class="archive-article-date">
   	<time datetime="2020-06-28T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
 </a>
-        </div>
-    	 
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/SSM-SpringMVC%E3%80%90%E5%93%8D%E5%BA%94%E3%80%91/">SSM-SpringMVC【响应】</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      SSM-SpringMVC【响应】
     </h1>
   
+</p></center>
+		<!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.3k字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+		
+		
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、返回值分类"><a href="#一、返回值分类" class="headerlink" title="一、返回值分类"></a>一、返回值分类</h4><h5 id="（一）返回值是字符串"><a href="#（一）返回值是字符串" class="headerlink" title="（一）返回值是字符串"></a>（一）返回值是字符串</h5><p>Controller方法返回字符串可以指定逻辑视图的名称，根据视图解析器为物理视图的地址。<a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/hello"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Hello SpringMVC!!"</span>);</span><br><span class="line">    <span class="comment">// 跳转到XX页面</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）返回值是ModelAndView对象"><a href="#（二）返回值是ModelAndView对象" class="headerlink" title="（二）返回值是ModelAndView对象"></a>（二）返回值是ModelAndView对象</h5><p>ModelAndView对象是Spring提供的一个对象，可以用来调整具体的JSP视图。<br>具体的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/</span><br><span class="line">**</span><br><span class="line">* 返回 ModelAndView 对象</span><br><span class="line">* 可以传入视图的名称（即跳转的页面），还可以传入对象。</span><br><span class="line">* <span class="meta">@return</span></span><br><span class="line">* <span class="meta">@throws</span> Exception</span><br><span class="line">*/</span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/findAll"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">    <span class="comment">// 跳转到list.jsp的页面</span></span><br><span class="line">    mv.setViewName(<span class="string">"list"</span>);</span><br><span class="line">    <span class="comment">// 模拟从数据库中查询所有的用户信息</span></span><br><span class="line">    List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    User user1 = <span class="keyword">new</span> User();</span><br><span class="line">    user1.setUsername(<span class="string">"张三"</span>);</span><br><span class="line">    user1.setPassword(<span class="string">"123"</span>);</span><br><span class="line">    User user2 = <span class="keyword">new</span> User();</span><br><span class="line">    user2.setUsername(<span class="string">"赵四"</span>);</span><br><span class="line">    user2.setPassword(<span class="string">"456"</span>);</span><br><span class="line">    users.add(user1);</span><br><span class="line">    users.add(user2);</span><br><span class="line">    <span class="comment">// 添加对象</span></span><br><span class="line">    mv.addObject(<span class="string">"users"</span>, users);</span><br><span class="line">    <span class="keyword">return</span> mv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h3&gt;查询所有的数据&lt;/h3&gt;</span><br><span class="line">        &lt;c:forEach items=<span class="string">"$&#123; users &#125;"</span> <span class="keyword">var</span>=<span class="string">"user"</span>&gt;</span><br><span class="line">        $&#123; user.username &#125;</span><br><span class="line">        &lt;/c:forEach&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="（三）返回值是void"><a href="#（三）返回值是void" class="headerlink" title="（三）返回值是void"></a>（三）返回值是void</h5><p>如果控制器的方法返回值编写成void，执行程序报404的异常。<br>因为如果没有返回值也没有指定跳转或重定向页面，则会默认跳转到控制器方法名称.jsp。<br>但是这种情况下，我们可以使用请求转发或者重定向跳转到指定的页面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/initAdd"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initAdd</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"请求转发或者重定向"</span>);</span><br><span class="line">    <span class="comment">// 请求转发</span></span><br><span class="line">    <span class="comment">// request.getRequestDispatcher("/WEB-INF/pages/add.jsp").forward(request, response);</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 重定向</span></span><br><span class="line">    <span class="comment">// response.sendRedirect(request.getContextPath()+"/add2.jsp");</span></span><br><span class="line">    </span><br><span class="line">    response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">    response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">    <span class="comment">// 直接响应数据</span></span><br><span class="line">    response.getWriter().print(<span class="string">"你好"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、SpringMVC提供的转发和重定向"><a href="#二、SpringMVC提供的转发和重定向" class="headerlink" title="二、SpringMVC提供的转发和重定向"></a>二、SpringMVC提供的转发和重定向</h4><h5 id="（一）forward请求转发"><a href="#（一）forward请求转发" class="headerlink" title="（一）forward请求转发"></a>（一）forward请求转发</h5><p>controller方法返回String类型，想进行请求转发也可以编写成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 使用forward关键字进行请求转发</span></span><br><span class="line"><span class="comment">* "forward:转发的JSP路径"，不走视图解析器了，所以需要编写完整的路径</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/delete"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">delete</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"delete方法执行了..."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"forward:/WEB-INF/pages/success.jsp"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（二）redirect重定向"><a href="#（二）redirect重定向" class="headerlink" title="（二）redirect重定向"></a>（二）redirect重定向</h5><p>controller方法返回String类型，想进行重定向也可以编写成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 重定向</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/count"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">count</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"count方法执行了..."</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//通过该方式重定向的话不需要填写项目路径</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"redirect:/add.jsp"</span>;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、ResponseBody响应json数据"><a href="#三、ResponseBody响应json数据" class="headerlink" title="三、ResponseBody响应json数据"></a>三、ResponseBody响应json数据</h4><h5 id="（一）设置不拦截静态资源"><a href="#（一）设置不拦截静态资源" class="headerlink" title="（一）设置不拦截静态资源"></a>（一）设置不拦截静态资源</h5><p>DispatcherServlet会拦截到所有的资源，导致一个问题就是静态资源（img、css、js）也会被拦截到，从而<br>不能被使用。解决问题就是需要配置静态资源不进行拦截，在springmvc.xml配置文件添加如下配置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 设置静态资源不过滤 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">location</span>=<span class="string">"/css/"</span> <span class="attr">mapping</span>=<span class="string">"/css/**"</span>/&gt;</span> <span class="comment">&lt;!-- 样式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">location</span>=<span class="string">"/images/"</span> <span class="attr">mapping</span>=<span class="string">"/images/**"</span>/&gt;</span> <span class="comment">&lt;!-- 图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">location</span>=<span class="string">"/js/"</span> <span class="attr">mapping</span>=<span class="string">"/js/**"</span>/&gt;</span> <span class="comment">&lt;!-- javascript --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>location属性表示webapp目录下的包下的所有文件<br>mapping属性表示以/static开头的所有请求路径，如/static/a 或者/static/a/b </p>
+<h5 id="（二）使用-RequestBody获取请求体数据"><a href="#（二）使用-RequestBody获取请求体数据" class="headerlink" title="（二）使用@RequestBody获取请求体数据"></a>（二）使用@RequestBody获取请求体数据</h5><p>在前端页面中有以下代码，触发点击事件后，发送异步请求：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">// 绑定点击事件</span></span><br><span class="line">    $(<span class="string">"#btn"</span>).click(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:<span class="string">"user/testJson"</span>,</span><br><span class="line">            contentType:<span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">            data:<span class="string">'&#123;"addressName":"aa","addressNum":100&#125;'</span>,</span><br><span class="line">            dataType:<span class="string">"json"</span>,</span><br><span class="line">            type:<span class="string">"post"</span>,</span><br><span class="line">            success:function(data)&#123;</span><br><span class="line">                alert(data);</span><br><span class="line">                alert(data.addressName);</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>控制器代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 获取请求体的数据</span><br><span class="line">* <span class="meta">@param</span> body</span><br><span class="line">*/</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testJson"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJson</span><span class="params">(@RequestBody String body)</span> </span>&#123;</span><br><span class="line">    System.out.println(body);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（三）使用-RequestBody注解把json的字符串转换成JavaBean的对象"><a href="#（三）使用-RequestBody注解把json的字符串转换成JavaBean的对象" class="headerlink" title="（三）使用@RequestBody注解把json的字符串转换成JavaBean的对象"></a>（三）使用@RequestBody注解把json的字符串转换成JavaBean的对象</h5><p>前端代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">// 绑定点击事件</span></span><br><span class="line">    $(<span class="string">"#btn"</span>).click(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:<span class="string">"user/testJson"</span>,</span><br><span class="line">            contentType:<span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">            data:<span class="string">'&#123;"addressName":"aa","addressNum":100&#125;'</span>,</span><br><span class="line">            dataType:<span class="string">"json"</span>,</span><br><span class="line">            type:<span class="string">"post"</span>,</span><br><span class="line">            success:function(data)&#123;</span><br><span class="line">                alert(data);</span><br><span class="line">                alert(data.addressName);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>控制器代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 获取请求体的数据</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> body</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testJson"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJson</span><span class="params">(@RequestBody Address address)</span> </span>&#123;</span><br><span class="line">    System.out.println(address);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（四）使用-ResponseBody注解把JavaBean对象转换成json字符串，直接响应"><a href="#（四）使用-ResponseBody注解把JavaBean对象转换成json字符串，直接响应" class="headerlink" title="（四）使用@ResponseBody注解把JavaBean对象转换成json字符串，直接响应"></a>（四）使用@ResponseBody注解把JavaBean对象转换成json字符串，直接响应</h5><p>前端代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">// 绑定点击事件</span></span><br><span class="line">    $(<span class="string">"#btn"</span>).click(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:<span class="string">"user/testJson"</span>,</span><br><span class="line">            contentType:<span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">            data:<span class="string">'&#123;"addressName":"哈哈","addressNum":100&#125;'</span>,</span><br><span class="line">            dataType:<span class="string">"json"</span>,</span><br><span class="line">            type:<span class="string">"post"</span>,</span><br><span class="line">            success:function(data)&#123;</span><br><span class="line">                alert(data);</span><br><span class="line">                alert(data.addressName);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>控制器代码：<br>要求方法需要返回JavaBean的对象 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testJson"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">Address <span class="title">testJson</span><span class="params">(@RequestBody Address address)</span> </span>&#123;</span><br><span class="line">    System.out.println(address);</span><br><span class="line">    address.setAddressName(<span class="string">"上海"</span>);</span><br><span class="line">    <span class="keyword">return</span> address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"><a href="#（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包" class="headerlink" title="（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"></a>（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,7 +285,16 @@
 		</ul>
 	</div>
 
-          
+	  
+<!-- 开始添加阅读量-->
+
+		<span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->	  
+	  
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -217,216 +307,145 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/28/SSM-SpringMVC%E3%80%90%E5%93%8D%E5%BA%94%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/20/SSM-Spring%E3%80%90aop%E5%A4%A7%E8%87%B4%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-06-20T13:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/07/01/SSM-Mybatis%E3%80%90Page%20Helper%E7%9A%84%E4%BD%BF%E7%94%A8%E3%80%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SSM-Mybatis【Page Helper的使用】
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/20/SSM-Spring%E3%80%90aop%E5%A4%A7%E8%87%B4%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSM-Spring【aop大致实现原理】</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/20/SSM-Spring%E3%80%90aop%E5%A4%A7%E8%87%B4%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E3%80%91/">SSM-Spring【aop大致实现原理】</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SSM//" class="article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、返回值分类"><span class="toc-number">1.</span> <span class="toc-text">一、返回值分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）返回值是字符串"><span class="toc-number">1.1.</span> <span class="toc-text">（一）返回值是字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）返回值是ModelAndView对象"><span class="toc-number">1.2.</span> <span class="toc-text">（二）返回值是ModelAndView对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）返回值是void"><span class="toc-number">1.3.</span> <span class="toc-text">（三）返回值是void</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、SpringMVC提供的转发和重定向"><span class="toc-number">2.</span> <span class="toc-text">二、SpringMVC提供的转发和重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）forward请求转发"><span class="toc-number">2.1.</span> <span class="toc-text">（一）forward请求转发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）redirect重定向"><span class="toc-number">2.2.</span> <span class="toc-text">（二）redirect重定向</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、ResponseBody响应json数据"><span class="toc-number">3.</span> <span class="toc-text">三、ResponseBody响应json数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）设置不拦截静态资源"><span class="toc-number">3.1.</span> <span class="toc-text">（一）设置不拦截静态资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）使用-RequestBody获取请求体数据"><span class="toc-number">3.2.</span> <span class="toc-text">（二）使用@RequestBody获取请求体数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）使用-RequestBody注解把json的字符串转换成JavaBean的对象"><span class="toc-number">3.3.</span> <span class="toc-text">（三）使用@RequestBody注解把json的字符串转换成JavaBean的对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）使用-ResponseBody注解把JavaBean对象转换成json字符串，直接响应"><span class="toc-number">3.4.</span> <span class="toc-text">（四）使用@ResponseBody注解把JavaBean对象转换成json字符串，直接响应</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包"><span class="toc-number">3.5.</span> <span class="toc-text">（五）json字符串和JavaBean对象互相转换的过程中，需要使用jackson的jar包</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/19/SSM-Spring%E3%80%90springEL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-06-19T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/19/SSM-Spring%E3%80%90springEL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%91/">SSM-Spring【springEL表达式】</a>
-    </h1>
-  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
+       if (typeof LivereTower === 'function') { return; }
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SSM//" class="article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/18/SSM-Spring%E3%80%90IOC%E8%BF%9B%E9%98%B6%E4%B8%89%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-06-18T14:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/18/SSM-Spring%E3%80%90IOC%E8%BF%9B%E9%98%B6%E4%B8%89%E3%80%91/">SSM-Spring【IOC进阶三】</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SSM//" class="article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/18/SSM-Spring%E3%80%90%E6%95%B4%E5%90%88junit%E3%80%91/" class="archive-article-date">
-  	<time datetime="2020-06-18T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/18/SSM-Spring%E3%80%90%E6%95%B4%E5%90%88junit%E3%80%91/">SSM-Spring【整合junit】</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SSM//" class="article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
   
-    </div></section>
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/06/page/2/">2</a><a class="page-number" href="/archives/2020/06/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/06/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -478,8 +497,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
