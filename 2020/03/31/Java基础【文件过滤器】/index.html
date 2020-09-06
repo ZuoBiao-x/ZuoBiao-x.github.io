@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java基础【文件过滤器】】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。  二、需求在G:盘">
+  <meta name="description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础【文件过滤器】】">
 <meta property="og:url" content="http://yoursite.com/2020/03/31/Java%E5%9F%BA%E7%A1%80%E3%80%90%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
-<meta property="og:description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。  二、需求在G:盘">
+<meta property="og:description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-31T13:10:00.000Z">
 <meta property="article:modified_time" content="2020-03-31T13:10:00.000Z">
@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 111
+			总文章数 112
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +218,7 @@
 <p>在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。</p>
 <p>在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。</p>
 <p>然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。</p>
-<p>因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。</p>
+<p>因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。<a id="more"></a></p>
 </blockquote>
 <h4 id="二、需求"><a href="#二、需求" class="headerlink" title="二、需求"></a>二、需求</h4><p>在<code>G:</code>盘下有一个test文件夹，其内容如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">G:\test\abc.java</span><br><span class="line">G:\test\abc.txt</span><br><span class="line">G:\test\文件夹a</span><br><span class="line">G:\test\文件夹a\a.JAVA</span><br><span class="line">G:\test\文件夹a\a.txt</span><br><span class="line">G:\test\文件夹b</span><br><span class="line">G:\test\文件夹b\b.java</span><br><span class="line">G:\test\文件夹b\b.jpg</span><br></pre></td></tr></table></figure>
@@ -402,8 +402,8 @@
     </a>
   
   
-    <a href="/2020/03/30/Java%E5%9F%BA%E7%A1%80%E3%80%90TreeSet%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础【TreeSet】</div>
+    <a href="/2020/03/30/Java%E5%9F%BA%E7%A1%80%E3%80%90Properties%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础【Properties】</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -590,10 +590,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
@@ -606,11 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
+                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTTP协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,11 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
+                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,11 +630,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,7 +650,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,7 +658,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,10 +674,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Log4j</a>
               </li>
              
@@ -690,11 +686,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -718,11 +718,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
+                <a href="javascript:void(0)" class="js-tag color5">论文网站</a>
               </li>
             
             <div class="clearfix"></div>
