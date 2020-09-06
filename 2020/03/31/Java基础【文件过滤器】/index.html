@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: IO流 | 跑调大叔の博客</title>
+  <title>Java基础【文件过滤器】】 | 跑调大叔の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="跑调大叔の博客">
-<meta property="og:url" content="http://yoursite.com/tags/IO%E6%B5%81/index.html">
+  <meta name="description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。  二、需求在G:盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础【文件过滤器】】">
+<meta property="og:url" content="http://yoursite.com/2020/03/31/Java%E5%9F%BA%E7%A1%80%E3%80%90%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%91/index.html">
 <meta property="og:site_name" content="跑调大叔の博客">
+<meta property="og:description" content="一、前言 在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。 在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。 然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。 因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。  二、需求在G:盘">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-31T13:10:00.000Z">
+<meta property="article:modified_time" content="2020-03-31T13:10:00.000Z">
 <meta property="article:author" content="_跑调大叔_">
+<meta property="article:tag" content="IO">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="跑调大叔の博客" type="application/atom+xml">
@@ -65,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 110
+			总文章数 111
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -163,48 +168,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java基础【文件过滤器】" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/" class="archive-article-date">
-  	<time datetime="2020-01-21T15:47:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
+      <header class="article-header">
+        
+		
+        
+        <a href="/2020/03/31/Java%E5%9F%BA%E7%A1%80%E3%80%90%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%91/" class="archive-article-date">
+  	<time datetime="2020-03-31T13:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
 </a>
-        </div>
-    	 
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/21/Java%E4%B8%AD%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9/">Java中将文件夹复制到另一个文件夹</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      Java基础【文件过滤器】】
     </h1>
   
+</p></center>
+		<!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+		
+		
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><blockquote>
+<p>在操作文件时，我们可能会遇到这样的情况：并不是需要所有的文件，而是只需要满足特定要求的文件。</p>
+<p>在遇到这种情况时，如果没有学习文件过滤器，最开始想到的可能是在遍历时，对每一个文件的文件名进行判断，只获取满足要求的文件。</p>
+<p>然而，在我们学习了文件过滤器之后，就会发现这样的做法虽然可行，但代码的可重用性低且不灵活。</p>
+<p>因此，本文将总结这两种情况的使用，从而体现使用过滤器的好处。</p>
+</blockquote>
+<h4 id="二、需求"><a href="#二、需求" class="headerlink" title="二、需求"></a>二、需求</h4><p>在<code>G:</code>盘下有一个test文件夹，其内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">G:\test\abc.java</span><br><span class="line">G:\test\abc.txt</span><br><span class="line">G:\test\文件夹a</span><br><span class="line">G:\test\文件夹a\a.JAVA</span><br><span class="line">G:\test\文件夹a\a.txt</span><br><span class="line">G:\test\文件夹b</span><br><span class="line">G:\test\文件夹b\b.java</span><br><span class="line">G:\test\文件夹b\b.jpg</span><br></pre></td></tr></table></figure>
+<p>需求：<strong>打印出后缀为java的文件（忽略大小写）</strong></p>
+<h4 id="三、未使用文件过滤器"><a href="#三、未使用文件过滤器" class="headerlink" title="三、未使用文件过滤器"></a>三、未使用文件过滤器</h4><p>输出所有文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles();</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件，则输出</span></span><br><span class="line">                System.out.println(file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">G:\test\abc.java</span><br><span class="line">G:\test\abc.txt</span><br><span class="line">G:\test\文件夹a\a.JAVA</span><br><span class="line">G:\test\文件夹a\a.txt</span><br><span class="line">G:\test\文件夹b\b.java</span><br><span class="line">G:\test\文件夹b\b.jpg</span><br></pre></td></tr></table></figure>
+<p>对文件后缀进行判断，只输出满足要求的文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles();</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件且后缀为java，则输出</span></span><br><span class="line">                <span class="keyword">if</span>(file.getName().toLowerCase().endsWith(<span class="string">".java"</span>))&#123;</span><br><span class="line">                    System.out.println(file);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">G:\test\abc.java</span><br><span class="line">G:\test\文件夹a\a.JAVA</span><br><span class="line">G:\test\文件夹b\b.java</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、使用文件过滤器"><a href="#四、使用文件过滤器" class="headerlink" title="四、使用文件过滤器"></a>四、使用文件过滤器</h4><h5 id="（一）简单介绍"><a href="#（一）简单介绍" class="headerlink" title="（一）简单介绍"></a>（一）简单介绍</h5><h6 id="1、接口"><a href="#1、接口" class="headerlink" title="1、接口"></a>1、接口</h6><p>一共有两个接口可供使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Interface FileFilter</span><br><span class="line">Interface FilenameFilter</span><br></pre></td></tr></table></figure>
+<p>两个接口都只有一个accept()方法，但是它们的参数稍微有点不同：<br>FileFilter:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>FilenameFilter:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>参数具体含义稍后介绍。</p>
+<h6 id="2、原理介绍"><a href="#2、原理介绍" class="headerlink" title="2、原理介绍"></a>2、原理介绍</h6><blockquote>
+<p>要弄懂原理，其实我们只需要知道对于接口中的accept()方法被谁调用、如何使用过滤即可。</p>
+<p>被谁调用：因为Filter对象是要传递给listFiles()方法的，因此accept()的调用者是listFiles()方法；</p>
+<p>如何实现过滤：在accept()方法中编写过滤要求即可，满足要求返回true，反之，返回false。</p>
+</blockquote>
+<p><strong>整体步骤如下：</strong><br>a. listFiles()方法会先获取指定目录下的所有文件/文件夹（封装为File对象）；<br>b. 遍历每一个File对象，然后作为参数传递给Filter的accept()方法；<br>c. 在accept()方法中，根据我们编写的代码来判断当前File对象是否满足要求，满足返回true，否则返回false；<br>d. 在listFiles()方法中，如果收到返回结果为true，将该满足要求的File对象加入到File[]数组中；<br>e. 都通过accept()方法判断完之后，以File[]数组的形式返回所有满足要求的File对象。</p>
+<p>知道了原理之后，我们就能很好的理解accept()方法中的参数含义了：<br>FileFilter:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span></span>;</span><br><span class="line"><span class="comment">// pathname 对象其实就是listFiles获取的需要判断的每一个File对象</span></span><br></pre></td></tr></table></figure>
+<p>FilenameFilter:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span></span>;</span><br><span class="line"><span class="comment">// 因为我们需要使用accept()方法来判断每个File对象，所以此处的两个参数拼接起来其实就是File对象，因此：</span></span><br><span class="line"><span class="comment">// name：File对象的文件/文件夹名称</span></span><br><span class="line"><span class="comment">// dir：File对象文件/文件夹名称的前面部分</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如：G:\test\abc.java，则：</span></span><br><span class="line"><span class="comment">// name：abc.java</span></span><br><span class="line"><span class="comment">// dir：G:\test</span></span><br></pre></td></tr></table></figure>
+<p>下面通过案例代码来解释：</p>
+<h5 id="（二）使用实现类"><a href="#（二）使用实现类" class="headerlink" title="（二）使用实现类"></a>（二）使用实现类</h5><p>因为FileFilter和FilenameFilter都是接口，所以我们在使用时必须编写实现类或者编写匿名内部类。<br>先看实现类的方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFileFilter</span> <span class="keyword">implements</span> <span class="title">FileFilter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//如果pathname对象是一个文件夹，返回true，让其继续遍历这个文件夹</span></span><br><span class="line">        <span class="keyword">if</span>(pathname.isDirectory())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pathname.getName().toLowerCase().endsWith(<span class="string">".java"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles(<span class="keyword">new</span> MyFileFilter());</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//此处的文件是通过过滤之后的，一定会满足要求，直接输出</span></span><br><span class="line">                System.out.println(file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">G:\test\abc.java</span><br><span class="line">G:\test\文件夹a\a.JAVA</span><br><span class="line">G:\test\文件夹b\b.java</span><br></pre></td></tr></table></figure>
+<p>该种方式可重用性高，还有需要判断的地方直接使用该过滤器即可。<br>但是，有时我们只需要使用一次，这个时候会应该考虑匿名内部类的方式了。</p>
+<h5 id="（三）使用匿名内部类"><a href="#（三）使用匿名内部类" class="headerlink" title="（三）使用匿名内部类"></a>（三）使用匿名内部类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo03</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles(<span class="keyword">new</span> FileFilter() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(pathname.isDirectory())&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> pathname.getName().toLowerCase().endsWith(<span class="string">".java"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//此处的文件是通过过滤之后的，一定满足要求，直接输出</span></span><br><span class="line">                System.out.println(file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果同上。</p>
+<h5 id="（四）使用Lambda表达式"><a href="#（四）使用Lambda表达式" class="headerlink" title="（四）使用Lambda表达式"></a>（四）使用Lambda表达式</h5><p>因为这里的两个接口都是只有一个抽象方法，所以我们可以使用Lambda表达式来简化代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo04</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles((File pathname)-&gt;&#123;</span><br><span class="line">            <span class="keyword">return</span> pathname.isDirectory() || pathname.getName().toLowerCase().endsWith(<span class="string">".java"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//此处的文件是通过过滤之后的，一定满足要求，直接输出</span></span><br><span class="line">                System.out.println(file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并且此处的Lambda表达式还可以进一步简化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File[] files = dir.listFiles(</span><br><span class="line">	pathname-&gt; pathname.isDirectory() || pathname.getName().toLowerCase().endsWith(<span class="string">".java"</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、补充"><a href="#五、补充" class="headerlink" title="五、补充"></a>五、补充</h4><p>前面已经总结了FileFilter的基本使用，虽然没总结FilenameFilter的使用，但其实它们非常的相似，所以使用方式也是大差不差。<br>因此，只在这里补充一种匿名内部类的方式（其它的方式仿照使用即可）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo05</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        getFiles(<span class="keyword">new</span> File(<span class="string">"G:\\test"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFiles</span><span class="params">(File dir)</span></span>&#123;</span><br><span class="line">        <span class="comment">//先拿到第一层File对象</span></span><br><span class="line">        File[] files = dir.listFiles(<span class="keyword">new</span> FilenameFilter() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File dir, String name)</span> </span>&#123;</span><br><span class="line">                File file = <span class="keyword">new</span> File(dir,name);</span><br><span class="line">                <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> name.toLowerCase().endsWith(<span class="string">".java"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//遍历每一个File对象</span></span><br><span class="line">        <span class="keyword">for</span> (File file : files) &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">                <span class="comment">//如果File对象为文件夹，则继续遍历</span></span><br><span class="line">                getFiles(file);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//此处的文件是通过过滤之后的，一定满足要求，直接输出</span></span><br><span class="line">                System.out.println(file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h4><p>FileFilter、FilenameFilter不仅使用简单，而且还能有效提高代码可重用性，推荐使用；<br>Lambda方式使用过滤器更是非常简洁，非常推荐！</p>
+<p><strong>Java新手，若有错误，欢迎指正！</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农，别客气了<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+	  
+<!-- 开始添加阅读量-->
+
+		<span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->	  
+	  
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -217,17 +330,146 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/31/Java%E5%9F%BA%E7%A1%80%E3%80%90%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/01/JavaWeb--%E4%BA%86%E8%A7%A3HTML/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaWeb--了解HTML
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/03/30/Java%E5%9F%BA%E7%A1%80%E3%80%90TreeSet%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础【TreeSet】</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、前言"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、需求"><span class="toc-number">2.</span> <span class="toc-text">二、需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、未使用文件过滤器"><span class="toc-number">3.</span> <span class="toc-text">三、未使用文件过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、使用文件过滤器"><span class="toc-number">4.</span> <span class="toc-text">四、使用文件过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#（一）简单介绍"><span class="toc-number">4.1.</span> <span class="toc-text">（一）简单介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、接口"><span class="toc-number">4.1.1.</span> <span class="toc-text">1、接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、原理介绍"><span class="toc-number">4.1.2.</span> <span class="toc-text">2、原理介绍</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（二）使用实现类"><span class="toc-number">4.2.</span> <span class="toc-text">（二）使用实现类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（三）使用匿名内部类"><span class="toc-number">4.3.</span> <span class="toc-text">（三）使用匿名内部类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#（四）使用Lambda表达式"><span class="toc-number">4.4.</span> <span class="toc-text">（四）使用Lambda表达式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、补充"><span class="toc-number">5.</span> <span class="toc-text">五、补充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、总结"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ1MS8yNTk0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -278,9 +520,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -348,7 +590,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -356,7 +598,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">练手项目</a>
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -380,11 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
+                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Listener</a>
+                <a href="javascript:void(0)" class="js-tag color4">JavaBean</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -408,11 +650,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">单元测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">IO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,11 +674,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Log4j</a>
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">Log4j</a>
               </li>
              
               <li class="article-tag-list-item">
