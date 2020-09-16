@@ -262,7 +262,7 @@
 <p>a. 可以避免由于Java单继承带来的局限性。如果某个子类已经有了一个父类，但是它又想实现多线程，在这种情况下，使用方式一是无法实现的。因为Java只需要单继承。</p>
 <p>b. 更好的体现了面向对象的设计思想。使用继承Thread的方式，如果需要创建多个线程对象，就会有多份资源；但是如果使用实现Runnable接口的方式，就只会有一份资源，因为在创建多个线程对象时，传递的都是同一个Runnable对象。</p>
 </blockquote>
-<h5 id="（三）方式三：实现Callable接口"><a href="#（三）方式三：实现Callable接口" class="headerlink" title="（三）方式三：实现Callable接口"></a>（三）方式三：实现Callable接口</h5><p>由于篇幅原因，请查看<a href="#" target="_blank">Java基础–多线程【Callable接口】</a></p>
+<h5 id="（三）方式三：实现Callable接口"><a href="#（三）方式三：实现Callable接口" class="headerlink" title="（三）方式三：实现Callable接口"></a>（三）方式三：实现Callable接口</h5><p>由于篇幅原因，请查看<a href="https://zuobiao-x.github.io/2020/05/18/Java%E5%9F%BA%E7%A1%80--%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%90Callable%E6%8E%A5%E5%8F%A3%E3%80%91/" target="_blank">Java基础–多线程【Callable接口】</a></p>
 <h4 id="四、线程调度"><a href="#四、线程调度" class="headerlink" title="四、线程调度"></a>四、线程调度</h4><h5 id="（一）线程调度模型"><a href="#（一）线程调度模型" class="headerlink" title="（一）线程调度模型"></a>（一）线程调度模型</h5><p>假如我们的计算机只有一个CPU，那么CPU在某一个时刻只能执行一条指令，线程只有得到 CPU时间片，也就是使用权，才可以执行指令。那么是如何对线程进行调用的呢？这就涉及到线程调度模型。<br>线程有两种调度模型：</p>
 <blockquote>
 <p><strong>分时调度模型 *<em>：所有线程轮流使用 CPU 的使用权，平均分配每个线程占用 CPU 的时间片<br>*</em>抢占式调度模型</strong> ： 优先让优先级高的线程使用 CPU，如果线程的优先级相同，那么会随机选择一个，优先级高的线程获取的CPU时间片相对多一些。<br><strong>Java使用的是抢占式调度模型</strong></p>
@@ -678,11 +678,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
